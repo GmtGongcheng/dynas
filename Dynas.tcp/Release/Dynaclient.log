@@ -1,12 +1,12 @@
-﻿生成启动时间为 2018/8/21 18:11:33。
-     1>项目“F:\xj program\Dynas.vc\Dynaclient.vcxproj”在节点 2 上(Rebuild 个目标)。
+﻿生成启动时间为 2018/8/29 17:59:49。
+     1>项目“E:\Dynas\Dynas.tcp\Dynaclient.vcxproj”在节点 2 上(Rebuild 个目标)。
      1>C:\Program Files (x86)\MSBuild\Microsoft.Cpp\v4.0\V120\Microsoft.CppBuild.targets(388,5): warning MSB8028: The intermediate directory (.\Release\) contains files shared from another project (Dynaserver.vcxproj).  This can lead to incorrect clean and rebuild behavior.
      1>ClCompile:
-         F:\xj program\Dynas.vc\CL.exe /c /Zi /nologo /W3 /WX- /O2 /Oy- /D WIN32 /D NDEBUG /D _CONSOLE /D _VC80_UPGRADE=0x0600 /D _MBCS /GF /Gm- /EHsc /MT /GS /Gy /fp:precise /Zc:wchar_t /Zc:forScope /Fo".\Release\\" /Fd".\Release\vc120.pdb" /Gd /TP /analyze- /errorReport:prompt Dynaclient.cpp RpcProc.cpp
+         E:\Dynas\Dynas.tcp\CL.exe /c /Zi /nologo /W3 /WX- /O2 /Oy- /D WIN32 /D NDEBUG /D _CONSOLE /D _VC80_UPGRADE=0x0600 /D _MBCS /GF /Gm- /EHsc /MT /GS /Gy /fp:precise /Zc:wchar_t /Zc:forScope /Fo".\Release\\" /Fd".\Release\vc120.pdb" /Gd /TP /analyze- /errorReport:prompt Dynaclient.cpp RpcProc.cpp
          Dynaclient.cpp
          RpcProc.cpp
          正在生成代码...
-         F:\xj program\Dynas.vc\CL.exe /c /Zi /nologo /W3 /WX- /O2 /Oy- /D WIN32 /D NDEBUG /D _CONSOLE /D _VC80_UPGRADE=0x0600 /D _MBCS /GF /Gm- /EHsc /MT /GS /Gy /fp:precise /Zc:wchar_t /Zc:forScope /Fo".\Release\\" /Fd".\Release\vc120.pdb" /Gd /TC /analyze- /errorReport:prompt PANSI_c.c
+         E:\Dynas\Dynas.tcp\CL.exe /c /Zi /nologo /W3 /WX- /O2 /Oy- /D WIN32 /D NDEBUG /D _CONSOLE /D _VC80_UPGRADE=0x0600 /D _MBCS /GF /Gm- /EHsc /MT /GS /Gy /fp:precise /Zc:wchar_t /Zc:forScope /Fo".\Release\\" /Fd".\Release\vc120.pdb" /Gd /TC /analyze- /errorReport:prompt PANSI_c.c
          PANSI_c.c
        Link:
          C:\Program Files (x86)\Microsoft Visual Studio 12.0\VC\bin\link.exe /ERRORREPORT:PROMPT /OUT:".\Release\Dynaclient.exe" /INCREMENTAL:NO /NOLOGO odbc32.lib odbccp32.lib kernel32.lib user32.lib gdi32.lib winspool.lib comdlg32.lib advapi32.lib shell32.lib ole32.lib oleaut32.lib uuid.lib odbc32.lib odbccp32.lib /MANIFEST /MANIFESTUAC:"level='asInvoker' uiAccess='false'" /manifest:embed /PDB:".\Release\Dynaclient.pdb" /SUBSYSTEM:CONSOLE /TLBID:1 /DYNAMICBASE /NXCOMPAT /IMPLIB:".\Release\Dynaclient.lib" /MACHINE:X86 /SAFESEH .\Release\Dynaclient.obj
@@ -30,8 +30,8 @@
      1>RpcProc.obj : error LNK2019: 无法解析的外部符号 __imp__RpcStringBindingComposeA@24，该符号在函数 "long __cdecl BindRPC(void)" (?BindRPC@@YAJXZ) 中被引用
      1>RpcProc.obj : error LNK2019: 无法解析的外部符号 __imp__RpcStringFreeA@4，该符号在函数 "long __cdecl BindRPC(void)" (?BindRPC@@YAJXZ) 中被引用
      1>.\Release\Dynaclient.exe : fatal error LNK1120: 17 个无法解析的外部命令
-     1>已完成生成项目“F:\xj program\Dynas.vc\Dynaclient.vcxproj”(Rebuild 个目标)的操作 - 失败。
+     1>已完成生成项目“E:\Dynas\Dynas.tcp\Dynaclient.vcxproj”(Rebuild 个目标)的操作 - 失败。
 
 生成失败。
 
-已用时间 00:00:02.19
+已用时间 00:00:02.34

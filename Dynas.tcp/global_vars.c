@@ -19,6 +19,7 @@ DEF_VAR(Count_FER)
 DEF_VAR(VarID_OPER)
 float Var_OPER;
 mutex_handle Mutex_RT = NULL;
+mutex_handle file_RT = NULL;
 
 ENEVENT pEventBuf[MAXNUM_EVENT];
 mutex_handle Mutex_EVENT = NULL;

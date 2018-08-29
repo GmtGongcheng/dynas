@@ -42,6 +42,9 @@
     <ClCompile Include="TFR.c">
       <Filter>Source Files</Filter>
     </ClCompile>
+    <ClCompile Include="rule_log.c">
+      <Filter>Source Files</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="panserver.h">
@@ -51,6 +54,9 @@
       <Filter>Header Files</Filter>
     </ClInclude>
     <ClInclude Include="PANSI.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="rule_log.h">
       <Filter>Header Files</Filter>
     </ClInclude>
   </ItemGroup>

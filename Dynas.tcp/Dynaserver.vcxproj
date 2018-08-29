@@ -108,7 +108,7 @@
       <Optimization>MaxSpeed</Optimization>
       <SuppressStartupBanner>true</SuppressStartupBanner>
       <WarningLevel>Level3</WarningLevel>
-      <PreprocessorDefinitions>WIN32;NDEBUG;_CONSOLE;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <PreprocessorDefinitions>WIN32;NDEBUG;_CONSOLE;OCE_WIN32;%(PreprocessorDefinitions)</PreprocessorDefinitions>
       <AssemblerListingLocation>.\Release\</AssemblerListingLocation>
       <PrecompiledHeaderOutputFile>.\Release\Dynaserver.pch</PrecompiledHeaderOutputFile>
       <ObjectFileName>.\Release\</ObjectFileName>
@@ -142,12 +142,14 @@
     <ClCompile Include="global_vars.c" />
     <ClCompile Include="PANSI_s.c" />
     <ClCompile Include="RPC-funcs.c" />
+    <ClCompile Include="rule_log.c" />
     <ClCompile Include="TFR.c" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="panserver.h" />
     <ClInclude Include="panserver2.h" />
     <ClInclude Include="PANSI.h" />
+    <ClInclude Include="rule_log.h" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">

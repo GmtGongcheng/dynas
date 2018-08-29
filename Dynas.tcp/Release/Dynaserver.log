@@ -1,10 +1,10 @@
-﻿生成启动时间为 2018/8/29 10:19:18。
+﻿生成启动时间为 2018/8/29 18:14:57。
      1>项目“E:\Dynas\Dynas.tcp\Dynaserver.vcxproj”在节点 2 上(Rebuild 个目标)。
      1>C:\Program Files (x86)\MSBuild\Microsoft.Cpp\v4.0\V120\Microsoft.CppBuild.targets(388,5): warning MSB8028: The intermediate directory (.\Release\) contains files shared from another project (Dynaclient.vcxproj).  This can lead to incorrect clean and rebuild behavior.
      1>ClCompile:
-         E:\Dynas\Dynas.tcp\CL.exe /c /Zi /nologo /W3 /WX- /O2 /Oy- /D WIN32 /D NDEBUG /D _CONSOLE /D _VC80_UPGRADE=0x0600 /D _USING_V110_SDK71_ /D _MBCS /GF /Gm- /EHsc /MT /Zp1 /GS /Gy /fp:precise /Zc:wchar_t /Zc:forScope /Fo".\Release\\" /Fd".\Release\vc120.pdb" /Gd /TP /analyze- /errorReport:prompt Dynaserver.cpp
+         E:\Dynas\Dynas.tcp\CL.exe /c /Zi /nologo /W3 /WX- /O2 /Oy- /D WIN32 /D NDEBUG /D _CONSOLE /D OCE_WIN32 /D _VC80_UPGRADE=0x0600 /D _USING_V110_SDK71_ /D _MBCS /GF /Gm- /EHsc /MT /Zp1 /GS /Gy /fp:precise /Zc:wchar_t /Zc:forScope /Fo".\Release\\" /Fd".\Release\vc120.pdb" /Gd /TP /analyze- /errorReport:prompt Dynaserver.cpp
          Dynaserver.cpp
-         E:\Dynas\Dynas.tcp\CL.exe /c /Zi /nologo /W3 /WX- /O2 /Oy- /D WIN32 /D NDEBUG /D _CONSOLE /D _VC80_UPGRADE=0x0600 /D _USING_V110_SDK71_ /D _MBCS /GF /Gm- /EHsc /MT /Zp1 /GS /Gy /fp:precise /Zc:wchar_t /Zc:forScope /Fo".\Release\\" /Fd".\Release\vc120.pdb" /Gd /TC /analyze- /errorReport:prompt FE_DYSVG.c FE_XDFK.c FrontEnd.c gen_funcs.c global_vars.c PANSI_s.c "RPC-funcs.c" TFR.c
+         E:\Dynas\Dynas.tcp\CL.exe /c /Zi /nologo /W3 /WX- /O2 /Oy- /D WIN32 /D NDEBUG /D _CONSOLE /D OCE_WIN32 /D _VC80_UPGRADE=0x0600 /D _USING_V110_SDK71_ /D _MBCS /GF /Gm- /EHsc /MT /Zp1 /GS /Gy /fp:precise /Zc:wchar_t /Zc:forScope /Fo".\Release\\" /Fd".\Release\vc120.pdb" /Gd /TC /analyze- /errorReport:prompt FE_DYSVG.c FE_XDFK.c FrontEnd.c gen_funcs.c global_vars.c PANSI_s.c "RPC-funcs.c" rule_log.c TFR.c
          FE_DYSVG.c
      1>FE_DYSVG.c(73): warning C4996: 'sprintf': This function or variable may be unsafe. Consider using sprintf_s instead. To disable deprecation, use _CRT_SECURE_NO_WARNINGS. See online help for details.
                  C:\Program Files (x86)\Microsoft Visual Studio 12.0\VC\include\stdio.h(356) : 参见“sprintf”的声明
@@ -28,19 +28,19 @@
                  C:\Program Files (x86)\Microsoft Visual Studio 12.0\VC\include\stdio.h(356) : 参见“sprintf”的声明
      1>FE_DYSVG.c(279): warning C4996: 'sprintf': This function or variable may be unsafe. Consider using sprintf_s instead. To disable deprecation, use _CRT_SECURE_NO_WARNINGS. See online help for details.
                  C:\Program Files (x86)\Microsoft Visual Studio 12.0\VC\include\stdio.h(356) : 参见“sprintf”的声明
-     1>FE_DYSVG.c(318): warning C4018: “<”: 有符号/无符号不匹配
-     1>FE_DYSVG.c(334): warning C4018: “<”: 有符号/无符号不匹配
-     1>FE_DYSVG.c(351): warning C4018: “<”: 有符号/无符号不匹配
-     1>FE_DYSVG.c(431): warning C4996: 'sprintf': This function or variable may be unsafe. Consider using sprintf_s instead. To disable deprecation, use _CRT_SECURE_NO_WARNINGS. See online help for details.
-                 C:\Program Files (x86)\Microsoft Visual Studio 12.0\VC\include\stdio.h(356) : 参见“sprintf”的声明
+     1>FE_DYSVG.c(319): warning C4018: “<”: 有符号/无符号不匹配
+     1>FE_DYSVG.c(335): warning C4018: “<”: 有符号/无符号不匹配
+     1>FE_DYSVG.c(352): warning C4018: “<”: 有符号/无符号不匹配
      1>FE_DYSVG.c(432): warning C4996: 'sprintf': This function or variable may be unsafe. Consider using sprintf_s instead. To disable deprecation, use _CRT_SECURE_NO_WARNINGS. See online help for details.
                  C:\Program Files (x86)\Microsoft Visual Studio 12.0\VC\include\stdio.h(356) : 参见“sprintf”的声明
-     1>FE_DYSVG.c(436): warning C4996: 'sprintf': This function or variable may be unsafe. Consider using sprintf_s instead. To disable deprecation, use _CRT_SECURE_NO_WARNINGS. See online help for details.
+     1>FE_DYSVG.c(433): warning C4996: 'sprintf': This function or variable may be unsafe. Consider using sprintf_s instead. To disable deprecation, use _CRT_SECURE_NO_WARNINGS. See online help for details.
                  C:\Program Files (x86)\Microsoft Visual Studio 12.0\VC\include\stdio.h(356) : 参见“sprintf”的声明
      1>FE_DYSVG.c(437): warning C4996: 'sprintf': This function or variable may be unsafe. Consider using sprintf_s instead. To disable deprecation, use _CRT_SECURE_NO_WARNINGS. See online help for details.
                  C:\Program Files (x86)\Microsoft Visual Studio 12.0\VC\include\stdio.h(356) : 参见“sprintf”的声明
-     1>FE_DYSVG.c(463): warning C4018: “<”: 有符号/无符号不匹配
-     1>FE_DYSVG.c(487): warning C4996: 'sprintf': This function or variable may be unsafe. Consider using sprintf_s instead. To disable deprecation, use _CRT_SECURE_NO_WARNINGS. See online help for details.
+     1>FE_DYSVG.c(438): warning C4996: 'sprintf': This function or variable may be unsafe. Consider using sprintf_s instead. To disable deprecation, use _CRT_SECURE_NO_WARNINGS. See online help for details.
+                 C:\Program Files (x86)\Microsoft Visual Studio 12.0\VC\include\stdio.h(356) : 参见“sprintf”的声明
+     1>FE_DYSVG.c(464): warning C4018: “<”: 有符号/无符号不匹配
+     1>FE_DYSVG.c(488): warning C4996: 'sprintf': This function or variable may be unsafe. Consider using sprintf_s instead. To disable deprecation, use _CRT_SECURE_NO_WARNINGS. See online help for details.
                  C:\Program Files (x86)\Microsoft Visual Studio 12.0\VC\include\stdio.h(356) : 参见“sprintf”的声明
      1>FE_DYSVG.c(220): warning C4101: “vid_oper”: 未引用的局部变量
          FE_XDFK.c
@@ -215,6 +215,43 @@
      1>RPC-funcs.c(1160): warning C4244: “=”: 从“int”转换到“float”，可能丢失数据
      1>RPC-funcs.c(1270): warning C4244: “=”: 从“int”转换到“float”，可能丢失数据
      1>RPC-funcs.c(1281): warning C4244: “=”: 从“int”转换到“float”，可能丢失数据
+         rule_log.c
+     1>rule_log.c(102): warning C4996: 'sprintf': This function or variable may be unsafe. Consider using sprintf_s instead. To disable deprecation, use _CRT_SECURE_NO_WARNINGS. See online help for details.
+                 C:\Program Files (x86)\Microsoft Visual Studio 12.0\VC\include\stdio.h(356) : 参见“sprintf”的声明
+     1>rule_log.c(104): warning C4996: 'fopen': This function or variable may be unsafe. Consider using fopen_s instead. To disable deprecation, use _CRT_SECURE_NO_WARNINGS. See online help for details.
+                 C:\Program Files (x86)\Microsoft Visual Studio 12.0\VC\include\stdio.h(211) : 参见“fopen”的声明
+     1>rule_log.c(120): warning C4133: “函数”: 从“BaseFileInfo *”到“BaseFileInfo *”的类型不兼容
+     1>rule_log.c(136): warning C4996: 'sprintf': This function or variable may be unsafe. Consider using sprintf_s instead. To disable deprecation, use _CRT_SECURE_NO_WARNINGS. See online help for details.
+                 C:\Program Files (x86)\Microsoft Visual Studio 12.0\VC\include\stdio.h(356) : 参见“sprintf”的声明
+     1>rule_log.c(145): warning C4996: 'fopen': This function or variable may be unsafe. Consider using fopen_s instead. To disable deprecation, use _CRT_SECURE_NO_WARNINGS. See online help for details.
+                 C:\Program Files (x86)\Microsoft Visual Studio 12.0\VC\include\stdio.h(211) : 参见“fopen”的声明
+     1>rule_log.c(149): warning C4996: 'fopen': This function or variable may be unsafe. Consider using fopen_s instead. To disable deprecation, use _CRT_SECURE_NO_WARNINGS. See online help for details.
+                 C:\Program Files (x86)\Microsoft Visual Studio 12.0\VC\include\stdio.h(211) : 参见“fopen”的声明
+     1>rule_log.c(168): warning C4996: 'sprintf': This function or variable may be unsafe. Consider using sprintf_s instead. To disable deprecation, use _CRT_SECURE_NO_WARNINGS. See online help for details.
+                 C:\Program Files (x86)\Microsoft Visual Studio 12.0\VC\include\stdio.h(356) : 参见“sprintf”的声明
+     1>rule_log.c(183): warning C4996: 'sprintf': This function or variable may be unsafe. Consider using sprintf_s instead. To disable deprecation, use _CRT_SECURE_NO_WARNINGS. See online help for details.
+                 C:\Program Files (x86)\Microsoft Visual Studio 12.0\VC\include\stdio.h(356) : 参见“sprintf”的声明
+     1>rule_log.c(185): warning C4996: 'fopen': This function or variable may be unsafe. Consider using fopen_s instead. To disable deprecation, use _CRT_SECURE_NO_WARNINGS. See online help for details.
+                 C:\Program Files (x86)\Microsoft Visual Studio 12.0\VC\include\stdio.h(211) : 参见“fopen”的声明
+     1>rule_log.c(202): warning C4133: “函数”: 从“BaseFileInfo *”到“BaseFileInfo *”的类型不兼容
+     1>rule_log.c(216): warning C4996: 'sprintf': This function or variable may be unsafe. Consider using sprintf_s instead. To disable deprecation, use _CRT_SECURE_NO_WARNINGS. See online help for details.
+                 C:\Program Files (x86)\Microsoft Visual Studio 12.0\VC\include\stdio.h(356) : 参见“sprintf”的声明
+     1>rule_log.c(224): warning C4996: 'fopen': This function or variable may be unsafe. Consider using fopen_s instead. To disable deprecation, use _CRT_SECURE_NO_WARNINGS. See online help for details.
+                 C:\Program Files (x86)\Microsoft Visual Studio 12.0\VC\include\stdio.h(211) : 参见“fopen”的声明
+     1>rule_log.c(228): warning C4996: 'fopen': This function or variable may be unsafe. Consider using fopen_s instead. To disable deprecation, use _CRT_SECURE_NO_WARNINGS. See online help for details.
+                 C:\Program Files (x86)\Microsoft Visual Studio 12.0\VC\include\stdio.h(211) : 参见“fopen”的声明
+     1>rule_log.c(261): warning C4018: “<”: 有符号/无符号不匹配
+     1>rule_log.c(285): warning C4996: 'sprintf': This function or variable may be unsafe. Consider using sprintf_s instead. To disable deprecation, use _CRT_SECURE_NO_WARNINGS. See online help for details.
+                 C:\Program Files (x86)\Microsoft Visual Studio 12.0\VC\include\stdio.h(356) : 参见“sprintf”的声明
+     1>rule_log.c(287): warning C4996: 'fopen': This function or variable may be unsafe. Consider using fopen_s instead. To disable deprecation, use _CRT_SECURE_NO_WARNINGS. See online help for details.
+                 C:\Program Files (x86)\Microsoft Visual Studio 12.0\VC\include\stdio.h(211) : 参见“fopen”的声明
+     1>rule_log.c(311): warning C4018: “<”: 有符号/无符号不匹配
+     1>rule_log.c(352): warning C4028: 形参 2 与声明不同
+     1>rule_log.c(352): warning C4028: 形参 3 与声明不同
+     1>rule_log.c(362): warning C4996: 'sprintf': This function or variable may be unsafe. Consider using sprintf_s instead. To disable deprecation, use _CRT_SECURE_NO_WARNINGS. See online help for details.
+                 C:\Program Files (x86)\Microsoft Visual Studio 12.0\VC\include\stdio.h(356) : 参见“sprintf”的声明
+     1>rule_log.c(536): warning C4996: 'sprintf': This function or variable may be unsafe. Consider using sprintf_s instead. To disable deprecation, use _CRT_SECURE_NO_WARNINGS. See online help for details.
+                 C:\Program Files (x86)\Microsoft Visual Studio 12.0\VC\include\stdio.h(356) : 参见“sprintf”的声明
          TFR.c
      1>TFR.c(19): warning C4996: 'getcwd': The POSIX name for this item is deprecated. Instead, use the ISO C++ conformant name: _getcwd. See online help for details.
                  C:\Program Files (x86)\Microsoft Visual Studio 12.0\VC\include\direct.h(130) : 参见“getcwd”的声明
@@ -287,6 +324,8 @@
          正在生成代码...
      1>e:\dynas\dynas.tcp\tfr.c(397): warning C4716: “get_new_tfr_file”: 必须返回一个值
      1>e:\dynas\dynas.tcp\tfr.c(549): warning C4700: 使用了未初始化的局部变量“tfr_file”
+     1>e:\dynas\dynas.tcp\rule_log.c(120): warning C4700: 使用了未初始化的局部变量“fileInfo”
+     1>e:\dynas\dynas.tcp\rule_log.c(202): warning C4700: 使用了未初始化的局部变量“fileInfo”
      1>e:\dynas\dynas.tcp\rpc-funcs.c(139): warning C4716: “RPC_UserRegister”: 必须返回一个值
      1>e:\dynas\dynas.tcp\rpc-funcs.c(157): warning C4716: “RPC_UserLogoff”: 必须返回一个值
        Link:
@@ -298,10 +337,11 @@
          .\Release\global_vars.obj
          .\Release\PANSI_s.obj
          ".\Release\RPC-funcs.obj"
+         .\Release\rule_log.obj
          .\Release\TFR.obj
          Dynaserver.vcxproj -> E:\Dynas\Dynas.tcp\.\Release\Dynaserver.exe
      1>已完成生成项目“E:\Dynas\Dynas.tcp\Dynaserver.vcxproj”(Rebuild 个目标)的操作。
 
 生成成功。
 
-已用时间 00:00:04.56
+已用时间 00:00:03.82
