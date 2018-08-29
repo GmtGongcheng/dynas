@@ -1,0 +1,27 @@
+<html>
+<body>
+<pre>
+<h1>Build Log</h1>
+<h3>
+--------------------Configuration: Dynaclient - Win32 Debug--------------------
+</h3>
+<h3>Command Lines</h3>
+Creating temporary file "C:\DOCUME~1\ADMINI~1\LOCALS~1\Temp\RSP5F.tmp" with contents
+[
+/nologo /Zp1 /MT /W3 /Gm /GX /ZI /Od /D "WIN32" /D "_DEBUG" /D "_CONSOLE" /D "_MBCS" /Fp"Debug/Dynaclient.pch" /YX /Fo"Debug/" /Fd"Debug/" /FD /GZ /c 
+"C:\Documents and Settings\Administrator\My Documents\Projects\Dynas.vc\Dynaclient.cpp"
+]
+Creating command line "cl.exe @C:\DOCUME~1\ADMINI~1\LOCALS~1\Temp\RSP5F.tmp" 
+Creating command line "link.exe RPCRT4.LIB /nologo /subsystem:console /incremental:yes /pdb:"Dynaclient.pdb" /debug /machine:I386 /out:"Dynaclient.exe" /pdbtype:sept  ".\Debug\Dynaclient.obj" ".\Debug\PANSI_c.obj" ".\Debug\RpcProc.obj" "
+<h3>Output Window</h3>
+Compiling...
+Dynaclient.cpp
+Linking...
+
+
+
+<h3>Results</h3>
+Dynaclient.exe - 0 error(s), 0 warning(s)
+</pre>
+</body>
+</html>

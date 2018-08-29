@@ -1,0 +1,112 @@
+<html>
+<body>
+<pre>
+<h1>Build Log</h1>
+<h3>
+--------------------Configuration: Dynaserver - Win32 Debug--------------------
+</h3>
+<h3>Command Lines</h3>
+Creating temporary file "C:\DOCUME~1\ADMINI~1\LOCALS~1\Temp\RSP4F.tmp" with contents
+[
+/nologo /Zp1 /MT /W3 /Gm /GX /ZI /Od /D "WIN32" /D "_DEBUG" /D "_CONSOLE" /D "_MBCS" /Fp"Debug/Dynaserver.pch" /YX /Fo"Debug/" /Fd"Debug/" /FD /GZ /c 
+"C:\Documents and Settings\Administrator\My Documents\Projects\Dynas.vc\Dynaserver.cpp"
+"C:\Documents and Settings\Administrator\My Documents\Projects\Dynas.vc\FE_DYSVG.c"
+"C:\Documents and Settings\Administrator\My Documents\Projects\Dynas.vc\FE_XDFK.c"
+"C:\Documents and Settings\Administrator\My Documents\Projects\Dynas.vc\FrontEnd.c"
+"C:\Documents and Settings\Administrator\My Documents\Projects\Dynas.vc\gen_funcs.c"
+"C:\Documents and Settings\Administrator\My Documents\Projects\Dynas.vc\global_vars.c"
+"C:\Documents and Settings\Administrator\My Documents\Projects\Dynas.vc\PANSI_s.c"
+"C:\Documents and Settings\Administrator\My Documents\Projects\Dynas.vc\RPC-funcs.c"
+"C:\Documents and Settings\Administrator\My Documents\Projects\Dynas.vc\TFR.c"
+]
+Creating command line "cl.exe @C:\DOCUME~1\ADMINI~1\LOCALS~1\Temp\RSP4F.tmp" 
+Creating temporary file "C:\DOCUME~1\ADMINI~1\LOCALS~1\Temp\RSP50.tmp" with contents
+[
+RPCRT4.LIB WS2_32.LIB /nologo /subsystem:console /incremental:yes /pdb:"Dynaserver.pdb" /debug /machine:I386 /out:"Dynaserver.exe" /pdbtype:sept 
+".\Debug\Dynaserver.obj"
+".\Debug\FE_DYSVG.obj"
+".\Debug\FE_XDFK.obj"
+".\Debug\FrontEnd.obj"
+".\Debug\gen_funcs.obj"
+".\Debug\global_vars.obj"
+".\Debug\PANSI_s.obj"
+".\Debug\RPC-funcs.obj"
+".\Debug\TFR.obj"
+]
+Creating command line "link.exe @C:\DOCUME~1\ADMINI~1\LOCALS~1\Temp\RSP50.tmp"
+<h3>Output Window</h3>
+Compiling...
+FE_DYSVG.c
+c:\documents and settings\administrator\my documents\projects\dynas.vc\fe_dysvg.c(152) : warning C4553: '==' : operator has no effect; did you intend '='?
+c:\documents and settings\administrator\my documents\projects\dynas.vc\fe_dysvg.c(157) : warning C4553: '==' : operator has no effect; did you intend '='?
+c:\documents and settings\administrator\my documents\projects\dynas.vc\fe_dysvg.c(298) : warning C4018: '<' : signed/unsigned mismatch
+c:\documents and settings\administrator\my documents\projects\dynas.vc\fe_dysvg.c(314) : warning C4018: '<' : signed/unsigned mismatch
+c:\documents and settings\administrator\my documents\projects\dynas.vc\fe_dysvg.c(331) : warning C4018: '<' : signed/unsigned mismatch
+c:\documents and settings\administrator\my documents\projects\dynas.vc\fe_dysvg.c(443) : warning C4018: '<' : signed/unsigned mismatch
+c:\documents and settings\administrator\my documents\projects\dynas.vc\fe_dysvg.c(218) : warning C4101: 'vid_oper' : unreferenced local variable
+FE_XDFK.c
+C:\Documents and Settings\Administrator\My Documents\Projects\Dynas.vc\FE_XDFK.c(107) : warning C4553: '==' : operator has no effect; did you intend '='?
+C:\Documents and Settings\Administrator\My Documents\Projects\Dynas.vc\FE_XDFK.c(112) : warning C4553: '==' : operator has no effect; did you intend '='?
+C:\Documents and Settings\Administrator\My Documents\Projects\Dynas.vc\FE_XDFK.c(200) : warning C4013: 'access' undefined; assuming extern returning int
+C:\Documents and Settings\Administrator\My Documents\Projects\Dynas.vc\FE_XDFK.c(270) : warning C4244: '=' : conversion from 'int ' to 'float ', possible loss of data
+C:\Documents and Settings\Administrator\My Documents\Projects\Dynas.vc\FE_XDFK.c(172) : warning C4101: 'yxstart' : unreferenced local variable
+FrontEnd.c
+gen_funcs.c
+global_vars.c
+PANSI_s.c
+RPC-funcs.c
+c:\documents and settings\administrator\my documents\projects\dynas.vc\rpc-funcs.c(56) : warning C4101: 'errstr' : unreferenced local variable
+c:\documents and settings\administrator\my documents\projects\dynas.vc\rpc-funcs.c(218) : warning C4244: '=' : conversion from 'short ' to 'char ', possible loss of data
+c:\documents and settings\administrator\my documents\projects\dynas.vc\rpc-funcs.c(219) : warning C4244: '=' : conversion from 'short ' to 'char ', possible loss of data
+c:\documents and settings\administrator\my documents\projects\dynas.vc\rpc-funcs.c(221) : warning C4244: '=' : conversion from 'short ' to 'char ', possible loss of data
+c:\documents and settings\administrator\my documents\projects\dynas.vc\rpc-funcs.c(222) : warning C4244: '=' : conversion from 'short ' to 'char ', possible loss of data
+c:\documents and settings\administrator\my documents\projects\dynas.vc\rpc-funcs.c(223) : warning C4244: '=' : conversion from 'short ' to 'char ', possible loss of data
+c:\documents and settings\administrator\my documents\projects\dynas.vc\rpc-funcs.c(554) : warning C4101: 'i' : unreferenced local variable
+c:\documents and settings\administrator\my documents\projects\dynas.vc\rpc-funcs.c(838) : warning C4244: '=' : conversion from 'double ' to 'float ', possible loss of data
+c:\documents and settings\administrator\my documents\projects\dynas.vc\rpc-funcs.c(839) : warning C4244: '=' : conversion from 'double ' to 'float ', possible loss of data
+c:\documents and settings\administrator\my documents\projects\dynas.vc\rpc-funcs.c(840) : warning C4244: '=' : conversion from 'double ' to 'float ', possible loss of data
+c:\documents and settings\administrator\my documents\projects\dynas.vc\rpc-funcs.c(841) : warning C4244: '=' : conversion from 'int ' to 'float ', possible loss of data
+c:\documents and settings\administrator\my documents\projects\dynas.vc\rpc-funcs.c(869) : warning C4244: '=' : conversion from 'float ' to 'long ', possible loss of data
+c:\documents and settings\administrator\my documents\projects\dynas.vc\rpc-funcs.c(870) : warning C4244: '=' : conversion from 'float ' to 'long ', possible loss of data
+c:\documents and settings\administrator\my documents\projects\dynas.vc\rpc-funcs.c(878) : warning C4244: '=' : conversion from 'double ' to 'float ', possible loss of data
+c:\documents and settings\administrator\my documents\projects\dynas.vc\rpc-funcs.c(879) : warning C4244: '=' : conversion from 'double ' to 'float ', possible loss of data
+c:\documents and settings\administrator\my documents\projects\dynas.vc\rpc-funcs.c(880) : warning C4244: '=' : conversion from 'double ' to 'float ', possible loss of data
+c:\documents and settings\administrator\my documents\projects\dynas.vc\rpc-funcs.c(881) : warning C4244: '=' : conversion from 'int ' to 'float ', possible loss of data
+c:\documents and settings\administrator\my documents\projects\dynas.vc\rpc-funcs.c(882) : warning C4244: '=' : conversion from 'int ' to 'float ', possible loss of data
+c:\documents and settings\administrator\my documents\projects\dynas.vc\rpc-funcs.c(883) : warning C4244: '=' : conversion from 'float ' to 'long ', possible loss of data
+c:\documents and settings\administrator\my documents\projects\dynas.vc\rpc-funcs.c(884) : warning C4244: '=' : conversion from 'float ' to 'long ', possible loss of data
+c:\documents and settings\administrator\my documents\projects\dynas.vc\rpc-funcs.c(897) : warning C4244: '=' : conversion from 'double ' to 'float ', possible loss of data
+c:\documents and settings\administrator\my documents\projects\dynas.vc\rpc-funcs.c(898) : warning C4244: '=' : conversion from 'double ' to 'float ', possible loss of data
+c:\documents and settings\administrator\my documents\projects\dynas.vc\rpc-funcs.c(899) : warning C4244: '=' : conversion from 'double ' to 'float ', possible loss of data
+c:\documents and settings\administrator\my documents\projects\dynas.vc\rpc-funcs.c(900) : warning C4244: '=' : conversion from 'int ' to 'float ', possible loss of data
+c:\documents and settings\administrator\my documents\projects\dynas.vc\rpc-funcs.c(922) : warning C4101: 'vid' : unreferenced local variable
+c:\documents and settings\administrator\my documents\projects\dynas.vc\rpc-funcs.c(970) : warning C4013: 'filelength' undefined; assuming extern returning int
+c:\documents and settings\administrator\my documents\projects\dynas.vc\rpc-funcs.c(978) : warning C4101: 'i' : unreferenced local variable
+c:\documents and settings\administrator\my documents\projects\dynas.vc\rpc-funcs.c(1098) : warning C4244: '=' : conversion from 'int ' to 'float ', possible loss of data
+c:\documents and settings\administrator\my documents\projects\dynas.vc\rpc-funcs.c(1127) : warning C4244: '=' : conversion from 'int ' to 'float ', possible loss of data
+c:\documents and settings\administrator\my documents\projects\dynas.vc\rpc-funcs.c(1111) : warning C4101: 't1' : unreferenced local variable
+c:\documents and settings\administrator\my documents\projects\dynas.vc\rpc-funcs.c(1160) : warning C4244: '=' : conversion from 'int ' to 'float ', possible loss of data
+c:\documents and settings\administrator\my documents\projects\dynas.vc\rpc-funcs.c(1270) : warning C4244: '=' : conversion from 'int ' to 'float ', possible loss of data
+c:\documents and settings\administrator\my documents\projects\dynas.vc\rpc-funcs.c(1281) : warning C4244: '=' : conversion from 'int ' to 'float ', possible loss of data
+TFR.c
+c:\documents and settings\administrator\my documents\projects\dynas.vc\rpc-funcs.c(139) : warning C4716: 'RPC_UserRegister' : must return a value
+c:\documents and settings\administrator\my documents\projects\dynas.vc\rpc-funcs.c(157) : warning C4716: 'RPC_UserLogoff' : must return a value
+c:\documents and settings\administrator\my documents\projects\dynas.vc\tfr.c(292) : warning C4244: '=' : conversion from 'double ' to 'float ', possible loss of data
+c:\documents and settings\administrator\my documents\projects\dynas.vc\tfr.c(233) : warning C4101: 'size' : unreferenced local variable
+c:\documents and settings\administrator\my documents\projects\dynas.vc\tfr.c(272) : warning C4101: 'n' : unreferenced local variable
+c:\documents and settings\administrator\my documents\projects\dynas.vc\tfr.c(446) : warning C4244: '=' : conversion from 'unsigned long ' to 'float ', possible loss of data
+c:\documents and settings\administrator\my documents\projects\dynas.vc\tfr.c(459) : warning C4305: 'initializing' : truncation from 'const unsigned long ' to 'float '
+c:\documents and settings\administrator\my documents\projects\dynas.vc\tfr.c(469) : warning C4244: 'initializing' : conversion from 'float ' to 'unsigned long ', possible loss of data
+c:\documents and settings\administrator\my documents\projects\dynas.vc\tfr.c(468) : warning C4101: 'infostr' : unreferenced local variable
+c:\documents and settings\administrator\my documents\projects\dynas.vc\tfr.c(573) : warning C4018: '==' : signed/unsigned mismatch
+Dynaserver.cpp
+c:\documents and settings\administrator\my documents\projects\dynas.vc\tfr.c(397) : warning C4716: 'get_new_tfr_file' : must return a value
+Linking...
+
+
+
+<h3>Results</h3>
+Dynaserver.exe - 0 error(s), 56 warning(s)
+</pre>
+</body>
+</html>

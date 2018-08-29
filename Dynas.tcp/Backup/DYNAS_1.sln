@@ -1,0 +1,32 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 10.00
+# Visual Studio 2008
+Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "Dynaclient", "Dynaclient.vcproj", "{211BCAA8-31AA-420E-B408-6FCEA8892144}"
+EndProject
+Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "Dynas_interface", "Dynas_interface.vcproj", "{0B94C503-9661-4803-810E-46C957D225AB}"
+EndProject
+Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "Dynaserver", "Dynaserver.vcproj", "{0FCF5001-A182-4EFA-9532-13AC27437373}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Win32 = Debug|Win32
+		Release|Win32 = Release|Win32
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{211BCAA8-31AA-420E-B408-6FCEA8892144}.Debug|Win32.ActiveCfg = Debug|Win32
+		{211BCAA8-31AA-420E-B408-6FCEA8892144}.Debug|Win32.Build.0 = Debug|Win32
+		{211BCAA8-31AA-420E-B408-6FCEA8892144}.Release|Win32.ActiveCfg = Release|Win32
+		{211BCAA8-31AA-420E-B408-6FCEA8892144}.Release|Win32.Build.0 = Release|Win32
+		{0B94C503-9661-4803-810E-46C957D225AB}.Debug|Win32.ActiveCfg = Debug|Win32
+		{0B94C503-9661-4803-810E-46C957D225AB}.Debug|Win32.Build.0 = Debug|Win32
+		{0B94C503-9661-4803-810E-46C957D225AB}.Release|Win32.ActiveCfg = Release|Win32
+		{0B94C503-9661-4803-810E-46C957D225AB}.Release|Win32.Build.0 = Release|Win32
+		{0FCF5001-A182-4EFA-9532-13AC27437373}.Debug|Win32.ActiveCfg = Debug|Win32
+		{0FCF5001-A182-4EFA-9532-13AC27437373}.Debug|Win32.Build.0 = Debug|Win32
+		{0FCF5001-A182-4EFA-9532-13AC27437373}.Release|Win32.ActiveCfg = Release|Win32
+		{0FCF5001-A182-4EFA-9532-13AC27437373}.Release|Win32.Build.0 = Release|Win32
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+EndGlobal

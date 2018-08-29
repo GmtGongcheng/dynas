@@ -1,0 +1,17 @@
+﻿生成启动时间为 2018/8/8 16:36:17。
+     1>项目“E:\Dynas.vc\Dynaclient.vcxproj”在节点 2 上(Rebuild 个目标)。
+     1>ClCompile:
+         E:\Dynas.vc\CL.exe /c /Z7 /nologo /W3 /WX- /Od /Oy- /D WIN32 /D _DEBUG /D _CONSOLE /D _VC80_UPGRADE=0x0600 /D _MBCS /GF /Gm /EHsc /RTC1 /MT /Zp1 /GS /Gy- /fp:precise /Zc:wchar_t /Zc:forScope /Fo".\Debug\\" /Fd".\Debug\vc120.pdb" /Gd /TP /analyze- /errorReport:prompt Dynaclient.cpp RpcProc.cpp
+     1>cl : 命令行 warning D9007: “/Gm”需要“/Zi 或 /ZI”；选项被忽略
+         Dynaclient.cpp
+         RpcProc.cpp
+         正在生成代码...
+         E:\Dynas.vc\CL.exe /c /Z7 /nologo /W3 /WX- /Od /Oy- /D WIN32 /D _DEBUG /D _CONSOLE /D _VC80_UPGRADE=0x0600 /D _MBCS /GF /Gm /EHsc /RTC1 /MT /Zp1 /GS /Gy- /fp:precise /Zc:wchar_t /Zc:forScope /Fo".\Debug\\" /Fd".\Debug\vc120.pdb" /Gd /TC /analyze- /errorReport:prompt PANSI_c.c
+     1>cl : 命令行 warning D9007: “/Gm”需要“/Zi 或 /ZI”；选项被忽略
+         PANSI_c.c
+     1>c1 : fatal error C1083: 无法打开源文件: “PANSI_c.c”: No such file or directory
+     1>已完成生成项目“E:\Dynas.vc\Dynaclient.vcxproj”(Rebuild 个目标)的操作 - 失败。
+
+生成失败。
+
+已用时间 00:00:07.71
