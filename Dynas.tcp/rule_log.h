@@ -40,7 +40,7 @@ typedef struct logInfoStructR
 	fileName:	文件名,不含路径,如"report.xml"
 	fileInfo: 文件信息
 	*/
-	extern int GetFileInfo(const char *dir, const char *fileName, struct BaseFileInfo* fileInfo);
+	extern int GetFileInfo(const char *dir, const char *fileName, BaseFileInfo* fileInfo);
 
 	//复制文件,文件名含全路径
 	extern int CopyFile_Log(char *fileNameS,char *fileNameD);

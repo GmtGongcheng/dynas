@@ -1,6 +1,5 @@
 
 #include "rule_log.h"
-#include <string.h>
 #if defined(OCE_LINUX) || defined(OCE_HPUX)
 #include <sys/time.h>
 #endif
@@ -42,7 +41,7 @@
 //
 //
 //	//GetFileInfo("./","dynas.log",fileInfo);
-//	GetFileInfo("./", fileNameBuf, fileInfo);
+//	GetFileInfo("./log", fileNameBuf, fileInfo);
 //
 //	if (fileInfo.size > 1048576)	//日志文件大于1M则清空
 //	{
@@ -53,7 +52,7 @@
 //		memset(buf, 0x00, sizeof(buf));
 //		//sprintf(buf,"G:\\dynas%d_%d_%d_%d_%d_%d_log.txt\n",
 //		//cd.Year(),cd.Month(),cd.DayOfMonth(),ct.Hour(),ct.Minute(),ct.Second());
-//		sprintf(buf, "%d_dynas%4d_%02d_%02d_%02d_%02d_%02d_log.txt", link_ID,
+//		sprintf(buf, "./log/%d_dynas%4d_%02d_%02d_%02d_%02d_%02d_log.txt", link_ID,
 //			systime.wYear, systime.wMonth, systime.wDay, systime.wHour, systime.wMinute, systime.wSecond);
 //		printf("%s\r\n", buf);
 //		//fclose(logFp);
@@ -114,17 +113,15 @@ void WriteLog(int link_ID, char* logStr)
 		}
 	//RWRecMutex::WLock autoLock(m_semLogFile);
 
-	BaseFileInfo* fileInfo;
+	BaseFileInfo* fileInfo = (BaseFileInfo*)malloc(sizeof(BaseFileInfo));
 
 	//GetFileInfo("./","dynas.log",fileInfo);
 	GetFileInfo("./",fileNameBuf,fileInfo);
 
-
-
-
-	//if(fileInfo.size>208576)	//日志文件大于1M则清空
+	printf("文件大小：%d\n", fileInfo->size);
 	if(fileInfo->size>1048576)	//日志文件大于1M则清空
 		{
+			printf("文件大于1M\n");
 		SYSTEMTIME	systime;
 		memset(&systime, 0x00, sizeof(systime));
 		GetCurTime(&systime);
@@ -132,7 +129,7 @@ void WriteLog(int link_ID, char* logStr)
 		memset(buf, 0x00, sizeof(buf));
 		//sprintf(buf,"G:\\dynas%d_%d_%d_%d_%d_%d_log.txt\n",
 		//cd.Year(),cd.Month(),cd.DayOfMonth(),ct.Hour(),ct.Minute(),ct.Second());
-		sprintf(buf, "%d_dynas%4d_%02d_%02d_%02d_%02d_%02d_log.txt", link_ID,
+		sprintf(buf, "./log/station%d/%d_dynas%4d_%02d_%02d_%02d_%02d_%02d_log.txt",link_ID, link_ID,
 			systime.wYear, systime.wMonth, systime.wDay, systime.wHour, systime.wMinute, systime.wSecond);
 
 		printf("%s\r\n",buf);
@@ -156,6 +153,7 @@ void WriteLog(int link_ID, char* logStr)
 		m_p_log_fp=fopen(fileNameBuf,"a+");
 #endif
 		}
+	free(fileInfo);
 
 	char str[256];
 	memset(str,0x00,sizeof(str));
@@ -163,14 +161,14 @@ void WriteLog(int link_ID, char* logStr)
 	memset(&systime, 0x00, sizeof(systime));
 	GetCurTime(&systime);
 
-
-		sprintf(str, "A: %04d-%02d-%02d %02d:%02d:%02d %03d- linkID=%d,logInfo:%s\n", systime.wYear, systime.wMonth, systime.wDay, 
-			systime.wHour, systime.wMinute, systime.wSecond, systime.wMilliseconds,link_ID,logStr);  
+	sprintf(str, "A: %04d-%02d-%02d %02d:%02d:%02d %03d linkID=%d,logInfo:%s\n", systime.wYear, systime.wMonth, systime.wDay, 
+		systime.wHour, systime.wMinute, systime.wSecond, systime.wMilliseconds,link_ID,logStr);  
 
 	if(m_p_log_fp)
 		{
-		fprintf(m_p_log_fp,str);
-		//fflush(m_p_log_fp);
+		int count = fprintf(m_p_log_fp,"%s",str);
+		printf("一共有%d个字节\n", count);
+		fflush(m_p_log_fp);
 		}
 	}
 
@@ -196,7 +194,7 @@ void WriteLog_Tele(int link_ID,unsigned char *buf,unsigned int byte2,int bRecv)
 
 	//RWRecMutex::WLock autoLock(m_semLogFile);
 
-	BaseFileInfo* fileInfo;
+	BaseFileInfo* fileInfo = (BaseFileInfo*)malloc(sizeof(BaseFileInfo));
 
 	//GetFileInfo("./","dynas.log",fileInfo);
 	GetFileInfo("./",fileNameBuf,fileInfo);
@@ -212,9 +210,8 @@ void WriteLog_Tele(int link_ID,unsigned char *buf,unsigned int byte2,int bRecv)
 		memset(buf1,0x00,sizeof(buf1));
 		//sprintf(buf,"G:\\dynas%d_%d_%d_%d_%d_%d_log.txt\n",
 		//cd.Year(),cd.Month(),cd.DayOfMonth(),ct.Hour(),ct.Minute(),ct.Second());
-		sprintf(buf1,"%d_dynas%4d_%02d_%02d_%02d_%02d_%02d_log.txt",link_ID,
+		sprintf(buf1,"./log/station%d/%d_dynas%4d_%02d_%02d_%02d_%02d_%02d_log.txt",link_ID, link_ID,
 			systime.wYear, systime.wMonth, systime.wDay, systime.wHour, systime.wMinute, systime.wSecond);
-		printf("%s\r\n",buf1);
 	
 	#ifdef _WIN32
 		//CopyFile("./dynas.log",buf);
@@ -236,6 +233,7 @@ void WriteLog_Tele(int link_ID,unsigned char *buf,unsigned int byte2,int bRecv)
 			
 		#endif
 		}
+	free(fileInfo);
 
 	//FILE *fp=fopen(fileNameBuf,"a");
 	if(m_p_log_fp)

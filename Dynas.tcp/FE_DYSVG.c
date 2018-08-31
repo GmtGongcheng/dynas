@@ -82,7 +82,7 @@ static int com_operation(SOCKET sock, int station, int point, int vtype, float f
 		//set_var(VarID_OPER, 0);
 		return -1;
 	}
-
+	WriteLog_Tele(station,sndbuf,len_snd,0);
 	//recv(sock, sndbuf, BUFLEN, 0);
 
 	return 0;
@@ -117,6 +117,7 @@ int WINAPI Routine_DY_SVG(int station)
 	sprintf(datafile, ".\\facdata\\Lastvalues_%d.dat", station);
 
 	sprintf(infostr, "#%d线程启动", station);
+
 	//SendMessage(g_hMainDlg, UWM_SETDEBUGSTRING, 0, (LPARAM)infostr);
 	DebugPrintln(infostr);
 
@@ -180,6 +181,7 @@ int WINAPI Routine_DY_SVG(int station)
 				release_mutex(Mutex_RT);
 
 				sprintf(infostr, "#%d站连接中断!", station);
+				WriteLog(station, "#%d站连接中断!\r\n");
 				//SendMessage(g_hMainDlg, UWM_SETDEBUGSTRING, 0, (LPARAM)infostr);
 				DebugPrintln(infostr);
 			}
@@ -190,6 +192,7 @@ int WINAPI Routine_DY_SVG(int station)
 		else	// 通道连接成功
 		{
 			sprintf(infostr, "#%d站连接成功!", station);
+			WriteLog(station, "#%d站连接成功!\r\n");
 			//SendMessage(g_hMainDlg, UWM_SETDEBUGSTRING, 0, (LPARAM)infostr);
 			DebugPrintln(infostr);
 
@@ -260,7 +263,7 @@ int WINAPI Routine_DY_SVG(int station)
 			{
 				sprintf(infostr, "SOCKET_ERROR recv()返回 %d, WSAGetLastError() = %d", iResult, WSAGetLastError());
 				DebugPrintln(infostr);
-				WriteLog(station, ",SOCKET_ERROR recv()返回0\r\n");
+				WriteLog(station, "SOCKET_ERROR recv()返回0\r\n");
 				ppYX[station][0].yx.value = 0;
 				closesocket(ConnectSocket);
 				Sleep(2000);
@@ -277,7 +280,7 @@ int WINAPI Routine_DY_SVG(int station)
 			if (len_rcv == 0)
 			{
 				sprintf(infostr, "对端关闭连接，recv()返回 %d, WSAGetLastError() = %d", len_rcv, WSAGetLastError());
-				WriteLog(station, ",对端关闭连接，recv()返回0\r\n");
+				WriteLog(station, "对端关闭连接，recv()返回0\r\n");
 				//sprintf(infostr, "接受：(%d, %d，%d，%d, %d)", yx_offset, yc_offset, event_offset, n_event, end_offset);
 				//SendMessage(g_hMainDlg, UWM_SETDEBUGSTRING, 0, (LPARAM)infostr);
 				DebugPrintln(infostr);
@@ -287,12 +290,15 @@ int WINAPI Routine_DY_SVG(int station)
 				Sleep(2000);
 				break;
 			}
-			printf("len_rcv = %d ", len_rcv);
-			for (int i = 0; i < len_rcv; i++)
-			{
-				printf("%02x ", rcvbuf[i]);
-			}
-			printf("\n");
+			
+			WriteLog_Tele(station, rcvbuf, len_rcv, 1);
+
+// 			printf("len_rcv = %d ", len_rcv);
+// 			for (int i = 0; i < len_rcv; i++)
+// 			{
+// 				printf("%02x ", rcvbuf[i]);
+// 			}
+// 			printf("\n");
 			end_offset = len_rcv - 4;
 			yx_offset = rcvbuf[4] + 256 * rcvbuf[5];
 			yc_offset = rcvbuf[6] + 256 * rcvbuf[7];

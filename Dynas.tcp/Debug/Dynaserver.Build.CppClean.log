@@ -1,19 +1,20 @@
-f:\xj program\dynas.vc\debug\dynaserver.obj
-f:\xj program\dynas.vc\debug\tfr.obj
-f:\xj program\dynas.vc\debug\rpc-funcs.obj
-f:\xj program\dynas.vc\debug\pansi_s.obj
-f:\xj program\dynas.vc\debug\global_vars.obj
-f:\xj program\dynas.vc\debug\gen_funcs.obj
-f:\xj program\dynas.vc\debug\frontend.obj
-f:\xj program\dynas.vc\debug\fe_xdfk.obj
-f:\xj program\dynas.vc\debug\fe_dysvg.obj
-f:\xj program\dynas.vc\dynaserver.ilk
-f:\xj program\dynas.vc\dynaserver.exe
-f:\xj program\dynas.vc\dynaserver.pdb
-f:\xj program\dynas.vc\.\dynaserver.exe
-f:\xj program\dynas.vc\debug\dynaserver.tlog\cl.command.1.tlog
-f:\xj program\dynas.vc\debug\dynaserver.tlog\cl.read.1.tlog
-f:\xj program\dynas.vc\debug\dynaserver.tlog\cl.write.1.tlog
-f:\xj program\dynas.vc\debug\dynaserver.tlog\link.command.1.tlog
-f:\xj program\dynas.vc\debug\dynaserver.tlog\link.read.1.tlog
-f:\xj program\dynas.vc\debug\dynaserver.tlog\link.write.1.tlog
+e:\dynas\dynas.tcp\debug\dynaserver.obj
+e:\dynas\dynas.tcp\debug\tfr.obj
+e:\dynas\dynas.tcp\debug\rule_log.obj
+e:\dynas\dynas.tcp\debug\rpc-funcs.obj
+e:\dynas\dynas.tcp\debug\pansi_s.obj
+e:\dynas\dynas.tcp\debug\global_vars.obj
+e:\dynas\dynas.tcp\debug\gen_funcs.obj
+e:\dynas\dynas.tcp\debug\frontend.obj
+e:\dynas\dynas.tcp\debug\fe_xdfk.obj
+e:\dynas\dynas.tcp\debug\fe_dysvg.obj
+e:\dynas\dynas.tcp\dynaserver.ilk
+e:\dynas\dynas.tcp\dynaserver.exe
+e:\dynas\dynas.tcp\dynaserver.pdb
+e:\dynas\dynas.tcp\.\dynaserver.exe
+e:\dynas\dynas.tcp\debug\dynaserver.tlog\cl.command.1.tlog
+e:\dynas\dynas.tcp\debug\dynaserver.tlog\cl.read.1.tlog
+e:\dynas\dynas.tcp\debug\dynaserver.tlog\cl.write.1.tlog
+e:\dynas\dynas.tcp\debug\dynaserver.tlog\link.command.1.tlog
+e:\dynas\dynas.tcp\debug\dynaserver.tlog\link.read.1.tlog
+e:\dynas\dynas.tcp\debug\dynaserver.tlog\link.write.1.tlog
