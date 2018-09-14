@@ -118,17 +118,15 @@ void WriteLog(int link_ID, char* logStr)
 	//GetFileInfo("./","dynas.log",fileInfo);
 	GetFileInfo("./",fileNameBuf,fileInfo);
 
-	printf("文件大小：%d\n", fileInfo->size);
 	if(fileInfo->size>1048576)	//日志文件大于1M则清空
 		{
-			printf("文件大于1M\n");
+		printf("文件大于1M\n");
 		SYSTEMTIME	systime;
 		memset(&systime, 0x00, sizeof(systime));
 		GetCurTime(&systime);
 		char buf[256];
 		memset(buf, 0x00, sizeof(buf));
-		//sprintf(buf,"G:\\dynas%d_%d_%d_%d_%d_%d_log.txt\n",
-		//cd.Year(),cd.Month(),cd.DayOfMonth(),ct.Hour(),ct.Minute(),ct.Second());
+
 		sprintf(buf, "./log/station%d/%d_dynas%4d_%02d_%02d_%02d_%02d_%02d_log.txt",link_ID, link_ID,
 			systime.wYear, systime.wMonth, systime.wDay, systime.wHour, systime.wMinute, systime.wSecond);
 
@@ -161,14 +159,14 @@ void WriteLog(int link_ID, char* logStr)
 	memset(&systime, 0x00, sizeof(systime));
 	GetCurTime(&systime);
 
-	sprintf(str, "A: %04d-%02d-%02d %02d:%02d:%02d %03d linkID=%d,logInfo:%s\n", systime.wYear, systime.wMonth, systime.wDay, 
+	sprintf(str, "C: %04d-%02d-%02d %02d:%02d:%02d %03d linkID=%d,logInfo:%s\n", systime.wYear, systime.wMonth, systime.wDay, 
 		systime.wHour, systime.wMinute, systime.wSecond, systime.wMilliseconds,link_ID,logStr);  
 
 	if(m_p_log_fp)
 		{
 		int count = fprintf(m_p_log_fp,"%s",str);
-		printf("一共有%d个字节\n", count);
 		fflush(m_p_log_fp);
+		fclose(m_p_log_fp);
 		}
 	}
 
@@ -254,7 +252,7 @@ void WriteLog_Tele(int link_ID,unsigned char *buf,unsigned int byte2,int bRecv)
 			if(bRecv) //发送报文
 				fprintf(m_p_log_fp,"\nA: linkID=%d,recv tele len=%d,%4d-%02d-%02d %02d:%02d:%02d:%03d   --\n",link_ID,byte2,systime.wYear,systime.wMonth,systime.wDay,systime.wHour, systime.wMinute, systime.wSecond, systime.wMilliseconds);
 			else
-				fprintf(m_p_log_fp,"\nA: linkID=%d,send tele len=%d,%4d-%02d-%02d %02d:%02d:%02d:%03d   --\n",link_ID,byte2,systime.wYear,systime.wMonth,systime.wDay,systime.wHour, systime.wMinute, systime.wSecond, systime.wMilliseconds);
+				fprintf(m_p_log_fp,"\nB: linkID=%d,send tele len=%d,%4d-%02d-%02d %02d:%02d:%02d:%03d   --\n",link_ID,byte2,systime.wYear,systime.wMonth,systime.wDay,systime.wHour, systime.wMinute, systime.wSecond, systime.wMilliseconds);
 
 			for(i = 0; i<byte2; i++)
 				{
@@ -262,13 +260,9 @@ void WriteLog_Tele(int link_ID,unsigned char *buf,unsigned int byte2,int bRecv)
 					fprintf(m_p_log_fp,"%02X ",buf[i]);
 
 				}
-			if(m_p_log_fp)
 				fprintf(m_p_log_fp,"\n");
-			//fprintf(m_p_log_fp,"\r\n");
-			if(m_p_log_fp)
 				fflush(m_p_log_fp);
-            
-			//fclose(m_p_log_fp);
+				fclose(m_p_log_fp);
 
 			}
 		

@@ -141,10 +141,17 @@ int WINAPI Routine_DY_SVG(int station)
 		}
 
 		// 设置连接超时时间
-		timeout.tv_sec = 5;
-		timeout.tv_usec = 0;
-		setsockopt(ConnectSocket, SOL_SOCKET, SO_RCVTIMEO, (char *)&timeout, sizeof(timeout));
-		setsockopt(ConnectSocket, SOL_SOCKET, SO_SNDTIMEO, (char *)&timeout, sizeof(timeout));
+		//linux下
+// 		timeout.tv_sec = 5;
+// 		timeout.tv_usec = 0;
+// 		setsockopt(ConnectSocket, SOL_SOCKET, SO_RCVTIMEO, (char *)&timeout, sizeof(timeout));
+// 		setsockopt(ConnectSocket, SOL_SOCKET, SO_SNDTIMEO, (char *)&timeout, sizeof(timeout));
+
+		//windows下
+		int timeout = 5000; //5s
+		setsockopt(ConnectSocket, SOL_SOCKET, SO_RCVTIMEO, &timeout, sizeof(timeout));
+		setsockopt(ConnectSocket, SOL_SOCKET, SO_SNDTIMEO, &timeout, sizeof(timeout));
+
 
 		addr.sin_family = AF_INET;
 		addr.sin_port = htons(pStation[station].port);
@@ -181,7 +188,7 @@ int WINAPI Routine_DY_SVG(int station)
 				release_mutex(Mutex_RT);
 
 				sprintf(infostr, "#%d站连接中断!", station);
-				WriteLog(station, "#%d站连接中断!\r\n");
+				WriteLog(station, "连接中断!\r\n");
 				//SendMessage(g_hMainDlg, UWM_SETDEBUGSTRING, 0, (LPARAM)infostr);
 				DebugPrintln(infostr);
 			}
@@ -192,9 +199,8 @@ int WINAPI Routine_DY_SVG(int station)
 		else	// 通道连接成功
 		{
 			sprintf(infostr, "#%d站连接成功!", station);
-			WriteLog(station, "#%d站连接成功!\r\n");
-			//SendMessage(g_hMainDlg, UWM_SETDEBUGSTRING, 0, (LPARAM)infostr);
 			DebugPrintln(infostr);
+			WriteLog(station, "连接成功!\r\n");
 
 			waitfor_mutex(Mutex_RT);
 			if (ppYX[station][0].yx.value == 0)
@@ -244,7 +250,8 @@ int WINAPI Routine_DY_SVG(int station)
 				sprintf(infostr, "控制操作：%s (%d, %d) = %.2f", vtype == VARTYPE_YC ? "遥调" : "遥控", station, point, pStation[station].oper_value);	//Var_OPER);
 				//SendMessage(g_hMainDlg, UWM_SETDEBUGSTRING, 0, (LPARAM)infostr);
 				DebugPrintln(infostr);
-
+				strcat(infostr, "\r\n");
+				WriteLog(station, infostr);
 				//com_operation(ConnectSocket, vid_oper, Var_OPER);
 				com_operation(ConnectSocket, station, point, vtype, pStation[station].oper_value);	//Var_OPER);
 
@@ -263,27 +270,21 @@ int WINAPI Routine_DY_SVG(int station)
 			{
 				sprintf(infostr, "SOCKET_ERROR recv()返回 %d, WSAGetLastError() = %d", iResult, WSAGetLastError());
 				DebugPrintln(infostr);
-				WriteLog(station, "SOCKET_ERROR recv()返回0\r\n");
+				WriteLog(station, "SOCKET_ERROR recv()返回 SOCKET_ERROR\r\n");
+
 				ppYX[station][0].yx.value = 0;
 				closesocket(ConnectSocket);
 				Sleep(2000);
-				//printf("send failed with error: %d\n", WSAGetLastError());
 				break;
 			}
-			//if (iResult < 22)
-			//{
-			//	Sleep(10);
-			//	continue;
-			//}
+
 
 			len_rcv = iResult;
 			if (len_rcv == 0)
 			{
 				sprintf(infostr, "对端关闭连接，recv()返回 %d, WSAGetLastError() = %d", len_rcv, WSAGetLastError());
-				WriteLog(station, "对端关闭连接，recv()返回0\r\n");
-				//sprintf(infostr, "接受：(%d, %d，%d，%d, %d)", yx_offset, yc_offset, event_offset, n_event, end_offset);
-				//SendMessage(g_hMainDlg, UWM_SETDEBUGSTRING, 0, (LPARAM)infostr);
 				DebugPrintln(infostr);
+				WriteLog(station, "对端关闭连接，recv()返回0\r\n");
 
 				ppYX[station][0].yx.value = 0;
 				closesocket(ConnectSocket);
@@ -293,12 +294,19 @@ int WINAPI Routine_DY_SVG(int station)
 			
 			WriteLog_Tele(station, rcvbuf, len_rcv, 1);
 
-// 			printf("len_rcv = %d ", len_rcv);
-// 			for (int i = 0; i < len_rcv; i++)
+			printf("len_rcv = %d ", len_rcv);
+			for (int i = 0; i < len_rcv; i++)
+			{
+				printf("%02x ", rcvbuf[i]);
+			}
+ 			printf("\n");
+
+// 			if (len_rcv < 22)
 // 			{
-// 				printf("%02x ", rcvbuf[i]);
+// 				Sleep(10);
+// 				continue;
 // 			}
-// 			printf("\n");
+
 			end_offset = len_rcv - 4;
 			yx_offset = rcvbuf[4] + 256 * rcvbuf[5];
 			yc_offset = rcvbuf[6] + 256 * rcvbuf[7];
