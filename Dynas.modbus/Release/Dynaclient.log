@@ -1,0 +1,19 @@
+﻿生成启动时间为 2018-12-26 11:36:33。
+     1>项目“E:\Dynas\Dynas.modbus\Dynaclient.vcxproj”在节点 2 上(Rebuild 个目标)。
+     1>ClCompile:
+         E:\Dynas\Dynas.modbus\CL.exe /c /Zi /nologo /W3 /WX- /O2 /Oy- /D odbc32.lib /D odbccp32.lib /D RPCRT4.LIB /D WS2_32.LIB /D _VC80_UPGRADE=0x0600 /D _USING_V110_SDK71_ /D _MBCS /GF /Gm- /EHsc /MTd /Zp1 /GS /Gy /fp:precise /Zc:wchar_t /Zc:forScope /Fo".\Release\\" /Fd".\Release\vc120.pdb" /Gd /TP /analyze- /errorReport:prompt Dynaclient.cpp RpcProc.cpp
+         Dynaclient.cpp
+         RpcProc.cpp
+         正在生成代码...
+         E:\Dynas\Dynas.modbus\CL.exe /c /Zi /nologo /W3 /WX- /O2 /Oy- /D odbc32.lib /D odbccp32.lib /D RPCRT4.LIB /D WS2_32.LIB /D _VC80_UPGRADE=0x0600 /D _USING_V110_SDK71_ /D _MBCS /GF /Gm- /EHsc /MTd /Zp1 /GS /Gy /fp:precise /Zc:wchar_t /Zc:forScope /Fo".\Release\\" /Fd".\Release\vc120.pdb" /Gd /TC /analyze- /errorReport:prompt PANSI_c.c
+         PANSI_c.c
+       Link:
+         C:\Program Files (x86)\Microsoft Visual Studio 12.0\VC\bin\link.exe /ERRORREPORT:PROMPT /OUT:".\Release\Dynaclient.exe" /INCREMENTAL:NO /NOLOGO odbc32.lib odbccp32.lib RPCRT4.LIB WS2_32.LIB kernel32.lib user32.lib gdi32.lib winspool.lib comdlg32.lib advapi32.lib shell32.lib ole32.lib oleaut32.lib uuid.lib odbc32.lib odbccp32.lib /MANIFEST /MANIFESTUAC:"level='asInvoker' uiAccess='false'" /manifest:embed /PDB:".\Release\Dynaclient.pdb" /SUBSYSTEM:CONSOLE,"5.01" /TLBID:1 /DYNAMICBASE /NXCOMPAT /IMPLIB:".\Release\Dynaclient.lib" /MACHINE:X86 /SAFESEH .\Release\Dynaclient.obj
+         .\Release\PANSI_c.obj
+         .\Release\RpcProc.obj
+         Dynaclient.vcxproj -> E:\Dynas\Dynas.modbus\.\Release\Dynaclient.exe
+     1>已完成生成项目“E:\Dynas\Dynas.modbus\Dynaclient.vcxproj”(Rebuild 个目标)的操作。
+
+生成成功。
+
+已用时间 00:00:03.29

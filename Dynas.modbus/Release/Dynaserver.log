@@ -1,5 +1,6 @@
-﻿生成启动时间为 2018/8/29 10:22:37。
+﻿生成启动时间为 2019-01-20 16:06:26。
      1>项目“E:\Dynas\Dynas.modbus\Dynaserver.vcxproj”在节点 2 上(Rebuild 个目标)。
+     1>C:\Program Files (x86)\MSBuild\Microsoft.Cpp\v4.0\V120\Microsoft.CppBuild.targets(388,5): warning MSB8028: The intermediate directory (.\Release\) contains files shared from another project (Dynaclient.vcxproj, Dynas_interface.vcxproj).  This can lead to incorrect clean and rebuild behavior.
      1>ClCompile:
          E:\Dynas\Dynas.modbus\CL.exe /c /Zi /nologo /W3 /WX- /O2 /Oy- /D WIN32 /D NDEBUG /D _CONSOLE /D _VC80_UPGRADE=0x0600 /D _USING_V110_SDK71_ /D _MBCS /GF /Gm- /EHsc /MTd /Zp1 /GS /Gy /fp:precise /Zc:wchar_t /Zc:forScope /Fo".\Release\\" /Fd".\Release\vc120.pdb" /Gd /TP /analyze- /errorReport:prompt Dynaserver.cpp
          Dynaserver.cpp
@@ -7,8 +8,11 @@
          FE_MODBUS.c
      1>e:\dynas\dynas.modbus\modbus.h : warning C4819: 该文件包含不能在当前代码页(936)中表示的字符。请将该文件保存为 Unicode 格式以防止数据丢失
      1>e:\dynas\dynas.modbus\modbus-rtu.h : warning C4819: 该文件包含不能在当前代码页(936)中表示的字符。请将该文件保存为 Unicode 格式以防止数据丢失
-     1>FE_MODBUS.c(71): warning C4996: 'sprintf': This function or variable may be unsafe. Consider using sprintf_s instead. To disable deprecation, use _CRT_SECURE_NO_WARNINGS. See online help for details.
+     1>FE_MODBUS.c(93): warning C4996: 'sprintf': This function or variable may be unsafe. Consider using sprintf_s instead. To disable deprecation, use _CRT_SECURE_NO_WARNINGS. See online help for details.
                  C:\Program Files (x86)\Microsoft Visual Studio 12.0\VC\include\stdio.h(356) : 参见“sprintf”的声明
+     1>FE_MODBUS.c(138): warning C4244: “=”: 从“double”转换到“float”，可能丢失数据
+     1>FE_MODBUS.c(142): warning C4244: “=”: 从“int”转换到“float”，可能丢失数据
+     1>FE_MODBUS.c(144): warning C4244: “=”: 从“double”转换到“float”，可能丢失数据
          FrontEnd.c
      1>FrontEnd.c(35): warning C4996: 'strcpy': This function or variable may be unsafe. Consider using strcpy_s instead. To disable deprecation, use _CRT_SECURE_NO_WARNINGS. See online help for details.
      1>FrontEnd.c(51): warning C4996: 'strcpy': This function or variable may be unsafe. Consider using strcpy_s instead. To disable deprecation, use _CRT_SECURE_NO_WARNINGS. See online help for details.
@@ -39,11 +43,13 @@
                  C:\Program Files (x86)\Microsoft Visual Studio 12.0\VC\include\stdio.h(356) : 参见“sprintf”的声明
      1>FrontEnd.c(213): warning C4996: 'strncpy': This function or variable may be unsafe. Consider using strncpy_s instead. To disable deprecation, use _CRT_SECURE_NO_WARNINGS. See online help for details.
                  C:\Program Files (x86)\Microsoft Visual Studio 12.0\VC\include\string.h(195) : 参见“strncpy”的声明
-     1>FrontEnd.c(221): warning C4996: 'strcpy': This function or variable may be unsafe. Consider using strcpy_s instead. To disable deprecation, use _CRT_SECURE_NO_WARNINGS. See online help for details.
-     1>FrontEnd.c(226): warning C4996: 'sprintf': This function or variable may be unsafe. Consider using sprintf_s instead. To disable deprecation, use _CRT_SECURE_NO_WARNINGS. See online help for details.
+     1>FrontEnd.c(228): warning C4244: “=”: 从“double”转换到“float”，可能丢失数据
+     1>FrontEnd.c(240): warning C4244: “=”: 从“double”转换到“float”，可能丢失数据
+     1>FrontEnd.c(245): warning C4996: 'strcpy': This function or variable may be unsafe. Consider using strcpy_s instead. To disable deprecation, use _CRT_SECURE_NO_WARNINGS. See online help for details.
+     1>FrontEnd.c(250): warning C4996: 'sprintf': This function or variable may be unsafe. Consider using sprintf_s instead. To disable deprecation, use _CRT_SECURE_NO_WARNINGS. See online help for details.
                  C:\Program Files (x86)\Microsoft Visual Studio 12.0\VC\include\stdio.h(356) : 参见“sprintf”的声明
-     1>FrontEnd.c(228): warning C4996: 'strcpy': This function or variable may be unsafe. Consider using strcpy_s instead. To disable deprecation, use _CRT_SECURE_NO_WARNINGS. See online help for details.
-     1>FrontEnd.c(328): warning C4996: 'stricmp': The POSIX name for this item is deprecated. Instead, use the ISO C++ conformant name: _stricmp. See online help for details.
+     1>FrontEnd.c(252): warning C4996: 'strcpy': This function or variable may be unsafe. Consider using strcpy_s instead. To disable deprecation, use _CRT_SECURE_NO_WARNINGS. See online help for details.
+     1>FrontEnd.c(352): warning C4996: 'stricmp': The POSIX name for this item is deprecated. Instead, use the ISO C++ conformant name: _stricmp. See online help for details.
                  C:\Program Files (x86)\Microsoft Visual Studio 12.0\VC\include\string.h(253) : 参见“stricmp”的声明
          gen_funcs.c
      1>gen_funcs.c(70): warning C4996: 'vsprintf': This function or variable may be unsafe. Consider using vsprintf_s instead. To disable deprecation, use _CRT_SECURE_NO_WARNINGS. See online help for details.
@@ -245,4 +251,4 @@
 
 生成成功。
 
-已用时间 00:00:02.61
+已用时间 00:00:02.72

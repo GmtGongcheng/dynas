@@ -33,7 +33,29 @@ static int com_operation(modbus_t * ctx, int station, int point, int vtype, floa
 	else
 	{
 		uint16_t data16_YT[256];
-		data16_YT[0] = (unsigned short)(65536- 100 * fv);
+		if (point == 195)
+		{
+			if (fv > 0)
+			{
+				data16_YT[0] = (unsigned short)(65536 - 100 * fv);
+
+			}
+			else
+			{
+				data16_YT[0] = (unsigned short)(-100 * fv);
+			}
+
+		}
+		else if (point == 196)
+		{
+			data16_YT[0] = (unsigned short)(fv * 100);
+		}
+		else
+		{
+			data16_YT[0] = (unsigned short)fv;
+
+		}
+
 		ret = modbus_write_registers(ctx, ppYC[station][point].addr, 1, data16_YT);
 	}
 	return 0;
@@ -81,7 +103,8 @@ int WINAPI Routine_DY_MODBUS(int station)
 			//YC
 			int n = 1;
 			int indexYC = 0;//Ñ­»·´ÎÊý
-			int ncountYC = pStation[station].yt_begin - 1;
+			//int ncountYC = pStation[station].yt_begin - 1;
+			int ncountYC = 190;
 			int ncountYX = pStation[station].yk_begin - 1;
 			if (ncountYC % 44)
 			{
@@ -96,15 +119,29 @@ int WINAPI Routine_DY_MODBUS(int station)
 			for (int i = 1; i <= indexYC; i++)
 			{
 				uint16_t data16_YC[256];
-				if (n + 44 > ncountYC)
+				if (n + 44 > ncountYC + 1)
 				{
 					ret = modbus_read_registers(ctx, ppYC[station][n].addr, ncountYC % 44, data16_YC);
 					for (int j = 0; j < ncountYC % 44; j++)
 					{
-						ppYC[station][n].yc.value = data16_YC[j];
+						ppYC[station][n].yc.value = ppYC[station][n].k * data16_YC[j] + ppYC[station][n].b;
 // 						printf("%d:%lf\n", n, ppYC[station][n].yc.value);
 						n++;
 					}
+
+					Sleep(250);
+					ret = modbus_read_registers(ctx, ppYC[station][191].addr, 3, data16_YC);
+
+					ppYC[station][191].yc.value = data16_YC[0];
+					if (data16_YC[1] > 32768)
+					{
+						ppYC[station][192].yc.value = (65536 - (data16_YC[1])) * 0.01;
+					}
+					else
+					{
+						ppYC[station][192].yc.value = -data16_YC[1];
+					}
+					ppYC[station][193].yc.value = data16_YC[2] * 0.01;
 					i++;
 					Sleep(250);
 				}
@@ -113,7 +150,7 @@ int WINAPI Routine_DY_MODBUS(int station)
 					ret = modbus_read_registers(ctx, ppYC[station][n].addr, 44, data16_YC);
 					for (int j = 0; j < 44; j++)
 					{
-						ppYC[station][n].yc.value = data16_YC[j];
+						ppYC[station][n].yc.value  = ppYC[station][n].k * data16_YC[j] + ppYC[station][n].b;
 // 						printf("%d:%lf\n", n, ppYC[station][n].yc.value);
 						n++;
 
@@ -130,7 +167,6 @@ int WINAPI Routine_DY_MODBUS(int station)
 				for (int j = 0; j < 16;  j++)
 				{
 					ppYX[station][16 * i + j + 1].yx.value = (data16_YX[i] >> (j % 16)) & 0x0001u ? 1 : 0;
-
 				}
  			}
  			Sleep(250);

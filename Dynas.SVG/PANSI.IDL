@@ -1,0 +1,670 @@
+[
+	uuid(2F5F6520-CA46-1067-B319-00DD010662DA),
+  	version(1.0),
+  	pointer_default(unique)
+]
+
+interface pansi
+{
+//==========================================================================
+//【常量定义】
+//==========================================================================
+
+const char *DEFAULT_ENDPOINT = "9999";
+const char *DEFAULT_PROT_SEQ = "ncacn_ip_tcp";
+
+const int PS_MAXFILENAME = 80;
+
+const int MAXCOMPUTERNAME = 16;	// 机器名最大字节数
+const int MAXUSERNAME = 20;		// 用户名最大字节数
+const int MAXPASSWORD = 20;		// 密码名最大字节数
+
+const int MAXSYSTEMNAME	 = 80;    		// 系统名串
+const int MAXSTATIONNAME = 21;			// 厂站名串
+const int MAXPOINTNAME   = 41;			// 变量点名串
+const int MAXUNITNAME	 = 11;			// 单位串
+const int MAXEXPRESSION	 = 80;			// 表达式串
+const int MAXNUMPARAM	 = MAXEXPRESSION/4;	// 参数组
+
+const int MAXEVENTNOTE = 21;			// 事件描述
+
+//〖用户登录错误码〗
+
+enum {
+	URERROR_TOMANYUSER 		= -1,
+	URERROR_SAMECOMPUTER 	= -2,
+	URERROR_SAMEUSERNAME 	= -3,
+	URERROR_USERCANCELED 	= -4,
+	URERROR_PASSWORD 		= -5,
+	URERROR_PROHIBITED 		= -6,
+    URERROR_NETWORK 		= -20
+};
+
+// 〖表达式错误码〗
+
+enum	{
+	EXPRERROR_NONE,
+	EXPRERROR_NOEXPRESSION,
+	EXPRERROR_VARIABLE,
+	EXPRERROR_SYNTAX,
+	EXPRERROR_PARENTHESES,
+	EXPRERROR_OVERFLOW,
+	NUM_EXPRERROR
+};
+
+//〖用户权限〗
+
+enum {
+	USERPRIORITY_NONE 		= 0x0000,
+	USERPRIORITY_SYSPARAMS 	= 0x0008,
+    USERPRIORITY_VDT	 	= 0x0001,
+    USERPRIORITY_USERLIST	= 0x0010,
+    USERPRIORITY_DADABASE 	= 0x0004,
+    USERPRIORITY_PAGE	 	= 0x0020,
+    USERPRIORITY_PLAN	 	= 0x0040,
+    USERPRIORITY_OPERATION	= 0x0002,
+    USERPRIORITY_CONTROL 	= 0x0080,
+    USERPRIORITY_ALL 		= 0x0FFF
+};
+
+//〖变量类型〗
+
+enum {
+	VARTYPE_NONE = -1,
+	VARTYPE_YX = 0,
+	VARTYPE_YC,
+	VARTYPE_YD,
+	NUM_VARTYPE,				// (RTU变量类型数)
+    VARTYPE_YT = VARTYPE_YD+1,
+    NUM_VARTYPE_EX
+};
+
+//〖变量导出类型〗
+
+enum  {
+	VARTYPEX_NONE = 0,          // 变量原值
+
+	YXTYPEX_ALARMCOUNT = 1,		// 遥信变位次数
+	NUM_YXTYPEX,				// 遥信导出类型数
+
+	YCTYPEX_DAYMAX = 1,			//
+	YCTYPEX_DAYMIN,				//
+	YCTYPEX_DAYAVRG,			//
+	YCTYPEX_OKPERCENT,			//
+    NUM_YCTYPEX2,				// 遥测导出类型数2
+    YCTYPEX_DAYMAXTIME = NUM_YCTYPEX2,
+	YCTYPEX_DAYMINTIME,	 		//
+	//YCTYPEX_ALARMCOUNT,
+	NUM_YCTYPEX,				// 遥测导出类型数
+
+	YDTYPEX_HOURSUM = 1,
+	YDTYPEX_DAYSUM,				//
+	YDTYPEX_FF,					//
+	YDTYPEX_GG,					//
+	NUM_YDTYPEX,				// 电度导出类型数
+
+   	NUM_YTTYPEX = 1,			// 遥调导出类型数
+
+	CONTYPEX_BOOLS = 1,			// 布尔量组合
+	CONTYPEX_DIGIT,          	// 数字量关系
+	NUM_CONTYPEX,				// (条件值子类型数)
+
+	CALTYPEX_SUM = 1, 	  		// 累加
+	CALTYPEX_FACTOR,			// 功率因素
+	CALTYPEX_BALANCE,			// 平衡率
+	NUM_CALTYPEX,            	// (计算量子类型数)
+
+	CUMTYPEX_SUM = 1,			// 总加
+	CUMTYPEX_AVERAGE,			// 平均
+	CUMTYPEX_RIGHTAVRG,			// 加权平均
+	NUM_CUMTYPEX,            	// (累积量子类型数)
+};
+
+//〖变量状态〗
+
+enum {
+	VARSTATUS_ERROR = -1,
+	VARSTATUS_NORMAL = 0,
+	VARSTATUS_LOCK,
+	VARSTATUS_MANSET,
+    VARSTATUS_YK,
+	VARSTATUS_ALARM,
+	VARSTATUS_UPPER = VARSTATUS_ALARM,
+	VARSTATUS_LOWER,
+    VARSTATUS_SETSIDE,			// 旁路替代。仅对遥信
+    VARSTATUS_UPGRADE,
+    VARSTATUS_DOWNGRADE,
+    VARSTATUS_bad = 0x80
+};
+
+enum 		// 报警等级
+{
+	ALARMLEVEL_1 = 0,
+	ALARMLEVEL_2,
+	ALARMLEVEL_3,
+	ALARMLEVEL_4,
+	NUM_ALARMLEVEL
+};
+
+enum		// 事件类型
+{
+	EVENTTYPE_ALARM,
+	EVENTTYPE_OPERATION,
+	EVENTTYPE_SYSTEM,
+
+	NUM_EVENTTYPE
+};
+
+enum		// 事件子类型
+{
+	EVENTSUBTYPE_RTU = 0,
+	EVENTSUBTYPE_SWITCH,
+	EVENTSUBTYPE_SOE,
+    EVENTSUBTYPE_SIGNAL,
+	EVENTSUBTYPE_OVERFLOW,
+
+	EVENTSUBTYPE_LOCK,
+	EVENTSUBTYPE_MANSET,
+    EVENTSUBTYPE_SETSIDE,	// 旁路替代
+	EVENTSUBTYPE_YK,
+    EVENTSUBTYPE_YT,
+    EVENTSUBTYPE_RTURESET,
+
+	EVENTSUBTYPE_STARTUP,
+	EVENTSUBTYPE_LOGON,
+	EVENTSUBTYPE_SYSTEMOP,
+
+	NUM_EVENTSUBTYPE,
+
+	EVENTTYPE_alarm0 = EVENTSUBTYPE_RTU,
+	EVENTTYPE_alarm1 = EVENTSUBTYPE_OVERFLOW,
+
+	EVENTTYPE_operation0 = EVENTSUBTYPE_LOCK,
+	EVENTTYPE_operation1 = EVENTSUBTYPE_RTURESET,
+
+	EVENTTYPE_system0 = EVENTSUBTYPE_STARTUP,
+	EVENTTYPE_system1 = EVENTSUBTYPE_SYSTEMOP,
+};
+
+enum		// 事件状态
+{
+	EVENTSTATUS_RESET = 0,
+
+    EVENTSTATUS_RTUSET = 1,
+
+	EVENTSTATUS_YXSET0 = 1,
+	EVENTSTATUS_YXSET1,
+	EVENTSTATUS_YXCHANGE0,
+	EVENTSTATUS_YXCHANGE1,
+
+	EVENTSTATUS_SOE0 = 1,
+	EVENTSTATUS_SOE1,
+
+	EVENTSTATUS_YCLOWER = 1,
+	EVENTSTATUS_YCUPPER,
+
+	EVENTSTATUS_LOCK = 1,
+
+	EVENTSTATUS_MANSETX = 1,
+	EVENTSTATUS_MANSET0,
+	EVENTSTATUS_MANSET1,
+
+    EVENTSTATUS_SETSIDE = 1,	// 旁路替代
+
+	EVENTSTATUS_YKTIMEOUT = 1,
+	//EVENTSTATUS_YKIGNORE,
+    EVENTSTATUS_YKFAIL,
+	EVENTSTATUS_YKSUCCESS,
+	EVENTSTATUS_YKEXEC,
+    EVENTSTATUS_YKREADY,
+    EVENTSTATUS_YKCOMFIRM,
+	EVENTSTATUS_YKREQUEST,
+
+	EVENTSTATUS_POWERON = 1,
+
+	EVENTSTATUS_LOGON = 1,
+
+	EVENTSTATUS_VDT = 1,
+	EVENTSTATUS_DATABASE,
+    EVENTSTATUS_PLAN,
+	EVENTSTATUS_PAGE,
+
+	//EVENTSTATUS_CHECKCLOCK = 1,
+};
+
+//==========================================================================
+//【结构定义】
+//==========================================================================
+
+//〖日期结构〗
+
+typedef struct tagPS_DATE
+{
+	short year;
+    char  month;
+    char  day;
+} PS_DATE;
+
+//〖时间结构〗
+
+typedef struct tagPS_TIME
+{
+	char hour;
+    char minute;
+    char second;
+    char hundsec;
+} PS_TIME;
+
+//〖日期时间结构〗
+
+typedef struct tagPS_DATETIME
+{
+	short year;
+    char  month;
+    char  day;
+	char hour;
+    char minute;
+    char second;
+    char hundsec;
+} PS_DATETIME;
+
+//〖文件信息结构〗
+
+typedef struct tagPS_FILEDATA
+{
+	char 	filename[PS_MAXFILENAME];
+    PS_DATE date;
+    PS_TIME time;
+    long 	size;
+} PS_FILEDATA;
+
+//〖用户项结构〗
+
+typedef struct tagPS_USERITEM
+{
+    char  computername[MAXCOMPUTERNAME];
+    char  regname[MAXUSERNAME];
+	char  username[MAXUSERNAME];
+	char  password[MAXPASSWORD];
+    long  priority;
+} PS_USERITEM;
+
+//〖系统描述结构〗
+
+typedef struct tagEN_ssystem
+{
+	char name[MAXSYSTEMNAME];
+
+	short nstation;			// 厂站数
+
+	short nYX;
+	short nYC;
+	short nYD;
+	short nYT;
+	short nCON;
+	short nCAL;
+	short nCUM;
+	short nSOE;
+	short nAlarm;
+	short nInt;
+
+	short samplerate;		// 采样周期 (分钟)
+    short ykTimeout;		// 遥控超时时间
+
+	PS_TIME fftime[4];
+	PS_TIME ggtime[4];
+
+    char HomePage[PS_MAXFILENAME]; 	// 主页文件
+} EN_ssystem;
+
+//〖厂站描述结构〗
+
+typedef struct tagEN_sstation
+{
+	char name[MAXSTATIONNAME];
+
+	char protocol[MAXSTATIONNAME];		// 规约名
+	char addr1[16];						// 地址（IP）
+	char addr2[16];						// 第二个地址（IP）
+	unsigned short port;				// 端口号
+
+	unsigned short yk_begin;
+	unsigned short yk_end;
+	unsigned short yt_begin;
+	unsigned short yt_end;
+
+	unsigned short oper_type;
+	unsigned short oper_point;
+	float		   oper_value;
+
+	char  pagefile[PS_MAXFILENAME];	  	// 厂站主页面文件
+	long  reserved;
+} EN_sstation;
+
+
+//〖一般数据实时结构〗
+
+typedef struct tagPS_rt_gen
+{
+	short status;			// 状态标志
+    short rtuflag;
+    float value;			// 值
+} PS_rt_gen;
+
+//〖YX实时结构〗
+
+typedef struct tagPS_rt_yx
+{
+	short status;			// 状态标志
+    short rtuflag;
+    short value;			// 值
+    unsigned short alarmcount;	    // 日计报警数
+} PS_rt_yx;
+
+//〖YC实时结构〗
+
+typedef struct tagPS_rt_yc
+{
+	short status;			// 状态标志
+    short rtuflag;
+	float value;
+	float daymax;
+	float daymin;
+	long maxtime;
+	long mintime;
+    float dayavrg;
+	float okratio;
+} PS_rt_yc;
+
+//〖YD实时结构〗
+
+typedef struct tagPS_rt_yd
+{
+	short status;			// 状态标志
+    short rtuflag;
+	float value;
+	float hourvalue;		// 时初始电量 (用于计算时计电量)
+	float dayvalue;			// 日初始电量 (用于计算日计电量)
+	float ffsum;
+    float ggsum;
+} PS_rt_yd;
+
+//〖YX描述结构〗
+
+typedef struct tagEN_yyx
+{
+	char name[MAXPOINTNAME];	// 名称
+
+	struct
+	{
+		unsigned fAlarm : 1;
+		unsigned fAlarmCount : 1;
+
+		unsigned type : 2;
+		unsigned unused : 8;
+        unsigned padding													: 16;
+	} flag;  					// must be 2 bytes
+
+	short ykno;			// 遥控点号
+
+	short alarmtype;   	// 报警类别：0:无 1:(1->0) 2:(0->1) 3:(1<->0)
+	short alevel;           // 报警等级
+	  
+	PS_rt_yx yx;	
+} EN_yyx;
+
+//〖YC描述结构〗
+
+typedef struct tagEN_yyc
+{
+	char name[MAXPOINTNAME];	// 名称
+	char unit[MAXUNITNAME]; // 单位
+
+	float 	k;				// 线性转换系数
+	float 	b;				// 线性转换偏移
+
+	short 	precision;		// 精度
+	float	fullvalue;		// 满码值
+	float 	mindelta;		// 最小量差
+	float 	zerovalue;		// 零漂值
+
+	short   flog;			// 是否存储
+
+    short	fplan;			// 计划值
+    short	fcache;			// 事故追忆缓存
+
+	struct
+	{
+		unsigned fTrans : 1;   	// 是否进行线性转换
+		unsigned fMin   : 1;
+		unsigned fMax   : 1;
+		unsigned fAvrg  : 1;
+		unsigned fRatio : 1;
+		unsigned fUpper : 1;
+		unsigned fLower : 1;
+		unsigned fUpper2 : 1;
+		unsigned fLower2 : 1;
+		unsigned fMinTime: 1;
+		unsigned fMaxTime: 1;
+        unsigned padding : 16;
+//#ifdef GUANGZHOUVER
+		unsigned fMax2   : 1;
+		unsigned fMaxTime2:1;
+//#endif
+	} flag;                  // must be 2 bytes
+
+	short yxno;             // 关联遥信号
+	short alevel;           // 报警等级
+
+	float uppervalue;		// 上限值
+	float lowervalue;		// 下限值
+
+	float uppervalue2;		// 上上限值
+	float lowervalue2;		// 下下限值
+
+	PS_rt_yc yc;
+} EN_yyc;
+
+//〖YD描述结构〗
+
+typedef struct tagEN_yyd
+{
+	char name[MAXPOINTNAME];	// 名称
+	char unit[MAXUNITNAME]; 	// 单位
+
+	float 	k;				// 线性转换系数
+	float 	b;				// 线性转换偏移
+
+	short 	precision;		// 精度
+	//float 	mindelta;		// 最小量差
+
+	short   flog;			// 是否存储
+
+	struct
+	{
+		unsigned fTrans : 1;   	// 是否进行线性转换
+		unsigned fHourSum : 1;
+		unsigned fDaySum  : 1;
+		unsigned fFF    : 1;
+		unsigned fGG    : 1;
+
+		unsigned unused : 8;
+        unsigned padding : 16;
+		//unsigned fDelta : 1;        // 是否计算超欠值
+		//unsigned fSchedule : 1;		// 是否有计划值
+	} flag;            // must be 2 bytes
+
+	PS_rt_yd yd;
+} EN_yyd;
+
+typedef struct tagEN_yyt
+{
+    char name[MAXPOINTNAME];
+    short ytno;			// 遥调点号
+    short uppergrade;
+    short lowergrade;
+
+} EN_yyt;
+
+//〖YD描述结构〗
+typedef struct tagEN_SOE
+{
+	char name[MAXPOINTNAME];	// 名称
+	int yt_value[100];          //故障量值序号
+	int yt_count;               //故障量值个数
+} EN_SOE;
+
+//〖时间数据结构〗
+
+typedef struct tagPS_BASEDATA
+{
+	short year;
+    char  month;
+    char  day;
+	char hour;
+    char minute;
+    char second;
+    char hundsec;
+    float value;
+    short status;
+} PS_BASEDATA;
+
+//〖整树/实数联合〗
+
+typedef union tagUNIONVALUE
+{
+	long  lv;
+	float fv;
+} UNIONVALUE;
+
+//〖表达式描述结构〗
+
+typedef struct tagEN_expression
+{
+	short type;
+	union
+	{
+		char 		str[MAXEXPRESSION];
+		UNIONVALUE  param[MAXNUMPARAM];
+	};
+} EN_expression;
+
+//〖事件项结构〗
+
+typedef struct tagENEVENT
+{
+	char type;
+	char subtype;
+	char status;
+    PS_DATE date;
+	PS_TIME time;
+	char dtype;
+	short station;
+	short point;
+   	char  note[MAXEVENTNOTE];
+	char optor[MAXUSERNAME];	// 操作者
+	char flag;					// 标志
+} ENEVENT;
+
+//==========================================================================
+//【RPC函数声明】
+//==========================================================================
+
+void RPC_TestProc ();	// ([in, out, string] unsigned char * pszString);
+//void Shutdown(void);
+
+int RPC_GetPageFileNum ();
+int RPC_GetPageFilesData ([in, out, size_is(n)] PS_FILEDATA pfd[], [in] int n);
+int RPC_GetPageFile ([in] PS_FILEDATA *pfd, [in] long size, [out, size_is(size)] char pdata[]);
+int RPC_SavePageFile ([in] PS_FILEDATA *pfd, [in] long size, [in, size_is(size)] char pdata[], [in, string] char *regname);
+
+long RPC_GetVDTlid ();
+int RPC_GetSystemStruct ([out, size_is(1)] EN_ssystem *psystem);
+int RPC_GetStationStruct ([out, size_is(size)] char pstations[], [in] int size);
+int RPC_GetYXStruct ([out, size_is(size)] char pyyx[], [in] int size, [in] int station);
+int RPC_GetYCStruct ([out, size_is(size)] char pyyc[], [in] int size, [in] int station);
+int RPC_GetYDStruct ([out, size_is(size)] char pyyd[], [in] int size, [in] int station);
+int RPC_GetYTStruct ([out, size_is(size)] char pyyt[], [in] int size, [in] int station);
+int RPC_GetExprStruct ([out, size_is(size)] char expr[], [in] int size, [in] int vtype);
+
+int RPC_UserRegister ([in, out, size_is(1)] PS_USERITEM *pUserItem);
+int RPC_UserLogon ([in, out, size_is(1)] PS_USERITEM *pUserItem);
+int RPC_UserLogoff ([in, size_is(1)] PS_USERITEM *pUserItem);
+
+void RPC_GetSysTime ([out, size_is(1)]PS_DATE psdate[], [out, size_is(1)]PS_TIME pstime[]);
+
+int RPC_GetNewEvents ([in, out, size_is(size)] char pEvents[], [in] int size);
+
+int RPC_GetRealtimeData ([in, size_is(n)] long pIDs[], [out, size_is(n)] PS_rt_gen data[], [in] int n);
+int RPC_GetRealtimeYXData ([in, size_is(n)] long pIDs[], [out, size_is(n)] PS_rt_yx data[], [in] int n);
+int RPC_GetRealtimeYCData ([in, size_is(n)] long pIDs[], [out, size_is(n)] PS_rt_yc data[], [in] int n);
+int RPC_GetRealtimeYDData ([in, size_is(n)] long pIDs[], [out, size_is(n)] PS_rt_yd data[], [in] int n);
+
+int RPC_GetDayYXData ([in, string] char *datetime, [in, size_is(n)] long pIDs[], [out, size_is(n)] PS_rt_yx data[], [in] int n);
+int RPC_GetDayYCData ([in, string] char *datetime, [in, size_is(n)] long pIDs[], [out, size_is(n)] PS_rt_yc data[], [in] int n);
+int RPC_GetDayYDData ([in, string] char *datetime, [in, size_is(n)] long pIDs[], [out, size_is(n)] PS_rt_yd data[], [in] int n);
+
+void RPC_ManSetValue ([in] long varID, [in] float value, [in, string] char *regname);
+void RPC_DontCareValue ([in] long varID, [in, string] char *regname);
+void RPC_FreshValue ([in] long varID, [in, string] char *regname);
+void RPC_YKRequest ([in] long varID, [in] float tovalue, [in, string] char *regname);
+void RPC_YKConfirm ([in] long varID, [in] float tovalue, [in, string] char *regname);
+void RPC_YKExecute ([in] long varID, [in] float tovalue, [in, string] char *regname);
+
+void RPC_RTUReset ([in] long varID, [in, string] char *regname);
+
+// 旁路替代
+void RPC_SetSide ([in] long varID,
+   [in] long dwP, [in] long dwQ, [in] long dwI, [in, string] char *regname);
+
+void RPC_ResetSide ([in] long varID,
+   [in] long dwP, [in] long dwQ, [in] long dwI, [in, string] char *regname);
+
+int RPC_GetEventNum ([in] PS_DATE *pDate);
+int RPC_LoadEventBase ([out, size_is(size)] char pEvents[], [in] int size, [in] PS_DATE *pDate);
+int RPC_GetVarEventNum ([in] long vid, [in] PS_DATE *pDate);
+int RPC_LoadVarEventBase ([in] long vid, [out, size_is(size)] char pEvents[], [in] int size, [in] PS_DATE *pDate);
+
+float RPC_EvaluateExpression ([in, size_is(MAXEXPRESSION+2)] char pExpr[], [out] int *errcode);
+
+int RPC_GetRecordNum ([in] long varID, [in, string] char *datetime0, [in, string] char *datetime1);
+int RPC_LoadRecordData ([in] long varID, [in, string] char *datetime0, [in, string] char *datetime1,
+					[out, size_is(n)] PS_BASEDATA pBasedata[], [in] int n);
+
+int RPC_GetPlanRecNum ([in] long varID, [in, string] char *datetime0, [in, string] char *datetime1);
+int RPC_LoadPlanRecData ([in] long varID, [in, string] char *datetime0, [in, string] char *datetime1,
+					[out, size_is(n)] PS_BASEDATA pBasedata[], [in] int n);
+
+int RPC_LockPage ([in, string] char *pagefile, [in, string] char *regname);
+int RPC_UnlockPage ([in, string] char *pagefile, [in, string] char *regname);
+
+int RPC_LockVDT ([in, string] char *regname);
+int RPC_UnlockVDT ([in, string] char *regname);
+int RPC_LockSysParams ([in, string] char *regname);
+int RPC_UnlockSysParams ([in, string] char *regname);
+int RPC_LockUserList ([in, string] char *regname);
+int RPC_UnlockUserList ([in, string] char *regname);
+
+int RPC_LockDatabase ([in] long varID, [in, string] char *regname);
+int RPC_UnlockDatabase ([in] long varID, [in, string] char *regname);
+int RPC_LockPlanbase ([in] long varID, [in, string] char *regname);
+int RPC_UnlockPlanbase ([in] long varID, [in, string] char *regname);
+int RPC_LockOperation ([in] long varID, [in, string] char *regname);
+int RPC_UnlockOperation ([in] long varID, [in, string] char *regname);
+
+int RPC_GetSignalVarNum ([in, string] char *datetime, [in] long yxvid, [out] int *nrec);
+int RPC_GetSignalVarID ([in, string] char *datetime, [in] long yxvid,
+						[out, size_is(n)] long ycvids[], [in] int n);
+int RPC_LoadSignalVarData ([in, string] char *datetime, [in] long yxvid, [in] long ycvid,
+		[out, size_is(nrec)] float pData[], [out, size_is(nrec)] int pInterval[], [in] int nrec);
+
+int RPC_LoadPlanningData ([in] long varID, [out, size_is(n)] float pData[], [in] int n);
+int RPC_SetPlanningData ([in] long varID, [in, size_is(n)] float pData[], [in] int n);
+
+int RPC_GetUserNum ();
+int RPC_LoadUserList ([out, size_is(n)] PS_USERITEM pUserItem[], [in] int n);
+
+int RPC_InsertEvent ([in, size_is(size)] char pEvents[], [in] int size);
+int RPC_DeleteEvent ([in, size_is(size)] char pEvents[], [in] int size);
+}
+

@@ -1,0 +1,13 @@
+﻿生成启动时间为 2018-12-26 11:36:33。
+     1>项目“E:\Dynas\Dynas.modbus\Dynas_interface.vcxproj”在节点 3 上(Rebuild 个目标)。
+     1>Midl:
+         E:\Dynas\Dynas.modbus\midl.exe /W1 /nologo /char signed /env win32 /h "PANSI_h.h" /tlb ".\Release\Dynas_interface.tlb" PANSI.IDL 
+         Processing .\PANSI.IDL
+         PANSI.IDL
+         Processing .\PANSI.acf
+         PANSI.acf
+     1>已完成生成项目“E:\Dynas\Dynas.modbus\Dynas_interface.vcxproj”(Rebuild 个目标)的操作。
+
+生成成功。
+
+已用时间 00:00:01.37

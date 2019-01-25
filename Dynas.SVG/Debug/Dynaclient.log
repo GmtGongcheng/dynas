@@ -1,0 +1,76 @@
+﻿生成启动时间为 2018-11-27 15:44:46。
+     1>项目“E:\Dynas\Dynas.SVG\Dynaclient.vcxproj”在节点 2 上(Rebuild 个目标)。
+     1>C:\Program Files (x86)\MSBuild\Microsoft.Cpp\v4.0\V120\Microsoft.CppBuild.targets(388,5): warning MSB8028: The intermediate directory (.\Debug\) contains files shared from another project (Dynaserver.vcxproj).  This can lead to incorrect clean and rebuild behavior.
+     1>ClCompile:
+         E:\Dynas\Dynas.SVG\CL.exe /c /Z7 /nologo /W3 /WX- /Od /Oy- /D WIN32 /D _DEBUG /D _CONSOLE /D _VC80_UPGRADE=0x0600 /D _MBCS /GF /Gm /EHsc /RTC1 /MT /Zp1 /GS /Gy- /fp:precise /Zc:wchar_t /Zc:forScope /Fo".\Debug\\" /Fd".\Debug\vc120.pdb" /Gd /TP /analyze- /errorReport:prompt Dynaclient.cpp RpcProc.cpp
+     1>cl : 命令行 warning D9007: “/Gm”需要“/Zi 或 /ZI”；选项被忽略
+         Dynaclient.cpp
+         RpcProc.cpp
+         正在生成代码...
+         E:\Dynas\Dynas.SVG\CL.exe /c /Z7 /nologo /W3 /WX- /Od /Oy- /D WIN32 /D _DEBUG /D _CONSOLE /D _VC80_UPGRADE=0x0600 /D _MBCS /GF /Gm /EHsc /RTC1 /MT /Zp1 /GS /Gy- /fp:precise /Zc:wchar_t /Zc:forScope /Fo".\Debug\\" /Fd".\Debug\vc120.pdb" /Gd /TC /analyze- /errorReport:prompt PANSI_c.c
+     1>cl : 命令行 warning D9007: “/Gm”需要“/Zi 或 /ZI”；选项被忽略
+         PANSI_c.c
+     1>PANSI_c.c(216): warning C4028: 形参 3 与声明不同
+     1>PANSI_c.c(285): warning C4028: 形参 3 与声明不同
+     1>PANSI_c.c(285): warning C4028: 形参 4 与声明不同
+     1>PANSI_c.c(471): warning C4028: 形参 1 与声明不同
+     1>PANSI_c.c(527): warning C4028: 形参 1 与声明不同
+     1>PANSI_c.c(585): warning C4028: 形参 1 与声明不同
+     1>PANSI_c.c(643): warning C4028: 形参 1 与声明不同
+     1>PANSI_c.c(701): warning C4028: 形参 1 与声明不同
+     1>PANSI_c.c(759): warning C4028: 形参 1 与声明不同
+     1>PANSI_c.c(1064): warning C4028: 形参 1 与声明不同
+     1>PANSI_c.c(1402): warning C4028: 形参 1 与声明不同
+     1>PANSI_c.c(1482): warning C4028: 形参 1 与声明不同
+     1>PANSI_c.c(1562): warning C4028: 形参 1 与声明不同
+     1>PANSI_c.c(1641): warning C4028: 形参 3 与声明不同
+     1>PANSI_c.c(1696): warning C4028: 形参 2 与声明不同
+     1>PANSI_c.c(1749): warning C4028: 形参 2 与声明不同
+     1>PANSI_c.c(1803): warning C4028: 形参 3 与声明不同
+     1>PANSI_c.c(1859): warning C4028: 形参 3 与声明不同
+     1>PANSI_c.c(1915): warning C4028: 形参 3 与声明不同
+     1>PANSI_c.c(1970): warning C4028: 形参 2 与声明不同
+     1>PANSI_c.c(2026): warning C4028: 形参 5 与声明不同
+     1>PANSI_c.c(2088): warning C4028: 形参 5 与声明不同
+     1>PANSI_c.c(2206): warning C4028: 形参 1 与声明不同
+     1>PANSI_c.c(2336): warning C4028: 形参 2 与声明不同
+     1>PANSI_c.c(2405): warning C4028: 形参 1 与声明不同
+     1>PANSI_c.c(2471): warning C4028: 形参 2 与声明不同
+     1>PANSI_c.c(2471): warning C4028: 形参 3 与声明不同
+     1>PANSI_c.c(2547): warning C4028: 形参 2 与声明不同
+     1>PANSI_c.c(2547): warning C4028: 形参 3 与声明不同
+     1>PANSI_c.c(2630): warning C4028: 形参 2 与声明不同
+     1>PANSI_c.c(2630): warning C4028: 形参 3 与声明不同
+     1>PANSI_c.c(2706): warning C4028: 形参 2 与声明不同
+     1>PANSI_c.c(2706): warning C4028: 形参 3 与声明不同
+     1>PANSI_c.c(2788): warning C4028: 形参 1 与声明不同
+     1>PANSI_c.c(2788): warning C4028: 形参 2 与声明不同
+     1>PANSI_c.c(2859): warning C4028: 形参 1 与声明不同
+     1>PANSI_c.c(2859): warning C4028: 形参 2 与声明不同
+     1>PANSI_c.c(2929): warning C4028: 形参 1 与声明不同
+     1>PANSI_c.c(2987): warning C4028: 形参 1 与声明不同
+     1>PANSI_c.c(3045): warning C4028: 形参 1 与声明不同
+     1>PANSI_c.c(3103): warning C4028: 形参 1 与声明不同
+     1>PANSI_c.c(3161): warning C4028: 形参 1 与声明不同
+     1>PANSI_c.c(3219): warning C4028: 形参 1 与声明不同
+     1>PANSI_c.c(3278): warning C4028: 形参 2 与声明不同
+     1>PANSI_c.c(3339): warning C4028: 形参 2 与声明不同
+     1>PANSI_c.c(3400): warning C4028: 形参 2 与声明不同
+     1>PANSI_c.c(3461): warning C4028: 形参 2 与声明不同
+     1>PANSI_c.c(3522): warning C4028: 形参 2 与声明不同
+     1>PANSI_c.c(3583): warning C4028: 形参 2 与声明不同
+     1>PANSI_c.c(3645): warning C4028: 形参 1 与声明不同
+     1>PANSI_c.c(3715): warning C4028: 形参 1 与声明不同
+     1>PANSI_c.c(3788): warning C4028: 形参 1 与声明不同
+     1>PANSI_c.c(4084): warning C4028: 形参 1 与声明不同
+     1>PANSI_c.c(4146): warning C4028: 形参 1 与声明不同
+       Link:
+         C:\Program Files (x86)\Microsoft Visual Studio 12.0\VC\bin\link.exe /ERRORREPORT:PROMPT /OUT:".\Dynaclient.exe" /INCREMENTAL /NOLOGO RPCRT4.LIB kernel32.lib user32.lib gdi32.lib winspool.lib comdlg32.lib advapi32.lib shell32.lib ole32.lib oleaut32.lib uuid.lib odbc32.lib odbccp32.lib /MANIFEST /MANIFESTUAC:"level='asInvoker' uiAccess='false'" /manifest:embed /DEBUG /PDB:".\Dynaclient.pdb" /SUBSYSTEM:CONSOLE /TLBID:1 /DYNAMICBASE /NXCOMPAT /IMPLIB:".\Dynaclient.lib" /MACHINE:X86 /SAFESEH .\Debug\Dynaclient.obj
+         .\Debug\PANSI_c.obj
+         .\Debug\RpcProc.obj
+         Dynaclient.vcxproj -> E:\Dynas\Dynas.SVG\.\Dynaclient.exe
+     1>已完成生成项目“E:\Dynas\Dynas.SVG\Dynaclient.vcxproj”(Rebuild 个目标)的操作。
+
+生成成功。
+
+已用时间 00:00:02.20

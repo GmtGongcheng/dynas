@@ -215,32 +215,56 @@ int WINAPI FrontEndSetup()
 					p = GetSubString(keystr, 2);
 					ppYC[i][j].addr = strtol(p, NULL, 16);
 					//sprintf (ppYC[i][j].name, "YC%d, %04d", station-1, i-1);
+
+					p = GetSubString(keystr, 3);
+					if (p != NULL)
+					{
+						if (strlen(p) == 0)
+						{
+							ppYC[i][j].k = 1;
+						}
+						else
+						{
+							ppYC[i][j].k = atof(p);
+						}
+					}
+					p = GetSubString(keystr, 4);
+					if (p != NULL)
+					{
+						if (strlen(p) == 0)
+						{
+							ppYC[i][j].b = 0;
+						}
+						else
+						{
+							ppYC[i][j].b = atof(p);
+						}
+					}
+
+					else
+						strcpy(ppYC[i][j].name, "通信速率");
 				}
+				else	// station == 0
+				{
+					if (j)
+						sprintf(ppYC[i][j].name, "CAL, %04d", j);
+					else
+						strcpy(ppYC[i][j].name, "通信总速率");
+				}
+				ppYC[i][j].precision = 2;
+				ppYC[i][j].alevel = 2;
 
-				else
-					strcpy(ppYC[i][j].name, "通信速率");
+				ppYC[i][j].flog = 1;
+				ppYC[i][j].fplan = 1;
+				ppYC[i][j].fcache = 1;
+
+				ppYC[i][j].flag.fMax = 1;
+				ppYC[i][j].flag.fMin = 1;
+				ppYC[i][j].flag.fAvrg = 1;
+				ppYC[i][j].flag.fMaxTime = 1;
+				ppYC[i][j].flag.fMinTime = 1;
+				ppYC[i][j].flag.fRatio = 1;
 			}
-			else	// station == 0
-			{
-				if (j)
-					sprintf(ppYC[i][j].name, "CAL, %04d", j);
-				else
-					strcpy(ppYC[i][j].name, "通信总速率");
-			}
-			ppYC[i][j].precision = 2;
-			ppYC[i][j].alevel = 2;
-			ppYC[i][j].k = 1;
-
-			ppYC[i][j].flog = 1;
-			ppYC[i][j].fplan = 1;
-			ppYC[i][j].fcache = 1;
-
-			ppYC[i][j].flag.fMax = 1;
-			ppYC[i][j].flag.fMin = 1;
-			ppYC[i][j].flag.fAvrg = 1;
-			ppYC[i][j].flag.fMaxTime = 1;
-			ppYC[i][j].flag.fMinTime = 1;
-			ppYC[i][j].flag.fRatio = 1;
 		}
 	}
 
