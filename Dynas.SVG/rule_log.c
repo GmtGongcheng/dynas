@@ -94,6 +94,84 @@
 //}
 
 
+
+void WriteSOE(int link_ID, char* logStr, char* filestr)
+{
+	char fileNameBuf[256];
+	memset(fileNameBuf, 0x00, sizeof(fileNameBuf));
+	sprintf(fileNameBuf, "./SER/%d_%s.txt", link_ID,filestr);
+	m_p_log_fp = NULL;
+	m_p_log_fp = fopen(fileNameBuf, "a+");
+	if (m_p_log_fp == NULL)
+	{
+
+#ifdef _MSC_VER
+		int error = 0;
+		error = GetLastError();
+		printf("\r\nlinkID=%d,error=%d\r\n", link_ID, error);
+#endif
+
+	}
+	//RWRecMutex::WLock autoLock(m_semLogFile);
+
+	BaseFileInfo* fileInfo = (BaseFileInfo*)malloc(sizeof(BaseFileInfo));
+
+	//GetFileInfo("./","dynas.log",fileInfo);
+	GetFileInfo("./", fileNameBuf, fileInfo);
+
+	if (fileInfo->size > 51200)	//日志文件大于50K则清空
+	{
+		printf("文件大于1M\n");
+		SYSTEMTIME	systime;
+		memset(&systime, 0x00, sizeof(systime));
+		GetCurTime(&systime);
+		char buf[256];
+		memset(buf, 0x00, sizeof(buf));
+
+		sprintf(buf, "./SOE/%s/%d_dynas%4d_%02d_%02d_%02d_%02d_%02d_%s.txt", filestr, link_ID,
+			systime.wYear, systime.wMonth, systime.wDay, systime.wHour, systime.wMinute, systime.wSecond,filestr);
+
+		printf("%s\r\n", buf);
+		//fclose(logFp);
+#ifdef _WIN32
+		//CopyFile("./dynas.log",buf);
+		CopyFile_Log(fileNameBuf, buf);
+		if (m_p_log_fp)
+			fclose(m_p_log_fp);
+		m_p_log_fp = fopen(fileNameBuf, "wb");
+
+		if (m_p_log_fp)
+			fclose(m_p_log_fp);
+		m_p_log_fp = fopen(fileNameBuf, "a+");
+
+#else
+		if (m_p_log_fp)
+			fclose(m_p_log_fp);
+
+		rename((const char*)fileNameBuf, (const char*)buf);
+		m_p_log_fp = fopen(fileNameBuf, "a+");
+#endif
+	}
+	free(fileInfo);
+
+	char str[256];
+	memset(str, 0x00, sizeof(str));
+	SYSTEMTIME	systime;
+	memset(&systime, 0x00, sizeof(systime));
+	GetCurTime(&systime);
+
+	//sprintf(str, "C: %04d-%02d-%02d %02d:%02d:%02d %03d linkID=%d,logInfo:%s\n", systime.wYear, systime.wMonth, systime.wDay,
+	//	systime.wHour, systime.wMinute, systime.wSecond, systime.wMilliseconds, link_ID, logStr);
+
+	if (m_p_log_fp)
+	{
+		int count = fprintf(m_p_log_fp, "%s", logStr);
+		fflush(m_p_log_fp);
+		fclose(m_p_log_fp);
+	}
+}
+
+
 void WriteLog(int link_ID, char* logStr)
 	{
 		char fileNameBuf[256];

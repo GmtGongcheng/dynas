@@ -2,9 +2,9 @@
 
 
 /* File created by MIDL compiler version 5.01.0164 */
-/* at Wed Dec 12 18:26:25 2018
+/* at Tue Jul 31 11:34:59 2018
  */
-/* Compiler settings for PANSI.IDL:
+/* Compiler settings for .\PANSI.IDL:
     Os (OptLev=s), W1, Zp1, env=Win32, ms_ext, c_ext, oldnames
     error checks: allocation ref bounds_check enum stub_data 
 */
@@ -276,9 +276,6 @@ typedef struct  tagEN_ssystem
     short nCON;
     short nCAL;
     short nCUM;
-    short nSOE;
-    short nAlarm;
-    short nInt;
     short samplerate;
     short ykTimeout;
     PS_TIME fftime[ 4 ];
@@ -427,13 +424,6 @@ typedef struct  tagEN_yyt
     short uppergrade;
     short lowergrade;
     }	EN_yyt;
-
-typedef struct  tagEN_SOE
-    {
-    char name[ 41 ];
-    int yt_value[ 100 ];
-    int yt_count;
-    }	EN_SOE;
 
 typedef struct  tagPS_BASEDATA
     {

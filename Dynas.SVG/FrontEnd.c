@@ -20,8 +20,8 @@ int split(int* dst, char* name, char* str, const char* spl) {
 	char *result = NULL;
 	char *ds1 = NULL;
 	result = strtok(str, spl);
+	strcpy(name, result);
 	result = strtok(NULL, spl);
-	name = result;
 	while (result != NULL)
 	{
 		dst[n++] = atoi(result);
@@ -42,6 +42,7 @@ int WINAPI FrontEndSetup()
 	int i, j;
 	char profstr[256];
 	char *p;
+	int nSOE, nAlarm, nInd;
 
 	WSADATA wsaData;
 
@@ -55,9 +56,9 @@ int WINAPI FrontEndSetup()
 	System.nYC  = GetPrivateProfileInt("system", "nYC", 256, GetIniFileName()) + 1;	   	// 加一个V点
 	System.nYD  = GetPrivateProfileInt("system", "nYD", 64, GetIniFileName()) + 1;    	// 加一个V点
 	System.nYT  = GetPrivateProfileInt("system", "nYT", 20, GetIniFileName()) + 1;
-	System.nSOE = GetPrivateProfileInt("system", "nSOE", 128, GetIniFileName());
-	System.nSOE = GetPrivateProfileInt("system", "nAlarm", 128, GetIniFileName());
-	System.nSOE = GetPrivateProfileInt("system", "nInt", 128, GetIniFileName());
+	nSOE        = GetPrivateProfileInt("system", "nSOE", 128, GetIniFileName());
+	nAlarm      = GetPrivateProfileInt("system", "nAlarm", 128, GetIniFileName());
+	nInd        = GetPrivateProfileInt("system", "nInt", 128, GetIniFileName());
 
 
 
@@ -243,10 +244,10 @@ int WINAPI FrontEndSetup()
 	ppSOE = (EN_SOE **)malloc(System.nstation * sizeof(EN_SOE *));
 	for (i = 0; i < System.nstation; i++)
 	{
-		npoint = System.nSOE;
-		size = System.nSOE * sizeof(EN_SOE);
+		npoint = nSOE;
+		size = nSOE * sizeof(EN_SOE);
 		ppSOE[i] = (EN_SOE *)malloc(size);
-		memset(ppYX[i], 0, size);    		// reset
+		memset(ppSOE[i], 0, size);    		// reset
 
 		for (j = 0; j < npoint; j++)
 		{
@@ -288,7 +289,83 @@ int WINAPI FrontEndSetup()
 
 	}
 
+	//Alarm
+	//
+	ppAlarm = (EN_Alarm **)malloc(System.nstation * sizeof(EN_Alarm *));
+	for (i = 0; i < System.nstation; i++)
+	{
+		npoint = nAlarm;
+		size = nAlarm * sizeof(EN_Alarm);
+		ppAlarm[i] = (EN_Alarm *)malloc(size);
+		memset(ppAlarm[i], 0, size);    		// reset
 
+		for (j = 0; j < npoint; j++)
+		{
+			if (i)
+			{
+				if (j)
+				{
+					char defname[41];
+					char keyname[41];
+					char  buf[256];
+					sprintf(defname, "SOE_%d_%04d", i, j);
+					sprintf(keyname, "SOE_%d_%d", i, j);
+					GetPrivateProfileString("SOE", keyname, defname, buf, ppAlarm[i][j].name, GetIniFileName());
+
+				}
+				else
+					strcpy(ppAlarm[i][j].name, "预留");
+			}
+			else	// station == 0
+			{
+				if (j)
+					sprintf(ppAlarm[i][j].name, "预留, %04d", j);
+				else
+					strcpy(ppAlarm[i][j].name, "预留");
+			}
+		}
+
+
+	}
+
+	//Ind
+	//
+	ppInd = (EN_Ind **)malloc(System.nstation * sizeof(EN_Ind *));
+	for (i = 0; i < System.nstation; i++)
+	{
+		npoint = nInd;
+		size = nInd * sizeof(EN_Ind);
+		ppInd[i] = (EN_Ind *)malloc(size);
+		memset(ppInd[i], 0, size);    		// reset
+
+		for (j = 0; j < npoint; j++)
+		{
+			if (i)
+			{
+				if (j)
+				{
+					char defname[41];
+					char keyname[41];
+					char  buf[256];
+					sprintf(defname, "SOE_%d_%04d", i, j);
+					sprintf(keyname, "SOE_%d_%d", i, j);
+					GetPrivateProfileString("SOE", keyname, defname, buf, ppInd[i][j].name, GetIniFileName());
+
+				}
+				else
+					strcpy(ppInd[i][j].name, "预留");
+			}
+			else	// station == 0
+			{
+				if (j)
+					sprintf(ppInd[i][j].name, "预留, %04d", j);
+				else
+					strcpy(ppInd[i][j].name, "预留");
+			}
+		}
+
+
+	}
 
 #ifdef INITVALUES
 	// YX YC 初始值
@@ -353,6 +430,8 @@ LRESULT WINAPI FrontEndRoutine(LPVOID lp)
 		Routine_XD_FK(station);
 	else if (stricmp(protocol, "DY_SVG") == 0)
 		Routine_DY_SVG(station);
+	else if (stricmp(protocol, "XD_SVG") == 0)
+		Routine_XD_SVG(station);
 
 	return 0L;
 }
@@ -399,6 +478,18 @@ void WINAPI FrontEndCleanup()
 		for (i = 0; i < System.nstation; i++)
 			if (ppSOE[i])	free(ppSOE[i]);
 		free(ppSOE);
+	}
+	if (ppAlarm)
+	{
+		for (i = 0; i < System.nstation; i++)
+			if (ppAlarm[i])	free(ppAlarm[i]);
+		free(ppAlarm);
+	}
+	if (ppInd)
+	{
+		for (i = 0; i < System.nstation; i++)
+			if (ppInd[i])	free(ppInd[i]);
+		free(ppInd);
 	}
 	if (pStation)
 		free(pStation);

@@ -2,9 +2,9 @@
 
 
 /* File created by MIDL compiler version 5.01.0164 */
-/* at Wed Dec 12 18:26:25 2018
+/* at Tue Jul 31 11:34:59 2018
  */
-/* Compiler settings for PANSI.IDL:
+/* Compiler settings for .\PANSI.IDL:
     Os (OptLev=s), W1, Zp1, env=Win32, ms_ext, c_ext, oldnames
     error checks: allocation ref bounds_check enum stub_data 
 */
@@ -17,7 +17,7 @@
 
 #include "PANSI.h"
 
-#define TYPE_FORMAT_STRING_SIZE   481                               
+#define TYPE_FORMAT_STRING_SIZE   479                               
 #define PROC_FORMAT_STRING_SIZE   409                               
 
 typedef struct _MIDL_TYPE_FORMAT_STRING
@@ -447,7 +447,7 @@ int RPC_GetSystemStruct(
         
         NdrConformantArrayUnmarshall( (PMIDL_STUB_MESSAGE) &_StubMsg,
                                       (unsigned char __RPC_FAR * __RPC_FAR *)&psystem,
-                                      (PFORMAT_STRING) &__MIDL_TypeFormatString.Format[124],
+                                      (PFORMAT_STRING) &__MIDL_TypeFormatString.Format[122],
                                       (unsigned char)0 );
         
         _StubMsg.Buffer = (unsigned char __RPC_FAR *)(((long)_StubMsg.Buffer + 3) & ~ 0x3);
@@ -843,7 +843,7 @@ int RPC_UserRegister(
         
         NdrConformantArrayBufferSize( (PMIDL_STUB_MESSAGE) &_StubMsg,
                                       (unsigned char __RPC_FAR *)pUserItem,
-                                      (PFORMAT_STRING) &__MIDL_TypeFormatString.Format[176] );
+                                      (PFORMAT_STRING) &__MIDL_TypeFormatString.Format[174] );
         
         NdrGetBuffer( (PMIDL_STUB_MESSAGE) &_StubMsg, _StubMsg.BufferLength, _Handle );
         
@@ -851,7 +851,7 @@ int RPC_UserRegister(
         
         NdrConformantArrayMarshall( (PMIDL_STUB_MESSAGE)& _StubMsg,
                                     (unsigned char __RPC_FAR *)pUserItem,
-                                    (PFORMAT_STRING) &__MIDL_TypeFormatString.Format[176] );
+                                    (PFORMAT_STRING) &__MIDL_TypeFormatString.Format[174] );
         
         NdrSendReceive( (PMIDL_STUB_MESSAGE) &_StubMsg, (unsigned char __RPC_FAR *) _StubMsg.Buffer );
         
@@ -860,7 +860,7 @@ int RPC_UserRegister(
         
         NdrConformantArrayUnmarshall( (PMIDL_STUB_MESSAGE) &_StubMsg,
                                       (unsigned char __RPC_FAR * __RPC_FAR *)&pUserItem,
-                                      (PFORMAT_STRING) &__MIDL_TypeFormatString.Format[176],
+                                      (PFORMAT_STRING) &__MIDL_TypeFormatString.Format[174],
                                       (unsigned char)0 );
         
         _RetVal = *(( int __RPC_FAR * )_StubMsg.Buffer)++;
@@ -910,7 +910,7 @@ int RPC_UserLogon(
         
         NdrConformantArrayBufferSize( (PMIDL_STUB_MESSAGE) &_StubMsg,
                                       (unsigned char __RPC_FAR *)pUserItem,
-                                      (PFORMAT_STRING) &__MIDL_TypeFormatString.Format[176] );
+                                      (PFORMAT_STRING) &__MIDL_TypeFormatString.Format[174] );
         
         NdrGetBuffer( (PMIDL_STUB_MESSAGE) &_StubMsg, _StubMsg.BufferLength, _Handle );
         
@@ -918,7 +918,7 @@ int RPC_UserLogon(
         
         NdrConformantArrayMarshall( (PMIDL_STUB_MESSAGE)& _StubMsg,
                                     (unsigned char __RPC_FAR *)pUserItem,
-                                    (PFORMAT_STRING) &__MIDL_TypeFormatString.Format[176] );
+                                    (PFORMAT_STRING) &__MIDL_TypeFormatString.Format[174] );
         
         NdrSendReceive( (PMIDL_STUB_MESSAGE) &_StubMsg, (unsigned char __RPC_FAR *) _StubMsg.Buffer );
         
@@ -927,7 +927,7 @@ int RPC_UserLogon(
         
         NdrConformantArrayUnmarshall( (PMIDL_STUB_MESSAGE) &_StubMsg,
                                       (unsigned char __RPC_FAR * __RPC_FAR *)&pUserItem,
-                                      (PFORMAT_STRING) &__MIDL_TypeFormatString.Format[176],
+                                      (PFORMAT_STRING) &__MIDL_TypeFormatString.Format[174],
                                       (unsigned char)0 );
         
         _RetVal = *(( int __RPC_FAR * )_StubMsg.Buffer)++;
@@ -977,7 +977,7 @@ int RPC_UserLogoff(
         
         NdrConformantArrayBufferSize( (PMIDL_STUB_MESSAGE) &_StubMsg,
                                       (unsigned char __RPC_FAR *)pUserItem,
-                                      (PFORMAT_STRING) &__MIDL_TypeFormatString.Format[176] );
+                                      (PFORMAT_STRING) &__MIDL_TypeFormatString.Format[174] );
         
         NdrGetBuffer( (PMIDL_STUB_MESSAGE) &_StubMsg, _StubMsg.BufferLength, _Handle );
         
@@ -985,7 +985,7 @@ int RPC_UserLogoff(
         
         NdrConformantArrayMarshall( (PMIDL_STUB_MESSAGE)& _StubMsg,
                                     (unsigned char __RPC_FAR *)pUserItem,
-                                    (PFORMAT_STRING) &__MIDL_TypeFormatString.Format[176] );
+                                    (PFORMAT_STRING) &__MIDL_TypeFormatString.Format[174] );
         
         NdrSendReceive( (PMIDL_STUB_MESSAGE) &_StubMsg, (unsigned char __RPC_FAR *) _StubMsg.Buffer );
         
@@ -1039,12 +1039,12 @@ void RPC_GetSysTime(
         
         NdrConformantArrayUnmarshall( (PMIDL_STUB_MESSAGE) &_StubMsg,
                                       (unsigned char __RPC_FAR * __RPC_FAR *)&psdate,
-                                      (PFORMAT_STRING) &__MIDL_TypeFormatString.Format[190],
+                                      (PFORMAT_STRING) &__MIDL_TypeFormatString.Format[188],
                                       (unsigned char)0 );
         
         NdrConformantArrayUnmarshall( (PMIDL_STUB_MESSAGE) &_StubMsg,
                                       (unsigned char __RPC_FAR * __RPC_FAR *)&pstime,
-                                      (PFORMAT_STRING) &__MIDL_TypeFormatString.Format[204],
+                                      (PFORMAT_STRING) &__MIDL_TypeFormatString.Format[202],
                                       (unsigned char)0 );
         
         }
@@ -1157,7 +1157,7 @@ int RPC_GetRealtimeData(
         
         NdrConformantArrayBufferSize( (PMIDL_STUB_MESSAGE) &_StubMsg,
                                       (unsigned char __RPC_FAR *)pIDs,
-                                      (PFORMAT_STRING) &__MIDL_TypeFormatString.Format[218] );
+                                      (PFORMAT_STRING) &__MIDL_TypeFormatString.Format[216] );
         
         NdrGetBuffer( (PMIDL_STUB_MESSAGE) &_StubMsg, _StubMsg.BufferLength, _Handle );
         
@@ -1165,7 +1165,7 @@ int RPC_GetRealtimeData(
         
         NdrConformantArrayMarshall( (PMIDL_STUB_MESSAGE)& _StubMsg,
                                     (unsigned char __RPC_FAR *)pIDs,
-                                    (PFORMAT_STRING) &__MIDL_TypeFormatString.Format[218] );
+                                    (PFORMAT_STRING) &__MIDL_TypeFormatString.Format[216] );
         
         *(( int __RPC_FAR * )_StubMsg.Buffer)++ = n;
         
@@ -1176,7 +1176,7 @@ int RPC_GetRealtimeData(
         
         NdrConformantArrayUnmarshall( (PMIDL_STUB_MESSAGE) &_StubMsg,
                                       (unsigned char __RPC_FAR * __RPC_FAR *)&data,
-                                      (PFORMAT_STRING) &__MIDL_TypeFormatString.Format[236],
+                                      (PFORMAT_STRING) &__MIDL_TypeFormatString.Format[234],
                                       (unsigned char)0 );
         
         _RetVal = *(( int __RPC_FAR * )_StubMsg.Buffer)++;
@@ -1224,7 +1224,7 @@ int RPC_GetRealtimeYXData(
         
         NdrConformantArrayBufferSize( (PMIDL_STUB_MESSAGE) &_StubMsg,
                                       (unsigned char __RPC_FAR *)pIDs,
-                                      (PFORMAT_STRING) &__MIDL_TypeFormatString.Format[218] );
+                                      (PFORMAT_STRING) &__MIDL_TypeFormatString.Format[216] );
         
         NdrGetBuffer( (PMIDL_STUB_MESSAGE) &_StubMsg, _StubMsg.BufferLength, _Handle );
         
@@ -1232,7 +1232,7 @@ int RPC_GetRealtimeYXData(
         
         NdrConformantArrayMarshall( (PMIDL_STUB_MESSAGE)& _StubMsg,
                                     (unsigned char __RPC_FAR *)pIDs,
-                                    (PFORMAT_STRING) &__MIDL_TypeFormatString.Format[218] );
+                                    (PFORMAT_STRING) &__MIDL_TypeFormatString.Format[216] );
         
         *(( int __RPC_FAR * )_StubMsg.Buffer)++ = n;
         
@@ -1243,7 +1243,7 @@ int RPC_GetRealtimeYXData(
         
         NdrConformantArrayUnmarshall( (PMIDL_STUB_MESSAGE) &_StubMsg,
                                       (unsigned char __RPC_FAR * __RPC_FAR *)&data,
-                                      (PFORMAT_STRING) &__MIDL_TypeFormatString.Format[260],
+                                      (PFORMAT_STRING) &__MIDL_TypeFormatString.Format[258],
                                       (unsigned char)0 );
         
         _RetVal = *(( int __RPC_FAR * )_StubMsg.Buffer)++;
@@ -1291,7 +1291,7 @@ int RPC_GetRealtimeYCData(
         
         NdrConformantArrayBufferSize( (PMIDL_STUB_MESSAGE) &_StubMsg,
                                       (unsigned char __RPC_FAR *)pIDs,
-                                      (PFORMAT_STRING) &__MIDL_TypeFormatString.Format[218] );
+                                      (PFORMAT_STRING) &__MIDL_TypeFormatString.Format[216] );
         
         NdrGetBuffer( (PMIDL_STUB_MESSAGE) &_StubMsg, _StubMsg.BufferLength, _Handle );
         
@@ -1299,7 +1299,7 @@ int RPC_GetRealtimeYCData(
         
         NdrConformantArrayMarshall( (PMIDL_STUB_MESSAGE)& _StubMsg,
                                     (unsigned char __RPC_FAR *)pIDs,
-                                    (PFORMAT_STRING) &__MIDL_TypeFormatString.Format[218] );
+                                    (PFORMAT_STRING) &__MIDL_TypeFormatString.Format[216] );
         
         *(( int __RPC_FAR * )_StubMsg.Buffer)++ = n;
         
@@ -1310,7 +1310,7 @@ int RPC_GetRealtimeYCData(
         
         NdrConformantArrayUnmarshall( (PMIDL_STUB_MESSAGE) &_StubMsg,
                                       (unsigned char __RPC_FAR * __RPC_FAR *)&data,
-                                      (PFORMAT_STRING) &__MIDL_TypeFormatString.Format[288],
+                                      (PFORMAT_STRING) &__MIDL_TypeFormatString.Format[286],
                                       (unsigned char)0 );
         
         _RetVal = *(( int __RPC_FAR * )_StubMsg.Buffer)++;
@@ -1358,7 +1358,7 @@ int RPC_GetRealtimeYDData(
         
         NdrConformantArrayBufferSize( (PMIDL_STUB_MESSAGE) &_StubMsg,
                                       (unsigned char __RPC_FAR *)pIDs,
-                                      (PFORMAT_STRING) &__MIDL_TypeFormatString.Format[218] );
+                                      (PFORMAT_STRING) &__MIDL_TypeFormatString.Format[216] );
         
         NdrGetBuffer( (PMIDL_STUB_MESSAGE) &_StubMsg, _StubMsg.BufferLength, _Handle );
         
@@ -1366,7 +1366,7 @@ int RPC_GetRealtimeYDData(
         
         NdrConformantArrayMarshall( (PMIDL_STUB_MESSAGE)& _StubMsg,
                                     (unsigned char __RPC_FAR *)pIDs,
-                                    (PFORMAT_STRING) &__MIDL_TypeFormatString.Format[218] );
+                                    (PFORMAT_STRING) &__MIDL_TypeFormatString.Format[216] );
         
         *(( int __RPC_FAR * )_StubMsg.Buffer)++ = n;
         
@@ -1377,7 +1377,7 @@ int RPC_GetRealtimeYDData(
         
         NdrConformantArrayUnmarshall( (PMIDL_STUB_MESSAGE) &_StubMsg,
                                       (unsigned char __RPC_FAR * __RPC_FAR *)&data,
-                                      (PFORMAT_STRING) &__MIDL_TypeFormatString.Format[314],
+                                      (PFORMAT_STRING) &__MIDL_TypeFormatString.Format[312],
                                       (unsigned char)0 );
         
         _RetVal = *(( int __RPC_FAR * )_StubMsg.Buffer)++;
@@ -1434,7 +1434,7 @@ int RPC_GetDayYXData(
         
         NdrConformantArrayBufferSize( (PMIDL_STUB_MESSAGE) &_StubMsg,
                                       (unsigned char __RPC_FAR *)pIDs,
-                                      (PFORMAT_STRING) &__MIDL_TypeFormatString.Format[328] );
+                                      (PFORMAT_STRING) &__MIDL_TypeFormatString.Format[326] );
         
         NdrGetBuffer( (PMIDL_STUB_MESSAGE) &_StubMsg, _StubMsg.BufferLength, _Handle );
         
@@ -1446,7 +1446,7 @@ int RPC_GetDayYXData(
         
         NdrConformantArrayMarshall( (PMIDL_STUB_MESSAGE)& _StubMsg,
                                     (unsigned char __RPC_FAR *)pIDs,
-                                    (PFORMAT_STRING) &__MIDL_TypeFormatString.Format[328] );
+                                    (PFORMAT_STRING) &__MIDL_TypeFormatString.Format[326] );
         
         *(( int __RPC_FAR * )_StubMsg.Buffer)++ = n;
         
@@ -1457,7 +1457,7 @@ int RPC_GetDayYXData(
         
         NdrConformantArrayUnmarshall( (PMIDL_STUB_MESSAGE) &_StubMsg,
                                       (unsigned char __RPC_FAR * __RPC_FAR *)&data,
-                                      (PFORMAT_STRING) &__MIDL_TypeFormatString.Format[338],
+                                      (PFORMAT_STRING) &__MIDL_TypeFormatString.Format[336],
                                       (unsigned char)0 );
         
         _RetVal = *(( int __RPC_FAR * )_StubMsg.Buffer)++;
@@ -1514,7 +1514,7 @@ int RPC_GetDayYCData(
         
         NdrConformantArrayBufferSize( (PMIDL_STUB_MESSAGE) &_StubMsg,
                                       (unsigned char __RPC_FAR *)pIDs,
-                                      (PFORMAT_STRING) &__MIDL_TypeFormatString.Format[328] );
+                                      (PFORMAT_STRING) &__MIDL_TypeFormatString.Format[326] );
         
         NdrGetBuffer( (PMIDL_STUB_MESSAGE) &_StubMsg, _StubMsg.BufferLength, _Handle );
         
@@ -1526,7 +1526,7 @@ int RPC_GetDayYCData(
         
         NdrConformantArrayMarshall( (PMIDL_STUB_MESSAGE)& _StubMsg,
                                     (unsigned char __RPC_FAR *)pIDs,
-                                    (PFORMAT_STRING) &__MIDL_TypeFormatString.Format[328] );
+                                    (PFORMAT_STRING) &__MIDL_TypeFormatString.Format[326] );
         
         *(( int __RPC_FAR * )_StubMsg.Buffer)++ = n;
         
@@ -1537,7 +1537,7 @@ int RPC_GetDayYCData(
         
         NdrConformantArrayUnmarshall( (PMIDL_STUB_MESSAGE) &_StubMsg,
                                       (unsigned char __RPC_FAR * __RPC_FAR *)&data,
-                                      (PFORMAT_STRING) &__MIDL_TypeFormatString.Format[352],
+                                      (PFORMAT_STRING) &__MIDL_TypeFormatString.Format[350],
                                       (unsigned char)0 );
         
         _RetVal = *(( int __RPC_FAR * )_StubMsg.Buffer)++;
@@ -1594,7 +1594,7 @@ int RPC_GetDayYDData(
         
         NdrConformantArrayBufferSize( (PMIDL_STUB_MESSAGE) &_StubMsg,
                                       (unsigned char __RPC_FAR *)pIDs,
-                                      (PFORMAT_STRING) &__MIDL_TypeFormatString.Format[328] );
+                                      (PFORMAT_STRING) &__MIDL_TypeFormatString.Format[326] );
         
         NdrGetBuffer( (PMIDL_STUB_MESSAGE) &_StubMsg, _StubMsg.BufferLength, _Handle );
         
@@ -1606,7 +1606,7 @@ int RPC_GetDayYDData(
         
         NdrConformantArrayMarshall( (PMIDL_STUB_MESSAGE)& _StubMsg,
                                     (unsigned char __RPC_FAR *)pIDs,
-                                    (PFORMAT_STRING) &__MIDL_TypeFormatString.Format[328] );
+                                    (PFORMAT_STRING) &__MIDL_TypeFormatString.Format[326] );
         
         *(( int __RPC_FAR * )_StubMsg.Buffer)++ = n;
         
@@ -1617,7 +1617,7 @@ int RPC_GetDayYDData(
         
         NdrConformantArrayUnmarshall( (PMIDL_STUB_MESSAGE) &_StubMsg,
                                       (unsigned char __RPC_FAR * __RPC_FAR *)&data,
-                                      (PFORMAT_STRING) &__MIDL_TypeFormatString.Format[366],
+                                      (PFORMAT_STRING) &__MIDL_TypeFormatString.Format[364],
                                       (unsigned char)0 );
         
         _RetVal = *(( int __RPC_FAR * )_StubMsg.Buffer)++;
@@ -2381,7 +2381,7 @@ int RPC_LoadVarEventBase(
         
         NdrConformantArrayUnmarshall( (PMIDL_STUB_MESSAGE) &_StubMsg,
                                       (unsigned char __RPC_FAR * __RPC_FAR *)&pEvents,
-                                      (PFORMAT_STRING) &__MIDL_TypeFormatString.Format[384],
+                                      (PFORMAT_STRING) &__MIDL_TypeFormatString.Format[382],
                                       (unsigned char)0 );
         
         _StubMsg.Buffer = (unsigned char __RPC_FAR *)(((long)_StubMsg.Buffer + 3) & ~ 0x3);
@@ -2433,7 +2433,7 @@ float RPC_EvaluateExpression(
         
         NdrConformantArrayBufferSize( (PMIDL_STUB_MESSAGE) &_StubMsg,
                                       (unsigned char __RPC_FAR *)pExpr,
-                                      (PFORMAT_STRING) &__MIDL_TypeFormatString.Format[394] );
+                                      (PFORMAT_STRING) &__MIDL_TypeFormatString.Format[392] );
         
         NdrGetBuffer( (PMIDL_STUB_MESSAGE) &_StubMsg, _StubMsg.BufferLength, _Handle );
         
@@ -2441,7 +2441,7 @@ float RPC_EvaluateExpression(
         
         NdrConformantArrayMarshall( (PMIDL_STUB_MESSAGE)& _StubMsg,
                                     (unsigned char __RPC_FAR *)pExpr,
-                                    (PFORMAT_STRING) &__MIDL_TypeFormatString.Format[394] );
+                                    (PFORMAT_STRING) &__MIDL_TypeFormatString.Format[392] );
         
         NdrSendReceive( (PMIDL_STUB_MESSAGE) &_StubMsg, (unsigned char __RPC_FAR *) _StubMsg.Buffer );
         
@@ -2605,7 +2605,7 @@ int RPC_LoadRecordData(
         
         NdrConformantArrayUnmarshall( (PMIDL_STUB_MESSAGE) &_StubMsg,
                                       (unsigned char __RPC_FAR * __RPC_FAR *)&pBasedata,
-                                      (PFORMAT_STRING) &__MIDL_TypeFormatString.Format[422],
+                                      (PFORMAT_STRING) &__MIDL_TypeFormatString.Format[420],
                                       (unsigned char)0 );
         
         _StubMsg.Buffer = (unsigned char __RPC_FAR *)(((long)_StubMsg.Buffer + 3) & ~ 0x3);
@@ -2764,7 +2764,7 @@ int RPC_LoadPlanRecData(
         
         NdrConformantArrayUnmarshall( (PMIDL_STUB_MESSAGE) &_StubMsg,
                                       (unsigned char __RPC_FAR * __RPC_FAR *)&pBasedata,
-                                      (PFORMAT_STRING) &__MIDL_TypeFormatString.Format[422],
+                                      (PFORMAT_STRING) &__MIDL_TypeFormatString.Format[420],
                                       (unsigned char)0 );
         
         _StubMsg.Buffer = (unsigned char __RPC_FAR *)(((long)_StubMsg.Buffer + 3) & ~ 0x3);
@@ -3761,7 +3761,7 @@ int RPC_GetSignalVarID(
         
         NdrConformantArrayUnmarshall( (PMIDL_STUB_MESSAGE) &_StubMsg,
                                       (unsigned char __RPC_FAR * __RPC_FAR *)&ycvids,
-                                      (PFORMAT_STRING) &__MIDL_TypeFormatString.Format[328],
+                                      (PFORMAT_STRING) &__MIDL_TypeFormatString.Format[326],
                                       (unsigned char)0 );
         
         _RetVal = *(( int __RPC_FAR * )_StubMsg.Buffer)++;
@@ -3836,12 +3836,12 @@ int RPC_LoadSignalVarData(
         
         NdrConformantArrayUnmarshall( (PMIDL_STUB_MESSAGE) &_StubMsg,
                                       (unsigned char __RPC_FAR * __RPC_FAR *)&pData,
-                                      (PFORMAT_STRING) &__MIDL_TypeFormatString.Format[436],
+                                      (PFORMAT_STRING) &__MIDL_TypeFormatString.Format[434],
                                       (unsigned char)0 );
         
         NdrConformantArrayUnmarshall( (PMIDL_STUB_MESSAGE) &_StubMsg,
                                       (unsigned char __RPC_FAR * __RPC_FAR *)&pInterval,
-                                      (PFORMAT_STRING) &__MIDL_TypeFormatString.Format[446],
+                                      (PFORMAT_STRING) &__MIDL_TypeFormatString.Format[444],
                                       (unsigned char)0 );
         
         _RetVal = *(( int __RPC_FAR * )_StubMsg.Buffer)++;
@@ -3898,7 +3898,7 @@ int RPC_LoadPlanningData(
         
         NdrConformantArrayUnmarshall( (PMIDL_STUB_MESSAGE) &_StubMsg,
                                       (unsigned char __RPC_FAR * __RPC_FAR *)&pData,
-                                      (PFORMAT_STRING) &__MIDL_TypeFormatString.Format[456],
+                                      (PFORMAT_STRING) &__MIDL_TypeFormatString.Format[454],
                                       (unsigned char)0 );
         
         _RetVal = *(( int __RPC_FAR * )_StubMsg.Buffer)++;
@@ -3946,7 +3946,7 @@ int RPC_SetPlanningData(
         
         NdrConformantArrayBufferSize( (PMIDL_STUB_MESSAGE) &_StubMsg,
                                       (unsigned char __RPC_FAR *)pData,
-                                      (PFORMAT_STRING) &__MIDL_TypeFormatString.Format[456] );
+                                      (PFORMAT_STRING) &__MIDL_TypeFormatString.Format[454] );
         
         NdrGetBuffer( (PMIDL_STUB_MESSAGE) &_StubMsg, _StubMsg.BufferLength, _Handle );
         
@@ -3956,7 +3956,7 @@ int RPC_SetPlanningData(
         
         NdrConformantArrayMarshall( (PMIDL_STUB_MESSAGE)& _StubMsg,
                                     (unsigned char __RPC_FAR *)pData,
-                                    (PFORMAT_STRING) &__MIDL_TypeFormatString.Format[456] );
+                                    (PFORMAT_STRING) &__MIDL_TypeFormatString.Format[454] );
         
         *(( int __RPC_FAR * )_StubMsg.Buffer)++ = n;
         
@@ -4061,7 +4061,7 @@ int RPC_LoadUserList(
         
         NdrConformantArrayUnmarshall( (PMIDL_STUB_MESSAGE) &_StubMsg,
                                       (unsigned char __RPC_FAR * __RPC_FAR *)&pUserItem,
-                                      (PFORMAT_STRING) &__MIDL_TypeFormatString.Format[466],
+                                      (PFORMAT_STRING) &__MIDL_TypeFormatString.Format[464],
                                       (unsigned char)0 );
         
         _RetVal = *(( int __RPC_FAR * )_StubMsg.Buffer)++;
@@ -4341,7 +4341,7 @@ static const MIDL_PROC_FORMAT_STRING __MIDL_ProcFormatString =
 #else
 			0x2,		/* Alpha Stack size = 2 */
 #endif
-/* 66 */	NdrFcShort( 0x8a ),	/* Type Offset=138 */
+/* 66 */	NdrFcShort( 0x88 ),	/* Type Offset=136 */
 /* 68 */	0x53,		/* FC_RETURN_PARAM_BASETYPE */
 			0x8,		/* FC_LONG */
 /* 70 */	
@@ -4351,7 +4351,7 @@ static const MIDL_PROC_FORMAT_STRING __MIDL_ProcFormatString =
 #else
 			0x2,		/* Alpha Stack size = 2 */
 #endif
-/* 72 */	NdrFcShort( 0x8a ),	/* Type Offset=138 */
+/* 72 */	NdrFcShort( 0x88 ),	/* Type Offset=136 */
 /* 74 */	0x53,		/* FC_RETURN_PARAM_BASETYPE */
 			0x8,		/* FC_LONG */
 /* 76 */	
@@ -4361,7 +4361,7 @@ static const MIDL_PROC_FORMAT_STRING __MIDL_ProcFormatString =
 #else
 			0x2,		/* Alpha Stack size = 2 */
 #endif
-/* 78 */	NdrFcShort( 0xbe ),	/* Type Offset=190 */
+/* 78 */	NdrFcShort( 0xbc ),	/* Type Offset=188 */
 /* 80 */	
 			0x51,		/* FC_OUT_PARAM */
 #ifndef _ALPHA_
@@ -4369,7 +4369,7 @@ static const MIDL_PROC_FORMAT_STRING __MIDL_ProcFormatString =
 #else
 			0x2,		/* Alpha Stack size = 2 */
 #endif
-/* 82 */	NdrFcShort( 0xcc ),	/* Type Offset=204 */
+/* 82 */	NdrFcShort( 0xca ),	/* Type Offset=202 */
 /* 84 */	0x5b,		/* FC_END */
 			0x5c,		/* FC_PAD */
 /* 86 */	
@@ -4391,7 +4391,7 @@ static const MIDL_PROC_FORMAT_STRING __MIDL_ProcFormatString =
 #else
 			0x2,		/* Alpha Stack size = 2 */
 #endif
-/* 96 */	NdrFcShort( 0xda ),	/* Type Offset=218 */
+/* 96 */	NdrFcShort( 0xd8 ),	/* Type Offset=216 */
 /* 98 */	
 			0x51,		/* FC_OUT_PARAM */
 #ifndef _ALPHA_
@@ -4399,7 +4399,7 @@ static const MIDL_PROC_FORMAT_STRING __MIDL_ProcFormatString =
 #else
 			0x2,		/* Alpha Stack size = 2 */
 #endif
-/* 100 */	NdrFcShort( 0xec ),	/* Type Offset=236 */
+/* 100 */	NdrFcShort( 0xea ),	/* Type Offset=234 */
 /* 102 */	0x4e,		/* FC_IN_PARAM_BASETYPE */
 			0x8,		/* FC_LONG */
 /* 104 */	0x53,		/* FC_RETURN_PARAM_BASETYPE */
@@ -4411,7 +4411,7 @@ static const MIDL_PROC_FORMAT_STRING __MIDL_ProcFormatString =
 #else
 			0x2,		/* Alpha Stack size = 2 */
 #endif
-/* 108 */	NdrFcShort( 0xda ),	/* Type Offset=218 */
+/* 108 */	NdrFcShort( 0xd8 ),	/* Type Offset=216 */
 /* 110 */	
 			0x51,		/* FC_OUT_PARAM */
 #ifndef _ALPHA_
@@ -4419,7 +4419,7 @@ static const MIDL_PROC_FORMAT_STRING __MIDL_ProcFormatString =
 #else
 			0x2,		/* Alpha Stack size = 2 */
 #endif
-/* 112 */	NdrFcShort( 0x104 ),	/* Type Offset=260 */
+/* 112 */	NdrFcShort( 0x102 ),	/* Type Offset=258 */
 /* 114 */	0x4e,		/* FC_IN_PARAM_BASETYPE */
 			0x8,		/* FC_LONG */
 /* 116 */	0x53,		/* FC_RETURN_PARAM_BASETYPE */
@@ -4431,7 +4431,7 @@ static const MIDL_PROC_FORMAT_STRING __MIDL_ProcFormatString =
 #else
 			0x2,		/* Alpha Stack size = 2 */
 #endif
-/* 120 */	NdrFcShort( 0xda ),	/* Type Offset=218 */
+/* 120 */	NdrFcShort( 0xd8 ),	/* Type Offset=216 */
 /* 122 */	
 			0x51,		/* FC_OUT_PARAM */
 #ifndef _ALPHA_
@@ -4439,7 +4439,7 @@ static const MIDL_PROC_FORMAT_STRING __MIDL_ProcFormatString =
 #else
 			0x2,		/* Alpha Stack size = 2 */
 #endif
-/* 124 */	NdrFcShort( 0x120 ),	/* Type Offset=288 */
+/* 124 */	NdrFcShort( 0x11e ),	/* Type Offset=286 */
 /* 126 */	0x4e,		/* FC_IN_PARAM_BASETYPE */
 			0x8,		/* FC_LONG */
 /* 128 */	0x53,		/* FC_RETURN_PARAM_BASETYPE */
@@ -4451,7 +4451,7 @@ static const MIDL_PROC_FORMAT_STRING __MIDL_ProcFormatString =
 #else
 			0x2,		/* Alpha Stack size = 2 */
 #endif
-/* 132 */	NdrFcShort( 0xda ),	/* Type Offset=218 */
+/* 132 */	NdrFcShort( 0xd8 ),	/* Type Offset=216 */
 /* 134 */	
 			0x51,		/* FC_OUT_PARAM */
 #ifndef _ALPHA_
@@ -4459,7 +4459,7 @@ static const MIDL_PROC_FORMAT_STRING __MIDL_ProcFormatString =
 #else
 			0x2,		/* Alpha Stack size = 2 */
 #endif
-/* 136 */	NdrFcShort( 0x13a ),	/* Type Offset=314 */
+/* 136 */	NdrFcShort( 0x138 ),	/* Type Offset=312 */
 /* 138 */	0x4e,		/* FC_IN_PARAM_BASETYPE */
 			0x8,		/* FC_LONG */
 /* 140 */	0x53,		/* FC_RETURN_PARAM_BASETYPE */
@@ -4479,7 +4479,7 @@ static const MIDL_PROC_FORMAT_STRING __MIDL_ProcFormatString =
 #else
 			0x2,		/* Alpha Stack size = 2 */
 #endif
-/* 148 */	NdrFcShort( 0x148 ),	/* Type Offset=328 */
+/* 148 */	NdrFcShort( 0x146 ),	/* Type Offset=326 */
 /* 150 */	
 			0x51,		/* FC_OUT_PARAM */
 #ifndef _ALPHA_
@@ -4487,7 +4487,7 @@ static const MIDL_PROC_FORMAT_STRING __MIDL_ProcFormatString =
 #else
 			0x2,		/* Alpha Stack size = 2 */
 #endif
-/* 152 */	NdrFcShort( 0x152 ),	/* Type Offset=338 */
+/* 152 */	NdrFcShort( 0x150 ),	/* Type Offset=336 */
 /* 154 */	0x4e,		/* FC_IN_PARAM_BASETYPE */
 			0x8,		/* FC_LONG */
 /* 156 */	0x53,		/* FC_RETURN_PARAM_BASETYPE */
@@ -4507,7 +4507,7 @@ static const MIDL_PROC_FORMAT_STRING __MIDL_ProcFormatString =
 #else
 			0x2,		/* Alpha Stack size = 2 */
 #endif
-/* 164 */	NdrFcShort( 0x148 ),	/* Type Offset=328 */
+/* 164 */	NdrFcShort( 0x146 ),	/* Type Offset=326 */
 /* 166 */	
 			0x51,		/* FC_OUT_PARAM */
 #ifndef _ALPHA_
@@ -4515,7 +4515,7 @@ static const MIDL_PROC_FORMAT_STRING __MIDL_ProcFormatString =
 #else
 			0x2,		/* Alpha Stack size = 2 */
 #endif
-/* 168 */	NdrFcShort( 0x160 ),	/* Type Offset=352 */
+/* 168 */	NdrFcShort( 0x15e ),	/* Type Offset=350 */
 /* 170 */	0x4e,		/* FC_IN_PARAM_BASETYPE */
 			0x8,		/* FC_LONG */
 /* 172 */	0x53,		/* FC_RETURN_PARAM_BASETYPE */
@@ -4535,7 +4535,7 @@ static const MIDL_PROC_FORMAT_STRING __MIDL_ProcFormatString =
 #else
 			0x2,		/* Alpha Stack size = 2 */
 #endif
-/* 180 */	NdrFcShort( 0x148 ),	/* Type Offset=328 */
+/* 180 */	NdrFcShort( 0x146 ),	/* Type Offset=326 */
 /* 182 */	
 			0x51,		/* FC_OUT_PARAM */
 #ifndef _ALPHA_
@@ -4543,7 +4543,7 @@ static const MIDL_PROC_FORMAT_STRING __MIDL_ProcFormatString =
 #else
 			0x2,		/* Alpha Stack size = 2 */
 #endif
-/* 184 */	NdrFcShort( 0x16e ),	/* Type Offset=366 */
+/* 184 */	NdrFcShort( 0x16c ),	/* Type Offset=364 */
 /* 186 */	0x4e,		/* FC_IN_PARAM_BASETYPE */
 			0x8,		/* FC_LONG */
 /* 188 */	0x53,		/* FC_RETURN_PARAM_BASETYPE */
@@ -4599,7 +4599,7 @@ static const MIDL_PROC_FORMAT_STRING __MIDL_ProcFormatString =
 #else
 			0x2,		/* Alpha Stack size = 2 */
 #endif
-/* 224 */	NdrFcShort( 0x17c ),	/* Type Offset=380 */
+/* 224 */	NdrFcShort( 0x17a ),	/* Type Offset=378 */
 /* 226 */	0x53,		/* FC_RETURN_PARAM_BASETYPE */
 			0x8,		/* FC_LONG */
 /* 228 */	
@@ -4619,7 +4619,7 @@ static const MIDL_PROC_FORMAT_STRING __MIDL_ProcFormatString =
 #else
 			0x2,		/* Alpha Stack size = 2 */
 #endif
-/* 236 */	NdrFcShort( 0x17c ),	/* Type Offset=380 */
+/* 236 */	NdrFcShort( 0x17a ),	/* Type Offset=378 */
 /* 238 */	0x53,		/* FC_RETURN_PARAM_BASETYPE */
 			0x8,		/* FC_LONG */
 /* 240 */	0x4e,		/* FC_IN_PARAM_BASETYPE */
@@ -4631,7 +4631,7 @@ static const MIDL_PROC_FORMAT_STRING __MIDL_ProcFormatString =
 #else
 			0x2,		/* Alpha Stack size = 2 */
 #endif
-/* 244 */	NdrFcShort( 0x17c ),	/* Type Offset=380 */
+/* 244 */	NdrFcShort( 0x17a ),	/* Type Offset=378 */
 /* 246 */	0x53,		/* FC_RETURN_PARAM_BASETYPE */
 			0x8,		/* FC_LONG */
 /* 248 */	0x4e,		/* FC_IN_PARAM_BASETYPE */
@@ -4643,7 +4643,7 @@ static const MIDL_PROC_FORMAT_STRING __MIDL_ProcFormatString =
 #else
 			0x2,		/* Alpha Stack size = 2 */
 #endif
-/* 252 */	NdrFcShort( 0x180 ),	/* Type Offset=384 */
+/* 252 */	NdrFcShort( 0x17e ),	/* Type Offset=382 */
 /* 254 */	0x4e,		/* FC_IN_PARAM_BASETYPE */
 			0x8,		/* FC_LONG */
 /* 256 */	
@@ -4653,7 +4653,7 @@ static const MIDL_PROC_FORMAT_STRING __MIDL_ProcFormatString =
 #else
 			0x2,		/* Alpha Stack size = 2 */
 #endif
-/* 258 */	NdrFcShort( 0x17c ),	/* Type Offset=380 */
+/* 258 */	NdrFcShort( 0x17a ),	/* Type Offset=378 */
 /* 260 */	0x53,		/* FC_RETURN_PARAM_BASETYPE */
 			0x8,		/* FC_LONG */
 /* 262 */	
@@ -4663,7 +4663,7 @@ static const MIDL_PROC_FORMAT_STRING __MIDL_ProcFormatString =
 #else
 			0x2,		/* Alpha Stack size = 2 */
 #endif
-/* 264 */	NdrFcShort( 0x18a ),	/* Type Offset=394 */
+/* 264 */	NdrFcShort( 0x188 ),	/* Type Offset=392 */
 /* 266 */	
 			0x51,		/* FC_OUT_PARAM */
 #ifndef _ALPHA_
@@ -4671,7 +4671,7 @@ static const MIDL_PROC_FORMAT_STRING __MIDL_ProcFormatString =
 #else
 			0x2,		/* Alpha Stack size = 2 */
 #endif
-/* 268 */	NdrFcShort( 0x194 ),	/* Type Offset=404 */
+/* 268 */	NdrFcShort( 0x192 ),	/* Type Offset=402 */
 /* 270 */	0x53,		/* FC_RETURN_PARAM_BASETYPE */
 			0xa,		/* FC_FLOAT */
 /* 272 */	0x4e,		/* FC_IN_PARAM_BASETYPE */
@@ -4719,7 +4719,7 @@ static const MIDL_PROC_FORMAT_STRING __MIDL_ProcFormatString =
 #else
 			0x2,		/* Alpha Stack size = 2 */
 #endif
-/* 296 */	NdrFcShort( 0x1a6 ),	/* Type Offset=422 */
+/* 296 */	NdrFcShort( 0x1a4 ),	/* Type Offset=420 */
 /* 298 */	0x4e,		/* FC_IN_PARAM_BASETYPE */
 			0x8,		/* FC_LONG */
 /* 300 */	0x53,		/* FC_RETURN_PARAM_BASETYPE */
@@ -4781,7 +4781,7 @@ static const MIDL_PROC_FORMAT_STRING __MIDL_ProcFormatString =
 #else
 			0x2,		/* Alpha Stack size = 2 */
 #endif
-/* 334 */	NdrFcShort( 0x194 ),	/* Type Offset=404 */
+/* 334 */	NdrFcShort( 0x192 ),	/* Type Offset=402 */
 /* 336 */	0x53,		/* FC_RETURN_PARAM_BASETYPE */
 			0x8,		/* FC_LONG */
 /* 338 */	
@@ -4801,7 +4801,7 @@ static const MIDL_PROC_FORMAT_STRING __MIDL_ProcFormatString =
 #else
 			0x2,		/* Alpha Stack size = 2 */
 #endif
-/* 346 */	NdrFcShort( 0x148 ),	/* Type Offset=328 */
+/* 346 */	NdrFcShort( 0x146 ),	/* Type Offset=326 */
 /* 348 */	0x4e,		/* FC_IN_PARAM_BASETYPE */
 			0x8,		/* FC_LONG */
 /* 350 */	0x53,		/* FC_RETURN_PARAM_BASETYPE */
@@ -4825,7 +4825,7 @@ static const MIDL_PROC_FORMAT_STRING __MIDL_ProcFormatString =
 #else
 			0x2,		/* Alpha Stack size = 2 */
 #endif
-/* 362 */	NdrFcShort( 0x1b4 ),	/* Type Offset=436 */
+/* 362 */	NdrFcShort( 0x1b2 ),	/* Type Offset=434 */
 /* 364 */	
 			0x51,		/* FC_OUT_PARAM */
 #ifndef _ALPHA_
@@ -4833,7 +4833,7 @@ static const MIDL_PROC_FORMAT_STRING __MIDL_ProcFormatString =
 #else
 			0x2,		/* Alpha Stack size = 2 */
 #endif
-/* 366 */	NdrFcShort( 0x1be ),	/* Type Offset=446 */
+/* 366 */	NdrFcShort( 0x1bc ),	/* Type Offset=444 */
 /* 368 */	0x4e,		/* FC_IN_PARAM_BASETYPE */
 			0x8,		/* FC_LONG */
 /* 370 */	0x53,		/* FC_RETURN_PARAM_BASETYPE */
@@ -4847,7 +4847,7 @@ static const MIDL_PROC_FORMAT_STRING __MIDL_ProcFormatString =
 #else
 			0x2,		/* Alpha Stack size = 2 */
 #endif
-/* 376 */	NdrFcShort( 0x1c8 ),	/* Type Offset=456 */
+/* 376 */	NdrFcShort( 0x1c6 ),	/* Type Offset=454 */
 /* 378 */	0x4e,		/* FC_IN_PARAM_BASETYPE */
 			0x8,		/* FC_LONG */
 /* 380 */	0x53,		/* FC_RETURN_PARAM_BASETYPE */
@@ -4861,7 +4861,7 @@ static const MIDL_PROC_FORMAT_STRING __MIDL_ProcFormatString =
 #else
 			0x2,		/* Alpha Stack size = 2 */
 #endif
-/* 386 */	NdrFcShort( 0x1c8 ),	/* Type Offset=456 */
+/* 386 */	NdrFcShort( 0x1c6 ),	/* Type Offset=454 */
 /* 388 */	0x4e,		/* FC_IN_PARAM_BASETYPE */
 			0x8,		/* FC_LONG */
 /* 390 */	0x53,		/* FC_RETURN_PARAM_BASETYPE */
@@ -4873,7 +4873,7 @@ static const MIDL_PROC_FORMAT_STRING __MIDL_ProcFormatString =
 #else
 			0x2,		/* Alpha Stack size = 2 */
 #endif
-/* 394 */	NdrFcShort( 0x1d2 ),	/* Type Offset=466 */
+/* 394 */	NdrFcShort( 0x1d0 ),	/* Type Offset=464 */
 /* 396 */	0x4e,		/* FC_IN_PARAM_BASETYPE */
 			0x8,		/* FC_LONG */
 /* 398 */	0x53,		/* FC_RETURN_PARAM_BASETYPE */
@@ -4978,7 +4978,7 @@ static const MIDL_TYPE_FORMAT_STRING __MIDL_TypeFormatString =
 			0x5c,		/* FC_PAD */
 /* 76 */	
 			0x11, 0x0,	/* FC_RP */
-/* 78 */	NdrFcShort( 0x2e ),	/* Offset= 46 (124) */
+/* 78 */	NdrFcShort( 0x2c ),	/* Offset= 44 (122) */
 /* 80 */	
 			0x1d,		/* FC_SMFARRAY */
 			0x0,		/* 0 */
@@ -4991,7 +4991,7 @@ static const MIDL_TYPE_FORMAT_STRING __MIDL_TypeFormatString =
 /* 90 */	
 			0x15,		/* FC_STRUCT */
 			0x1,		/* 1 */
-/* 92 */	NdrFcShort( 0xda ),	/* 218 */
+/* 92 */	NdrFcShort( 0xd4 ),	/* 212 */
 /* 94 */	0x4c,		/* FC_EMBEDDED_COMPLEX */
 			0x0,		/* 0 */
 /* 96 */	NdrFcShort( 0xffffffa2 ),	/* Offset= -94 (2) */
@@ -5005,395 +5005,393 @@ static const MIDL_TYPE_FORMAT_STRING __MIDL_TypeFormatString =
 			0x6,		/* FC_SHORT */
 /* 106 */	0x6,		/* FC_SHORT */
 			0x6,		/* FC_SHORT */
-/* 108 */	0x6,		/* FC_SHORT */
-			0x6,		/* FC_SHORT */
-/* 110 */	0x6,		/* FC_SHORT */
-			0x4c,		/* FC_EMBEDDED_COMPLEX */
-/* 112 */	0x0,		/* 0 */
-			NdrFcShort( 0xffffffdf ),	/* Offset= -33 (80) */
-			0x4c,		/* FC_EMBEDDED_COMPLEX */
-/* 116 */	0x0,		/* 0 */
-			NdrFcShort( 0xffffffdb ),	/* Offset= -37 (80) */
-			0x4c,		/* FC_EMBEDDED_COMPLEX */
-/* 120 */	0x0,		/* 0 */
-			NdrFcShort( 0xffffff89 ),	/* Offset= -119 (2) */
+/* 108 */	0x4c,		/* FC_EMBEDDED_COMPLEX */
+			0x0,		/* 0 */
+/* 110 */	NdrFcShort( 0xffffffe2 ),	/* Offset= -30 (80) */
+/* 112 */	0x4c,		/* FC_EMBEDDED_COMPLEX */
+			0x0,		/* 0 */
+/* 114 */	NdrFcShort( 0xffffffde ),	/* Offset= -34 (80) */
+/* 116 */	0x4c,		/* FC_EMBEDDED_COMPLEX */
+			0x0,		/* 0 */
+/* 118 */	NdrFcShort( 0xffffff8c ),	/* Offset= -116 (2) */
+/* 120 */	0x5c,		/* FC_PAD */
 			0x5b,		/* FC_END */
-/* 124 */	
+/* 122 */	
 			0x1b,		/* FC_CARRAY */
 			0x1,		/* 1 */
-/* 126 */	NdrFcShort( 0xda ),	/* 218 */
-/* 128 */	0x40,		/* Corr desc:  constant, val=256 */
+/* 124 */	NdrFcShort( 0xd4 ),	/* 212 */
+/* 126 */	0x40,		/* Corr desc:  constant, val=256 */
 			0x0,		/* 0 */
-/* 130 */	NdrFcShort( 0x1 ),	/* 1 */
-/* 132 */	0x4c,		/* FC_EMBEDDED_COMPLEX */
+/* 128 */	NdrFcShort( 0x1 ),	/* 1 */
+/* 130 */	0x4c,		/* FC_EMBEDDED_COMPLEX */
 			0x0,		/* 0 */
-/* 134 */	NdrFcShort( 0xffffffd4 ),	/* Offset= -44 (90) */
-/* 136 */	0x5c,		/* FC_PAD */
+/* 132 */	NdrFcShort( 0xffffffd6 ),	/* Offset= -42 (90) */
+/* 134 */	0x5c,		/* FC_PAD */
 			0x5b,		/* FC_END */
-/* 138 */	
+/* 136 */	
 			0x11, 0x0,	/* FC_RP */
-/* 140 */	NdrFcShort( 0x24 ),	/* Offset= 36 (176) */
-/* 142 */	
+/* 138 */	NdrFcShort( 0x24 ),	/* Offset= 36 (174) */
+/* 140 */	
 			0x1d,		/* FC_SMFARRAY */
 			0x0,		/* 0 */
-/* 144 */	NdrFcShort( 0x10 ),	/* 16 */
-/* 146 */	0x2,		/* FC_CHAR */
+/* 142 */	NdrFcShort( 0x10 ),	/* 16 */
+/* 144 */	0x2,		/* FC_CHAR */
 			0x5b,		/* FC_END */
-/* 148 */	
+/* 146 */	
 			0x1d,		/* FC_SMFARRAY */
 			0x0,		/* 0 */
-/* 150 */	NdrFcShort( 0x14 ),	/* 20 */
-/* 152 */	0x2,		/* FC_CHAR */
+/* 148 */	NdrFcShort( 0x14 ),	/* 20 */
+/* 150 */	0x2,		/* FC_CHAR */
 			0x5b,		/* FC_END */
-/* 154 */	
+/* 152 */	
 			0x15,		/* FC_STRUCT */
 			0x3,		/* 3 */
-/* 156 */	NdrFcShort( 0x50 ),	/* 80 */
-/* 158 */	0x4c,		/* FC_EMBEDDED_COMPLEX */
+/* 154 */	NdrFcShort( 0x50 ),	/* 80 */
+/* 156 */	0x4c,		/* FC_EMBEDDED_COMPLEX */
 			0x0,		/* 0 */
-/* 160 */	NdrFcShort( 0xffffffee ),	/* Offset= -18 (142) */
-/* 162 */	0x4c,		/* FC_EMBEDDED_COMPLEX */
+/* 158 */	NdrFcShort( 0xffffffee ),	/* Offset= -18 (140) */
+/* 160 */	0x4c,		/* FC_EMBEDDED_COMPLEX */
 			0x0,		/* 0 */
-/* 164 */	NdrFcShort( 0xfffffff0 ),	/* Offset= -16 (148) */
-/* 166 */	0x4c,		/* FC_EMBEDDED_COMPLEX */
+/* 162 */	NdrFcShort( 0xfffffff0 ),	/* Offset= -16 (146) */
+/* 164 */	0x4c,		/* FC_EMBEDDED_COMPLEX */
 			0x0,		/* 0 */
-/* 168 */	NdrFcShort( 0xffffffec ),	/* Offset= -20 (148) */
-/* 170 */	0x4c,		/* FC_EMBEDDED_COMPLEX */
+/* 166 */	NdrFcShort( 0xffffffec ),	/* Offset= -20 (146) */
+/* 168 */	0x4c,		/* FC_EMBEDDED_COMPLEX */
 			0x0,		/* 0 */
-/* 172 */	NdrFcShort( 0xffffffe8 ),	/* Offset= -24 (148) */
-/* 174 */	0x8,		/* FC_LONG */
+/* 170 */	NdrFcShort( 0xffffffe8 ),	/* Offset= -24 (146) */
+/* 172 */	0x8,		/* FC_LONG */
 			0x5b,		/* FC_END */
-/* 176 */	
+/* 174 */	
 			0x1b,		/* FC_CARRAY */
 			0x3,		/* 3 */
-/* 178 */	NdrFcShort( 0x50 ),	/* 80 */
-/* 180 */	0x40,		/* Corr desc:  constant, val=256 */
+/* 176 */	NdrFcShort( 0x50 ),	/* 80 */
+/* 178 */	0x40,		/* Corr desc:  constant, val=256 */
 			0x0,		/* 0 */
-/* 182 */	NdrFcShort( 0x1 ),	/* 1 */
-/* 184 */	0x4c,		/* FC_EMBEDDED_COMPLEX */
+/* 180 */	NdrFcShort( 0x1 ),	/* 1 */
+/* 182 */	0x4c,		/* FC_EMBEDDED_COMPLEX */
 			0x0,		/* 0 */
-/* 186 */	NdrFcShort( 0xffffffe0 ),	/* Offset= -32 (154) */
-/* 188 */	0x5c,		/* FC_PAD */
+/* 184 */	NdrFcShort( 0xffffffe0 ),	/* Offset= -32 (152) */
+/* 186 */	0x5c,		/* FC_PAD */
 			0x5b,		/* FC_END */
-/* 190 */	
+/* 188 */	
 			0x1b,		/* FC_CARRAY */
 			0x1,		/* 1 */
-/* 192 */	NdrFcShort( 0x4 ),	/* 4 */
-/* 194 */	0x40,		/* Corr desc:  constant, val=256 */
+/* 190 */	NdrFcShort( 0x4 ),	/* 4 */
+/* 192 */	0x40,		/* Corr desc:  constant, val=256 */
 			0x0,		/* 0 */
-/* 196 */	NdrFcShort( 0x1 ),	/* 1 */
-/* 198 */	0x4c,		/* FC_EMBEDDED_COMPLEX */
+/* 194 */	NdrFcShort( 0x1 ),	/* 1 */
+/* 196 */	0x4c,		/* FC_EMBEDDED_COMPLEX */
 			0x0,		/* 0 */
-/* 200 */	NdrFcShort( 0xffffff40 ),	/* Offset= -192 (8) */
-/* 202 */	0x5c,		/* FC_PAD */
+/* 198 */	NdrFcShort( 0xffffff42 ),	/* Offset= -190 (8) */
+/* 200 */	0x5c,		/* FC_PAD */
 			0x5b,		/* FC_END */
-/* 204 */	
+/* 202 */	
 			0x1b,		/* FC_CARRAY */
 			0x0,		/* 0 */
-/* 206 */	NdrFcShort( 0x4 ),	/* 4 */
-/* 208 */	0x40,		/* Corr desc:  constant, val=256 */
+/* 204 */	NdrFcShort( 0x4 ),	/* 4 */
+/* 206 */	0x40,		/* Corr desc:  constant, val=256 */
 			0x0,		/* 0 */
-/* 210 */	NdrFcShort( 0x1 ),	/* 1 */
-/* 212 */	0x4c,		/* FC_EMBEDDED_COMPLEX */
+/* 208 */	NdrFcShort( 0x1 ),	/* 1 */
+/* 210 */	0x4c,		/* FC_EMBEDDED_COMPLEX */
 			0x0,		/* 0 */
-/* 214 */	NdrFcShort( 0xffffff3a ),	/* Offset= -198 (16) */
-/* 216 */	0x5c,		/* FC_PAD */
+/* 212 */	NdrFcShort( 0xffffff3c ),	/* Offset= -196 (16) */
+/* 214 */	0x5c,		/* FC_PAD */
 			0x5b,		/* FC_END */
-/* 218 */	
+/* 216 */	
 			0x1b,		/* FC_CARRAY */
 			0x3,		/* 3 */
-/* 220 */	NdrFcShort( 0x4 ),	/* 4 */
-/* 222 */	0x28,		/* Corr desc:  parameter, FC_LONG */
+/* 218 */	NdrFcShort( 0x4 ),	/* 4 */
+/* 220 */	0x28,		/* Corr desc:  parameter, FC_LONG */
 			0x0,		/*  */
 #ifndef _ALPHA_
-/* 224 */	NdrFcShort( 0x8 ),	/* x86, MIPS, PPC Stack size/offset = 8 */
+/* 222 */	NdrFcShort( 0x8 ),	/* x86, MIPS, PPC Stack size/offset = 8 */
 #else
 			NdrFcShort( 0x10 ),	/* Alpha Stack size/offset = 16 */
 #endif
-/* 226 */	0x8,		/* FC_LONG */
+/* 224 */	0x8,		/* FC_LONG */
 			0x5b,		/* FC_END */
-/* 228 */	
+/* 226 */	
 			0x15,		/* FC_STRUCT */
 			0x3,		/* 3 */
-/* 230 */	NdrFcShort( 0x8 ),	/* 8 */
-/* 232 */	0x6,		/* FC_SHORT */
+/* 228 */	NdrFcShort( 0x8 ),	/* 8 */
+/* 230 */	0x6,		/* FC_SHORT */
 			0x6,		/* FC_SHORT */
-/* 234 */	0xa,		/* FC_FLOAT */
+/* 232 */	0xa,		/* FC_FLOAT */
 			0x5b,		/* FC_END */
-/* 236 */	
+/* 234 */	
 			0x1b,		/* FC_CARRAY */
 			0x3,		/* 3 */
-/* 238 */	NdrFcShort( 0x8 ),	/* 8 */
-/* 240 */	0x28,		/* Corr desc:  parameter, FC_LONG */
+/* 236 */	NdrFcShort( 0x8 ),	/* 8 */
+/* 238 */	0x28,		/* Corr desc:  parameter, FC_LONG */
 			0x0,		/*  */
 #ifndef _ALPHA_
-/* 242 */	NdrFcShort( 0x8 ),	/* x86, MIPS, PPC Stack size/offset = 8 */
+/* 240 */	NdrFcShort( 0x8 ),	/* x86, MIPS, PPC Stack size/offset = 8 */
 #else
 			NdrFcShort( 0x10 ),	/* Alpha Stack size/offset = 16 */
 #endif
-/* 244 */	0x4c,		/* FC_EMBEDDED_COMPLEX */
+/* 242 */	0x4c,		/* FC_EMBEDDED_COMPLEX */
 			0x0,		/* 0 */
-/* 246 */	NdrFcShort( 0xffffffee ),	/* Offset= -18 (228) */
-/* 248 */	0x5c,		/* FC_PAD */
+/* 244 */	NdrFcShort( 0xffffffee ),	/* Offset= -18 (226) */
+/* 246 */	0x5c,		/* FC_PAD */
 			0x5b,		/* FC_END */
-/* 250 */	
+/* 248 */	
 			0x15,		/* FC_STRUCT */
 			0x1,		/* 1 */
-/* 252 */	NdrFcShort( 0x8 ),	/* 8 */
+/* 250 */	NdrFcShort( 0x8 ),	/* 8 */
+/* 252 */	0x6,		/* FC_SHORT */
+			0x6,		/* FC_SHORT */
 /* 254 */	0x6,		/* FC_SHORT */
 			0x6,		/* FC_SHORT */
-/* 256 */	0x6,		/* FC_SHORT */
-			0x6,		/* FC_SHORT */
-/* 258 */	0x5c,		/* FC_PAD */
+/* 256 */	0x5c,		/* FC_PAD */
 			0x5b,		/* FC_END */
-/* 260 */	
+/* 258 */	
 			0x1b,		/* FC_CARRAY */
 			0x1,		/* 1 */
-/* 262 */	NdrFcShort( 0x8 ),	/* 8 */
-/* 264 */	0x28,		/* Corr desc:  parameter, FC_LONG */
+/* 260 */	NdrFcShort( 0x8 ),	/* 8 */
+/* 262 */	0x28,		/* Corr desc:  parameter, FC_LONG */
 			0x0,		/*  */
 #ifndef _ALPHA_
-/* 266 */	NdrFcShort( 0x8 ),	/* x86, MIPS, PPC Stack size/offset = 8 */
+/* 264 */	NdrFcShort( 0x8 ),	/* x86, MIPS, PPC Stack size/offset = 8 */
 #else
 			NdrFcShort( 0x10 ),	/* Alpha Stack size/offset = 16 */
 #endif
-/* 268 */	0x4c,		/* FC_EMBEDDED_COMPLEX */
+/* 266 */	0x4c,		/* FC_EMBEDDED_COMPLEX */
 			0x0,		/* 0 */
-/* 270 */	NdrFcShort( 0xffffffec ),	/* Offset= -20 (250) */
-/* 272 */	0x5c,		/* FC_PAD */
+/* 268 */	NdrFcShort( 0xffffffec ),	/* Offset= -20 (248) */
+/* 270 */	0x5c,		/* FC_PAD */
 			0x5b,		/* FC_END */
-/* 274 */	
+/* 272 */	
 			0x15,		/* FC_STRUCT */
 			0x3,		/* 3 */
-/* 276 */	NdrFcShort( 0x20 ),	/* 32 */
-/* 278 */	0x6,		/* FC_SHORT */
+/* 274 */	NdrFcShort( 0x20 ),	/* 32 */
+/* 276 */	0x6,		/* FC_SHORT */
 			0x6,		/* FC_SHORT */
+/* 278 */	0xa,		/* FC_FLOAT */
+			0xa,		/* FC_FLOAT */
 /* 280 */	0xa,		/* FC_FLOAT */
-			0xa,		/* FC_FLOAT */
-/* 282 */	0xa,		/* FC_FLOAT */
 			0x8,		/* FC_LONG */
-/* 284 */	0x8,		/* FC_LONG */
+/* 282 */	0x8,		/* FC_LONG */
 			0xa,		/* FC_FLOAT */
-/* 286 */	0xa,		/* FC_FLOAT */
+/* 284 */	0xa,		/* FC_FLOAT */
 			0x5b,		/* FC_END */
-/* 288 */	
+/* 286 */	
 			0x1b,		/* FC_CARRAY */
 			0x3,		/* 3 */
-/* 290 */	NdrFcShort( 0x20 ),	/* 32 */
-/* 292 */	0x28,		/* Corr desc:  parameter, FC_LONG */
+/* 288 */	NdrFcShort( 0x20 ),	/* 32 */
+/* 290 */	0x28,		/* Corr desc:  parameter, FC_LONG */
 			0x0,		/*  */
 #ifndef _ALPHA_
-/* 294 */	NdrFcShort( 0x8 ),	/* x86, MIPS, PPC Stack size/offset = 8 */
+/* 292 */	NdrFcShort( 0x8 ),	/* x86, MIPS, PPC Stack size/offset = 8 */
 #else
 			NdrFcShort( 0x10 ),	/* Alpha Stack size/offset = 16 */
 #endif
-/* 296 */	0x4c,		/* FC_EMBEDDED_COMPLEX */
+/* 294 */	0x4c,		/* FC_EMBEDDED_COMPLEX */
 			0x0,		/* 0 */
-/* 298 */	NdrFcShort( 0xffffffe8 ),	/* Offset= -24 (274) */
-/* 300 */	0x5c,		/* FC_PAD */
+/* 296 */	NdrFcShort( 0xffffffe8 ),	/* Offset= -24 (272) */
+/* 298 */	0x5c,		/* FC_PAD */
 			0x5b,		/* FC_END */
-/* 302 */	
+/* 300 */	
 			0x15,		/* FC_STRUCT */
 			0x3,		/* 3 */
-/* 304 */	NdrFcShort( 0x18 ),	/* 24 */
-/* 306 */	0x6,		/* FC_SHORT */
+/* 302 */	NdrFcShort( 0x18 ),	/* 24 */
+/* 304 */	0x6,		/* FC_SHORT */
 			0x6,		/* FC_SHORT */
+/* 306 */	0xa,		/* FC_FLOAT */
+			0xa,		/* FC_FLOAT */
 /* 308 */	0xa,		/* FC_FLOAT */
 			0xa,		/* FC_FLOAT */
 /* 310 */	0xa,		/* FC_FLOAT */
-			0xa,		/* FC_FLOAT */
-/* 312 */	0xa,		/* FC_FLOAT */
 			0x5b,		/* FC_END */
-/* 314 */	
+/* 312 */	
 			0x1b,		/* FC_CARRAY */
 			0x3,		/* 3 */
-/* 316 */	NdrFcShort( 0x18 ),	/* 24 */
-/* 318 */	0x28,		/* Corr desc:  parameter, FC_LONG */
+/* 314 */	NdrFcShort( 0x18 ),	/* 24 */
+/* 316 */	0x28,		/* Corr desc:  parameter, FC_LONG */
 			0x0,		/*  */
 #ifndef _ALPHA_
-/* 320 */	NdrFcShort( 0x8 ),	/* x86, MIPS, PPC Stack size/offset = 8 */
+/* 318 */	NdrFcShort( 0x8 ),	/* x86, MIPS, PPC Stack size/offset = 8 */
 #else
 			NdrFcShort( 0x10 ),	/* Alpha Stack size/offset = 16 */
 #endif
-/* 322 */	0x4c,		/* FC_EMBEDDED_COMPLEX */
+/* 320 */	0x4c,		/* FC_EMBEDDED_COMPLEX */
 			0x0,		/* 0 */
-/* 324 */	NdrFcShort( 0xffffffea ),	/* Offset= -22 (302) */
-/* 326 */	0x5c,		/* FC_PAD */
+/* 322 */	NdrFcShort( 0xffffffea ),	/* Offset= -22 (300) */
+/* 324 */	0x5c,		/* FC_PAD */
 			0x5b,		/* FC_END */
-/* 328 */	
+/* 326 */	
 			0x1b,		/* FC_CARRAY */
 			0x3,		/* 3 */
-/* 330 */	NdrFcShort( 0x4 ),	/* 4 */
-/* 332 */	0x28,		/* Corr desc:  parameter, FC_LONG */
+/* 328 */	NdrFcShort( 0x4 ),	/* 4 */
+/* 330 */	0x28,		/* Corr desc:  parameter, FC_LONG */
 			0x0,		/*  */
 #ifndef _ALPHA_
-/* 334 */	NdrFcShort( 0xc ),	/* x86, MIPS, PPC Stack size/offset = 12 */
+/* 332 */	NdrFcShort( 0xc ),	/* x86, MIPS, PPC Stack size/offset = 12 */
 #else
 			NdrFcShort( 0x18 ),	/* Alpha Stack size/offset = 24 */
 #endif
-/* 336 */	0x8,		/* FC_LONG */
+/* 334 */	0x8,		/* FC_LONG */
 			0x5b,		/* FC_END */
-/* 338 */	
+/* 336 */	
 			0x1b,		/* FC_CARRAY */
 			0x1,		/* 1 */
-/* 340 */	NdrFcShort( 0x8 ),	/* 8 */
-/* 342 */	0x28,		/* Corr desc:  parameter, FC_LONG */
+/* 338 */	NdrFcShort( 0x8 ),	/* 8 */
+/* 340 */	0x28,		/* Corr desc:  parameter, FC_LONG */
 			0x0,		/*  */
 #ifndef _ALPHA_
-/* 344 */	NdrFcShort( 0xc ),	/* x86, MIPS, PPC Stack size/offset = 12 */
+/* 342 */	NdrFcShort( 0xc ),	/* x86, MIPS, PPC Stack size/offset = 12 */
 #else
 			NdrFcShort( 0x18 ),	/* Alpha Stack size/offset = 24 */
 #endif
-/* 346 */	0x4c,		/* FC_EMBEDDED_COMPLEX */
+/* 344 */	0x4c,		/* FC_EMBEDDED_COMPLEX */
 			0x0,		/* 0 */
-/* 348 */	NdrFcShort( 0xffffff9e ),	/* Offset= -98 (250) */
-/* 350 */	0x5c,		/* FC_PAD */
+/* 346 */	NdrFcShort( 0xffffff9e ),	/* Offset= -98 (248) */
+/* 348 */	0x5c,		/* FC_PAD */
 			0x5b,		/* FC_END */
-/* 352 */	
+/* 350 */	
 			0x1b,		/* FC_CARRAY */
 			0x3,		/* 3 */
-/* 354 */	NdrFcShort( 0x20 ),	/* 32 */
-/* 356 */	0x28,		/* Corr desc:  parameter, FC_LONG */
+/* 352 */	NdrFcShort( 0x20 ),	/* 32 */
+/* 354 */	0x28,		/* Corr desc:  parameter, FC_LONG */
 			0x0,		/*  */
 #ifndef _ALPHA_
-/* 358 */	NdrFcShort( 0xc ),	/* x86, MIPS, PPC Stack size/offset = 12 */
+/* 356 */	NdrFcShort( 0xc ),	/* x86, MIPS, PPC Stack size/offset = 12 */
 #else
 			NdrFcShort( 0x18 ),	/* Alpha Stack size/offset = 24 */
 #endif
-/* 360 */	0x4c,		/* FC_EMBEDDED_COMPLEX */
+/* 358 */	0x4c,		/* FC_EMBEDDED_COMPLEX */
 			0x0,		/* 0 */
-/* 362 */	NdrFcShort( 0xffffffa8 ),	/* Offset= -88 (274) */
-/* 364 */	0x5c,		/* FC_PAD */
+/* 360 */	NdrFcShort( 0xffffffa8 ),	/* Offset= -88 (272) */
+/* 362 */	0x5c,		/* FC_PAD */
 			0x5b,		/* FC_END */
-/* 366 */	
+/* 364 */	
 			0x1b,		/* FC_CARRAY */
 			0x3,		/* 3 */
-/* 368 */	NdrFcShort( 0x18 ),	/* 24 */
-/* 370 */	0x28,		/* Corr desc:  parameter, FC_LONG */
+/* 366 */	NdrFcShort( 0x18 ),	/* 24 */
+/* 368 */	0x28,		/* Corr desc:  parameter, FC_LONG */
 			0x0,		/*  */
 #ifndef _ALPHA_
-/* 372 */	NdrFcShort( 0xc ),	/* x86, MIPS, PPC Stack size/offset = 12 */
+/* 370 */	NdrFcShort( 0xc ),	/* x86, MIPS, PPC Stack size/offset = 12 */
 #else
 			NdrFcShort( 0x18 ),	/* Alpha Stack size/offset = 24 */
 #endif
-/* 374 */	0x4c,		/* FC_EMBEDDED_COMPLEX */
+/* 372 */	0x4c,		/* FC_EMBEDDED_COMPLEX */
 			0x0,		/* 0 */
-/* 376 */	NdrFcShort( 0xffffffb6 ),	/* Offset= -74 (302) */
-/* 378 */	0x5c,		/* FC_PAD */
+/* 374 */	NdrFcShort( 0xffffffb6 ),	/* Offset= -74 (300) */
+/* 376 */	0x5c,		/* FC_PAD */
 			0x5b,		/* FC_END */
-/* 380 */	
+/* 378 */	
 			0x11, 0x0,	/* FC_RP */
-/* 382 */	NdrFcShort( 0xfffffe8a ),	/* Offset= -374 (8) */
-/* 384 */	
+/* 380 */	NdrFcShort( 0xfffffe8c ),	/* Offset= -372 (8) */
+/* 382 */	
 			0x1b,		/* FC_CARRAY */
 			0x0,		/* 0 */
-/* 386 */	NdrFcShort( 0x1 ),	/* 1 */
-/* 388 */	0x28,		/* Corr desc:  parameter, FC_LONG */
+/* 384 */	NdrFcShort( 0x1 ),	/* 1 */
+/* 386 */	0x28,		/* Corr desc:  parameter, FC_LONG */
 			0x0,		/*  */
 #ifndef _ALPHA_
-/* 390 */	NdrFcShort( 0x8 ),	/* x86, MIPS, PPC Stack size/offset = 8 */
+/* 388 */	NdrFcShort( 0x8 ),	/* x86, MIPS, PPC Stack size/offset = 8 */
 #else
 			NdrFcShort( 0x10 ),	/* Alpha Stack size/offset = 16 */
 #endif
-/* 392 */	0x2,		/* FC_CHAR */
+/* 390 */	0x2,		/* FC_CHAR */
 			0x5b,		/* FC_END */
-/* 394 */	
+/* 392 */	
 			0x1b,		/* FC_CARRAY */
 			0x0,		/* 0 */
-/* 396 */	NdrFcShort( 0x1 ),	/* 1 */
-/* 398 */	0x40,		/* Corr desc:  constant, val=20992 */
+/* 394 */	NdrFcShort( 0x1 ),	/* 1 */
+/* 396 */	0x40,		/* Corr desc:  constant, val=20992 */
 			0x0,		/* 0 */
-/* 400 */	NdrFcShort( 0x52 ),	/* 82 */
-/* 402 */	0x2,		/* FC_CHAR */
+/* 398 */	NdrFcShort( 0x52 ),	/* 82 */
+/* 400 */	0x2,		/* FC_CHAR */
 			0x5b,		/* FC_END */
-/* 404 */	
+/* 402 */	
 			0x11, 0xc,	/* FC_RP [alloced_on_stack] [simple_pointer] */
-/* 406 */	0x8,		/* FC_LONG */
+/* 404 */	0x8,		/* FC_LONG */
 			0x5c,		/* FC_PAD */
-/* 408 */	
+/* 406 */	
 			0x15,		/* FC_STRUCT */
 			0x3,		/* 3 */
-/* 410 */	NdrFcShort( 0xe ),	/* 14 */
-/* 412 */	0x6,		/* FC_SHORT */
+/* 408 */	NdrFcShort( 0xe ),	/* 14 */
+/* 410 */	0x6,		/* FC_SHORT */
+			0x2,		/* FC_CHAR */
+/* 412 */	0x2,		/* FC_CHAR */
 			0x2,		/* FC_CHAR */
 /* 414 */	0x2,		/* FC_CHAR */
 			0x2,		/* FC_CHAR */
 /* 416 */	0x2,		/* FC_CHAR */
-			0x2,		/* FC_CHAR */
-/* 418 */	0x2,		/* FC_CHAR */
 			0xa,		/* FC_FLOAT */
-/* 420 */	0x6,		/* FC_SHORT */
+/* 418 */	0x6,		/* FC_SHORT */
 			0x5b,		/* FC_END */
-/* 422 */	
+/* 420 */	
 			0x1b,		/* FC_CARRAY */
 			0x3,		/* 3 */
-/* 424 */	NdrFcShort( 0xe ),	/* 14 */
-/* 426 */	0x28,		/* Corr desc:  parameter, FC_LONG */
+/* 422 */	NdrFcShort( 0xe ),	/* 14 */
+/* 424 */	0x28,		/* Corr desc:  parameter, FC_LONG */
 			0x0,		/*  */
 #ifndef _ALPHA_
-/* 428 */	NdrFcShort( 0x10 ),	/* x86, MIPS, PPC Stack size/offset = 16 */
+/* 426 */	NdrFcShort( 0x10 ),	/* x86, MIPS, PPC Stack size/offset = 16 */
 #else
 			NdrFcShort( 0x20 ),	/* Alpha Stack size/offset = 32 */
 #endif
-/* 430 */	0x4c,		/* FC_EMBEDDED_COMPLEX */
+/* 428 */	0x4c,		/* FC_EMBEDDED_COMPLEX */
 			0x0,		/* 0 */
-/* 432 */	NdrFcShort( 0xffffffe8 ),	/* Offset= -24 (408) */
-/* 434 */	0x5c,		/* FC_PAD */
+/* 430 */	NdrFcShort( 0xffffffe8 ),	/* Offset= -24 (406) */
+/* 432 */	0x5c,		/* FC_PAD */
 			0x5b,		/* FC_END */
-/* 436 */	
+/* 434 */	
 			0x1b,		/* FC_CARRAY */
 			0x3,		/* 3 */
-/* 438 */	NdrFcShort( 0x4 ),	/* 4 */
-/* 440 */	0x28,		/* Corr desc:  parameter, FC_LONG */
+/* 436 */	NdrFcShort( 0x4 ),	/* 4 */
+/* 438 */	0x28,		/* Corr desc:  parameter, FC_LONG */
 			0x0,		/*  */
 #ifndef _ALPHA_
-/* 442 */	NdrFcShort( 0x14 ),	/* x86, MIPS, PPC Stack size/offset = 20 */
+/* 440 */	NdrFcShort( 0x14 ),	/* x86, MIPS, PPC Stack size/offset = 20 */
 #else
 			NdrFcShort( 0x28 ),	/* Alpha Stack size/offset = 40 */
 #endif
-/* 444 */	0xa,		/* FC_FLOAT */
+/* 442 */	0xa,		/* FC_FLOAT */
 			0x5b,		/* FC_END */
-/* 446 */	
+/* 444 */	
 			0x1b,		/* FC_CARRAY */
 			0x3,		/* 3 */
-/* 448 */	NdrFcShort( 0x4 ),	/* 4 */
-/* 450 */	0x28,		/* Corr desc:  parameter, FC_LONG */
+/* 446 */	NdrFcShort( 0x4 ),	/* 4 */
+/* 448 */	0x28,		/* Corr desc:  parameter, FC_LONG */
 			0x0,		/*  */
 #ifndef _ALPHA_
-/* 452 */	NdrFcShort( 0x14 ),	/* x86, MIPS, PPC Stack size/offset = 20 */
+/* 450 */	NdrFcShort( 0x14 ),	/* x86, MIPS, PPC Stack size/offset = 20 */
 #else
 			NdrFcShort( 0x28 ),	/* Alpha Stack size/offset = 40 */
 #endif
-/* 454 */	0x8,		/* FC_LONG */
+/* 452 */	0x8,		/* FC_LONG */
 			0x5b,		/* FC_END */
-/* 456 */	
+/* 454 */	
 			0x1b,		/* FC_CARRAY */
 			0x3,		/* 3 */
-/* 458 */	NdrFcShort( 0x4 ),	/* 4 */
-/* 460 */	0x28,		/* Corr desc:  parameter, FC_LONG */
+/* 456 */	NdrFcShort( 0x4 ),	/* 4 */
+/* 458 */	0x28,		/* Corr desc:  parameter, FC_LONG */
 			0x0,		/*  */
 #ifndef _ALPHA_
-/* 462 */	NdrFcShort( 0x8 ),	/* x86, MIPS, PPC Stack size/offset = 8 */
+/* 460 */	NdrFcShort( 0x8 ),	/* x86, MIPS, PPC Stack size/offset = 8 */
 #else
 			NdrFcShort( 0x10 ),	/* Alpha Stack size/offset = 16 */
 #endif
-/* 464 */	0xa,		/* FC_FLOAT */
+/* 462 */	0xa,		/* FC_FLOAT */
 			0x5b,		/* FC_END */
-/* 466 */	
+/* 464 */	
 			0x1b,		/* FC_CARRAY */
 			0x3,		/* 3 */
-/* 468 */	NdrFcShort( 0x50 ),	/* 80 */
-/* 470 */	0x28,		/* Corr desc:  parameter, FC_LONG */
+/* 466 */	NdrFcShort( 0x50 ),	/* 80 */
+/* 468 */	0x28,		/* Corr desc:  parameter, FC_LONG */
 			0x0,		/*  */
 #ifndef _ALPHA_
-/* 472 */	NdrFcShort( 0x4 ),	/* x86, MIPS, PPC Stack size/offset = 4 */
+/* 470 */	NdrFcShort( 0x4 ),	/* x86, MIPS, PPC Stack size/offset = 4 */
 #else
 			NdrFcShort( 0x8 ),	/* Alpha Stack size/offset = 8 */
 #endif
-/* 474 */	0x4c,		/* FC_EMBEDDED_COMPLEX */
+/* 472 */	0x4c,		/* FC_EMBEDDED_COMPLEX */
 			0x0,		/* 0 */
-/* 476 */	NdrFcShort( 0xfffffebe ),	/* Offset= -322 (154) */
-/* 478 */	0x5c,		/* FC_PAD */
+/* 474 */	NdrFcShort( 0xfffffebe ),	/* Offset= -322 (152) */
+/* 476 */	0x5c,		/* FC_PAD */
 			0x5b,		/* FC_END */
 
 			0x0

@@ -14,6 +14,8 @@ EN_yyc **ppYC  = NULL;
 EN_yyd **ppYD  = NULL;
 EN_yyt **ppYT  = NULL;
 EN_SOE **ppSOE = NULL;
+EN_Alarm **ppAlarm= NULL;
+EN_Ind **ppInd = NULL;
 
 DEF_VAR(Flag_FER)
 DEF_VAR(Count_FER)

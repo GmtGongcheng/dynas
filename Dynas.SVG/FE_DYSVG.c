@@ -70,7 +70,7 @@ static int com_operation(SOCKET sock, int station, int point, int vtype, float f
 		}
 		sndbuf[4*num_yk + 12] = sndbuf[4*num_yk + 13] = 0x86;
 
-		sprintf(infostr, "YK (%d, %d)\n", num_yk, point);
+		sprintf(infostr, "YT (%d, %d)\n", num_yk, point);
 		//SendMessage(g_hMainDlg, UWM_SETDEBUGSTRING, 0, (LPARAM)infostr);
 		DebugPrintln(infostr);
 	}

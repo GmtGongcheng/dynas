@@ -56,6 +56,7 @@ typedef struct logInfoStructR
 	
 		
 	//extern void WriteLog(int link_ID, struct logInfoStruct logInfo);
+	extern void WriteSOE(int link_ID, char* logStr);
 	extern void WriteLog(int link_ID, char* logStr);
 	extern void WriteLog_Tele(int link_ID, unsigned char *buf, unsigned int byte2, int bRecv);//存报文到文件
 	

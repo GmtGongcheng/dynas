@@ -8,6 +8,9 @@ extern "C"  {
 #define UWM_USERREGISTER		(UWM_PANSERVER+1)
 #define UWM_SETDEBUGSTRING	(UWM_PANSERVER+2)
 
+//#define HIBYTE_X86(w)           ((BYTE)(((DWORD_PTR)(w)) & 0xff))
+//#define LOBYTE_X86(w)           ((BYTE)((((DWORD_PTR)(w)) >> 8) & 0xff))
+
 extern HWND g_hMainDlg;
 
 extern EN_ssystem System;
@@ -16,14 +19,13 @@ extern EN_yyx **ppYX;
 extern EN_yyc **ppYC;
 extern EN_yyd **ppYD;
 extern EN_yyt **ppYT;
-extern EN_SOE **ppSOE;
-
 
 void WINAPI DebugPrintf(char *fmt, ...);
 void WINAPI DebugPrintln(char *str);
 
 int WINAPI Routine_XD_FK(int station);
 int WINAPI Routine_DY_SVG(int station);
+int WINAPI Routine_XD_SVG(int station);
 int WINAPI Routine_Virtual();
 
 char *WINAPI GetIniFileName();
@@ -84,6 +86,24 @@ struct time {
    unsigned char ti_hund;     /* hundredths of seconds */
    unsigned char ti_sec;      /* seconds */
 };
+
+typedef struct  tagEN_SOE
+{
+	char name[41];
+	int yt_value[100];
+	int yt_count;
+}	EN_SOE;
+typedef struct  tagEN_Alarm
+{
+	char name[41];
+}	EN_Alarm;
+typedef struct  tagEN_Ind
+{
+	char name[41];
+}	EN_Ind;
+extern EN_SOE **ppSOE;
+extern EN_Alarm **ppAlarm;
+extern EN_Ind **ppInd;
 
 struct date {
    int da_year;     /* current year */
