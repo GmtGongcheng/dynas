@@ -82,7 +82,7 @@ static int com_operation(SOCKET sock, int station, int point, int vtype, float f
 		//set_var(VarID_OPER, 0);
 		return -1;
 	}
-	WriteLog_Tele(station,sndbuf,len_snd,0);
+	WriteLog_Tele(station,sndbuf,len_snd,0,rulestr);
 	//recv(sock, sndbuf, BUFLEN, 0);
 
 	return 0;
@@ -188,7 +188,7 @@ int WINAPI Routine_DY_SVG(int station)
 				release_mutex(Mutex_RT);
 
 				sprintf(infostr, "#%d站连接中断!", station);
-				WriteLog(station, "连接中断!\r\n");
+				WriteLog(station, rulestr,"连接中断!\r\n");
 				//SendMessage(g_hMainDlg, UWM_SETDEBUGSTRING, 0, (LPARAM)infostr);
 				DebugPrintln(infostr);
 			}
@@ -204,7 +204,7 @@ int WINAPI Routine_DY_SVG(int station)
 			sprintf(infostr, "%04d-%02d-%02d %02d:%02d:%02d %03d #%d站连接成功!", systime.wYear, systime.wMonth, systime.wDay,
 				systime.wHour, systime.wMinute, systime.wSecond, systime.wMilliseconds, station);
 			DebugPrintln(infostr);
-			WriteLog(station, "连接成功!\r\n");
+			WriteLog(station, rulestr,"连接成功!\r\n");
 
 			waitfor_mutex(Mutex_RT);
 			if (ppYX[station][0].yx.value == 0)
@@ -255,7 +255,7 @@ int WINAPI Routine_DY_SVG(int station)
 				//SendMessage(g_hMainDlg, UWM_SETDEBUGSTRING, 0, (LPARAM)infostr);
 				DebugPrintln(infostr);
 				strcat(infostr, "\r\n");
-				WriteLog(station, infostr);
+				WriteLog(station, rulestr,infostr);
 				//com_operation(ConnectSocket, vid_oper, Var_OPER);
 				com_operation(ConnectSocket, station, point, vtype, pStation[station].oper_value);	//Var_OPER);
 
@@ -278,7 +278,7 @@ int WINAPI Routine_DY_SVG(int station)
 				sprintf(infostr, "%04d-%02d-%02d %02d:%02d:%02d %03d recv()返回 SOCKET_ERROR，Error:%d", systime.wYear, systime.wMonth, systime.wDay,
 					systime.wHour, systime.wMinute, systime.wSecond, systime.wMilliseconds, WSAGetLastError());
 				DebugPrintln(infostr);
-				WriteLog(station, "SOCKET_ERROR recv()返回 SOCKET_ERROR\r\n");
+				WriteLog(station, rulestr,"SOCKET_ERROR recv()返回 SOCKET_ERROR\r\n");
 
 				ppYX[station][0].yx.value = 0;
 				closesocket(ConnectSocket);
@@ -292,7 +292,7 @@ int WINAPI Routine_DY_SVG(int station)
 			{
 				sprintf(infostr, "对端关闭连接，recv()返回 %d, WSAGetLastError() = %d", len_rcv, WSAGetLastError());
 				DebugPrintln(infostr);
-				WriteLog(station, "对端关闭连接，recv()返回0\r\n");
+				WriteLog(station, rulestr,"对端关闭连接，recv()返回0\r\n");
 
 				ppYX[station][0].yx.value = 0;
 				closesocket(ConnectSocket);
@@ -300,7 +300,7 @@ int WINAPI Routine_DY_SVG(int station)
 				break;
 			}
 			
-			WriteLog_Tele(station, rcvbuf, len_rcv, 1);
+			WriteLog_Tele(station, rcvbuf, len_rcv, 1,rulestr);
 
 			printf("len_rcv = %d ", len_rcv);
 			for (int i = 0; i < len_rcv; i++)

@@ -1,0 +1,128 @@
+﻿生成启动时间为 2019-03-27 10:36:33。
+     1>项目“E:\Dynas\Dynas.SVG\Dynaserver.vcxproj”在节点 2 上(Rebuild 个目标)。
+     1>ClCompile:
+         E:\Dynas\Dynas.SVG\CL.exe /c /Zi /nologo /W3 /WX- /O2 /D NDEBUG /D _CONSOLE /D _VC80_UPGRADE=0x0600 /D _MBCS /GF /Gm- /EHsc /MT /Zp1 /GS /Gy /fp:precise /Zc:wchar_t /Zc:forScope /Fo".\Release\\" /Fd".\Release\vc120.pdb" /Gd /TP /errorReport:prompt Dynaserver.cpp
+         Dynaserver.cpp
+     1>C:\Program Files (x86)\Microsoft Visual Studio 12.0\VC\include\crtdefs.h(496): error C2371: “size_t”: 重定义；不同的基类型
+                 Dynaserver.cpp : 参见“size_t”的声明
+     1>C:\Program Files (x86)\Windows Kits\8.1\Include\um\winnt.h(889): error C4235: 使用了非标准扩展: 不支持在此结构上使用“__asm”关键字
+     1>C:\Program Files (x86)\Windows Kits\8.1\Include\um\winnt.h(890): error C2065: “mov”: 未声明的标识符
+     1>C:\Program Files (x86)\Windows Kits\8.1\Include\um\winnt.h(890): error C2146: 语法错误: 缺少“;”(在标识符“ecx”的前面)
+     1>C:\Program Files (x86)\Windows Kits\8.1\Include\um\winnt.h(890): error C2065: “ecx”: 未声明的标识符
+     1>C:\Program Files (x86)\Windows Kits\8.1\Include\um\winnt.h(891): error C2146: 语法错误: 缺少“;”(在标识符“mov”的前面)
+     1>C:\Program Files (x86)\Windows Kits\8.1\Include\um\winnt.h(891): error C2065: “mov”: 未声明的标识符
+     1>C:\Program Files (x86)\Windows Kits\8.1\Include\um\winnt.h(891): error C2146: 语法错误: 缺少“;”(在标识符“eax”的前面)
+     1>C:\Program Files (x86)\Windows Kits\8.1\Include\um\winnt.h(891): error C2065: “eax”: 未声明的标识符
+     1>C:\Program Files (x86)\Windows Kits\8.1\Include\um\winnt.h(891): error C2065: “dword”: 未声明的标识符
+     1>C:\Program Files (x86)\Windows Kits\8.1\Include\um\winnt.h(891): error C2146: 语法错误: 缺少“;”(在标识符“ptr”的前面)
+     1>C:\Program Files (x86)\Windows Kits\8.1\Include\um\winnt.h(891): error C2065: “ptr”: 未声明的标识符
+     1>C:\Program Files (x86)\Windows Kits\8.1\Include\um\winnt.h(892): error C2146: 语法错误: 缺少“;”(在标识符“mov”的前面)
+     1>C:\Program Files (x86)\Windows Kits\8.1\Include\um\winnt.h(892): error C2065: “mov”: 未声明的标识符
+     1>C:\Program Files (x86)\Windows Kits\8.1\Include\um\winnt.h(892): error C2146: 语法错误: 缺少“;”(在标识符“edx”的前面)
+     1>C:\Program Files (x86)\Windows Kits\8.1\Include\um\winnt.h(892): error C2065: “edx”: 未声明的标识符
+     1>C:\Program Files (x86)\Windows Kits\8.1\Include\um\winnt.h(892): error C2065: “dword”: 未声明的标识符
+     1>C:\Program Files (x86)\Windows Kits\8.1\Include\um\winnt.h(892): error C2146: 语法错误: 缺少“;”(在标识符“ptr”的前面)
+     1>C:\Program Files (x86)\Windows Kits\8.1\Include\um\winnt.h(892): error C2065: “ptr”: 未声明的标识符
+     1>C:\Program Files (x86)\Windows Kits\8.1\Include\um\winnt.h(893): error C2146: 语法错误: 缺少“;”(在标识符“shld”的前面)
+     1>C:\Program Files (x86)\Windows Kits\8.1\Include\um\winnt.h(893): error C2065: “shld”: 未声明的标识符
+     1>C:\Program Files (x86)\Windows Kits\8.1\Include\um\winnt.h(893): error C2146: 语法错误: 缺少“;”(在标识符“edx”的前面)
+     1>C:\Program Files (x86)\Windows Kits\8.1\Include\um\winnt.h(893): error C2065: “edx”: 未声明的标识符
+     1>C:\Program Files (x86)\Windows Kits\8.1\Include\um\winnt.h(893): error C2065: “eax”: 未声明的标识符
+     1>C:\Program Files (x86)\Windows Kits\8.1\Include\um\winnt.h(894): error C2065: “cl”: 未声明的标识符
+     1>C:\Program Files (x86)\Windows Kits\8.1\Include\um\winnt.h(894): error C2146: 语法错误: 缺少“;”(在标识符“shl”的前面)
+     1>C:\Program Files (x86)\Windows Kits\8.1\Include\um\winnt.h(894): error C2065: “shl”: 未声明的标识符
+     1>C:\Program Files (x86)\Windows Kits\8.1\Include\um\winnt.h(894): error C2146: 语法错误: 缺少“;”(在标识符“eax”的前面)
+     1>C:\Program Files (x86)\Windows Kits\8.1\Include\um\winnt.h(894): error C2065: “eax”: 未声明的标识符
+     1>C:\Program Files (x86)\Windows Kits\8.1\Include\um\winnt.h(895): error C2065: “cl”: 未声明的标识符
+     1>C:\Program Files (x86)\Windows Kits\8.1\Include\um\winnt.h(895): error C2143: 语法错误 : 缺少“;”(在“}”的前面)
+     1>C:\Program Files (x86)\Windows Kits\8.1\Include\um\winnt.h(905): error C4235: 使用了非标准扩展: 不支持在此结构上使用“__asm”关键字
+     1>C:\Program Files (x86)\Windows Kits\8.1\Include\um\winnt.h(906): error C2065: “mov”: 未声明的标识符
+     1>C:\Program Files (x86)\Windows Kits\8.1\Include\um\winnt.h(906): error C2146: 语法错误: 缺少“;”(在标识符“ecx”的前面)
+     1>C:\Program Files (x86)\Windows Kits\8.1\Include\um\winnt.h(906): error C2065: “ecx”: 未声明的标识符
+     1>C:\Program Files (x86)\Windows Kits\8.1\Include\um\winnt.h(907): error C2146: 语法错误: 缺少“;”(在标识符“mov”的前面)
+     1>C:\Program Files (x86)\Windows Kits\8.1\Include\um\winnt.h(907): error C2065: “mov”: 未声明的标识符
+     1>C:\Program Files (x86)\Windows Kits\8.1\Include\um\winnt.h(907): error C2146: 语法错误: 缺少“;”(在标识符“eax”的前面)
+     1>C:\Program Files (x86)\Windows Kits\8.1\Include\um\winnt.h(907): error C2065: “eax”: 未声明的标识符
+     1>C:\Program Files (x86)\Windows Kits\8.1\Include\um\winnt.h(907): error C2065: “dword”: 未声明的标识符
+     1>C:\Program Files (x86)\Windows Kits\8.1\Include\um\winnt.h(907): error C2146: 语法错误: 缺少“;”(在标识符“ptr”的前面)
+     1>C:\Program Files (x86)\Windows Kits\8.1\Include\um\winnt.h(907): error C2065: “ptr”: 未声明的标识符
+     1>C:\Program Files (x86)\Windows Kits\8.1\Include\um\winnt.h(908): error C2146: 语法错误: 缺少“;”(在标识符“mov”的前面)
+     1>C:\Program Files (x86)\Windows Kits\8.1\Include\um\winnt.h(908): error C2065: “mov”: 未声明的标识符
+     1>C:\Program Files (x86)\Windows Kits\8.1\Include\um\winnt.h(908): error C2146: 语法错误: 缺少“;”(在标识符“edx”的前面)
+     1>C:\Program Files (x86)\Windows Kits\8.1\Include\um\winnt.h(908): error C2065: “edx”: 未声明的标识符
+     1>C:\Program Files (x86)\Windows Kits\8.1\Include\um\winnt.h(908): error C2065: “dword”: 未声明的标识符
+     1>C:\Program Files (x86)\Windows Kits\8.1\Include\um\winnt.h(908): error C2146: 语法错误: 缺少“;”(在标识符“ptr”的前面)
+     1>C:\Program Files (x86)\Windows Kits\8.1\Include\um\winnt.h(908): error C2065: “ptr”: 未声明的标识符
+     1>C:\Program Files (x86)\Windows Kits\8.1\Include\um\winnt.h(909): error C2146: 语法错误: 缺少“;”(在标识符“shrd”的前面)
+     1>C:\Program Files (x86)\Windows Kits\8.1\Include\um\winnt.h(909): error C2065: “shrd”: 未声明的标识符
+     1>C:\Program Files (x86)\Windows Kits\8.1\Include\um\winnt.h(909): error C2146: 语法错误: 缺少“;”(在标识符“eax”的前面)
+     1>C:\Program Files (x86)\Windows Kits\8.1\Include\um\winnt.h(909): error C2065: “eax”: 未声明的标识符
+     1>C:\Program Files (x86)\Windows Kits\8.1\Include\um\winnt.h(909): error C2065: “edx”: 未声明的标识符
+     1>C:\Program Files (x86)\Windows Kits\8.1\Include\um\winnt.h(910): error C2065: “cl”: 未声明的标识符
+     1>C:\Program Files (x86)\Windows Kits\8.1\Include\um\winnt.h(910): error C2146: 语法错误: 缺少“;”(在标识符“sar”的前面)
+     1>C:\Program Files (x86)\Windows Kits\8.1\Include\um\winnt.h(910): error C2065: “sar”: 未声明的标识符
+     1>C:\Program Files (x86)\Windows Kits\8.1\Include\um\winnt.h(910): error C2146: 语法错误: 缺少“;”(在标识符“edx”的前面)
+     1>C:\Program Files (x86)\Windows Kits\8.1\Include\um\winnt.h(910): error C2065: “edx”: 未声明的标识符
+     1>C:\Program Files (x86)\Windows Kits\8.1\Include\um\winnt.h(911): error C2065: “cl”: 未声明的标识符
+     1>C:\Program Files (x86)\Windows Kits\8.1\Include\um\winnt.h(911): error C2143: 语法错误 : 缺少“;”(在“}”的前面)
+     1>C:\Program Files (x86)\Windows Kits\8.1\Include\um\winnt.h(921): error C4235: 使用了非标准扩展: 不支持在此结构上使用“__asm”关键字
+     1>C:\Program Files (x86)\Windows Kits\8.1\Include\um\winnt.h(922): error C2065: “mov”: 未声明的标识符
+     1>C:\Program Files (x86)\Windows Kits\8.1\Include\um\winnt.h(922): error C2146: 语法错误: 缺少“;”(在标识符“ecx”的前面)
+     1>C:\Program Files (x86)\Windows Kits\8.1\Include\um\winnt.h(922): error C2065: “ecx”: 未声明的标识符
+     1>C:\Program Files (x86)\Windows Kits\8.1\Include\um\winnt.h(923): error C2146: 语法错误: 缺少“;”(在标识符“mov”的前面)
+     1>C:\Program Files (x86)\Windows Kits\8.1\Include\um\winnt.h(923): error C2065: “mov”: 未声明的标识符
+     1>C:\Program Files (x86)\Windows Kits\8.1\Include\um\winnt.h(923): error C2146: 语法错误: 缺少“;”(在标识符“eax”的前面)
+     1>C:\Program Files (x86)\Windows Kits\8.1\Include\um\winnt.h(923): error C2065: “eax”: 未声明的标识符
+     1>C:\Program Files (x86)\Windows Kits\8.1\Include\um\winnt.h(923): error C2065: “dword”: 未声明的标识符
+     1>C:\Program Files (x86)\Windows Kits\8.1\Include\um\winnt.h(923): error C2146: 语法错误: 缺少“;”(在标识符“ptr”的前面)
+     1>C:\Program Files (x86)\Windows Kits\8.1\Include\um\winnt.h(923): error C2065: “ptr”: 未声明的标识符
+     1>C:\Program Files (x86)\Windows Kits\8.1\Include\um\winnt.h(924): error C2146: 语法错误: 缺少“;”(在标识符“mov”的前面)
+     1>C:\Program Files (x86)\Windows Kits\8.1\Include\um\winnt.h(924): error C2065: “mov”: 未声明的标识符
+     1>C:\Program Files (x86)\Windows Kits\8.1\Include\um\winnt.h(924): error C2146: 语法错误: 缺少“;”(在标识符“edx”的前面)
+     1>C:\Program Files (x86)\Windows Kits\8.1\Include\um\winnt.h(924): error C2065: “edx”: 未声明的标识符
+     1>C:\Program Files (x86)\Windows Kits\8.1\Include\um\winnt.h(924): error C2065: “dword”: 未声明的标识符
+     1>C:\Program Files (x86)\Windows Kits\8.1\Include\um\winnt.h(924): error C2146: 语法错误: 缺少“;”(在标识符“ptr”的前面)
+     1>C:\Program Files (x86)\Windows Kits\8.1\Include\um\winnt.h(924): error C2065: “ptr”: 未声明的标识符
+     1>C:\Program Files (x86)\Windows Kits\8.1\Include\um\winnt.h(925): error C2146: 语法错误: 缺少“;”(在标识符“shrd”的前面)
+     1>C:\Program Files (x86)\Windows Kits\8.1\Include\um\winnt.h(925): error C2065: “shrd”: 未声明的标识符
+     1>C:\Program Files (x86)\Windows Kits\8.1\Include\um\winnt.h(925): error C2146: 语法错误: 缺少“;”(在标识符“eax”的前面)
+     1>C:\Program Files (x86)\Windows Kits\8.1\Include\um\winnt.h(925): error C2065: “eax”: 未声明的标识符
+     1>C:\Program Files (x86)\Windows Kits\8.1\Include\um\winnt.h(925): error C2065: “edx”: 未声明的标识符
+     1>C:\Program Files (x86)\Windows Kits\8.1\Include\um\winnt.h(926): error C2065: “cl”: 未声明的标识符
+     1>C:\Program Files (x86)\Windows Kits\8.1\Include\um\winnt.h(926): error C2146: 语法错误: 缺少“;”(在标识符“shr”的前面)
+     1>C:\Program Files (x86)\Windows Kits\8.1\Include\um\winnt.h(926): error C2065: “shr”: 未声明的标识符
+     1>C:\Program Files (x86)\Windows Kits\8.1\Include\um\winnt.h(926): error C2146: 语法错误: 缺少“;”(在标识符“edx”的前面)
+     1>C:\Program Files (x86)\Windows Kits\8.1\Include\um\winnt.h(926): error C2065: “edx”: 未声明的标识符
+     1>C:\Program Files (x86)\Windows Kits\8.1\Include\um\winnt.h(927): error C2065: “cl”: 未声明的标识符
+     1>C:\Program Files (x86)\Windows Kits\8.1\Include\um\winnt.h(927): error C2143: 语法错误 : 缺少“;”(在“}”的前面)
+     1>C:\Program Files (x86)\Windows Kits\8.1\Include\um\winnt.h(5423): error C2169: “_InterlockedAnd64”: 内部函数，不能定义
+     1>C:\Program Files (x86)\Windows Kits\8.1\Include\um\winnt.h(5496): error C2169: “_InterlockedOr64”: 内部函数，不能定义
+     1>C:\Program Files (x86)\Windows Kits\8.1\Include\um\winnt.h(5516): error C2169: “_InterlockedXor64”: 内部函数，不能定义
+     1>C:\Program Files (x86)\Windows Kits\8.1\Include\um\winnt.h(5535): error C2169: “_InterlockedIncrement64”: 内部函数，不能定义
+     1>C:\Program Files (x86)\Windows Kits\8.1\Include\um\winnt.h(5556): error C2169: “_InterlockedDecrement64”: 内部函数，不能定义
+     1>C:\Program Files (x86)\Windows Kits\8.1\Include\um\winnt.h(5576): error C2169: “_InterlockedExchange64”: 内部函数，不能定义
+     1>C:\Program Files (x86)\Windows Kits\8.1\Include\um\winnt.h(5599): error C2169: “_InterlockedExchangeAdd64”: 内部函数，不能定义
+     1>C:\Program Files (x86)\Windows Kits\8.1\Include\um\winnt.h(5651): warning C4163: “__incfsbyte”: 不可用作内部函数
+     1>C:\Program Files (x86)\Windows Kits\8.1\Include\um\winnt.h(5652): warning C4163: “__addfsbyte”: 不可用作内部函数
+     1>C:\Program Files (x86)\Windows Kits\8.1\Include\um\winnt.h(5653): warning C4163: “__incfsword”: 不可用作内部函数
+     1>C:\Program Files (x86)\Windows Kits\8.1\Include\um\winnt.h(5654): warning C4163: “__addfsword”: 不可用作内部函数
+     1>C:\Program Files (x86)\Windows Kits\8.1\Include\um\winnt.h(5655): warning C4163: “__incfsdword”: 不可用作内部函数
+     1>C:\Program Files (x86)\Windows Kits\8.1\Include\um\winnt.h(5656): warning C4163: “__addfsdword”: 不可用作内部函数
+     1>C:\Program Files (x86)\Windows Kits\8.1\Include\um\winnt.h(5722): warning C4163: “__readfsbyte”: 不可用作内部函数
+     1>C:\Program Files (x86)\Windows Kits\8.1\Include\um\winnt.h(5723): warning C4163: “__readfsword”: 不可用作内部函数
+     1>C:\Program Files (x86)\Windows Kits\8.1\Include\um\winnt.h(5724): warning C4163: “__readfsdword”: 不可用作内部函数
+     1>C:\Program Files (x86)\Windows Kits\8.1\Include\um\winnt.h(5725): warning C4163: “__writefsbyte”: 不可用作内部函数
+     1>C:\Program Files (x86)\Windows Kits\8.1\Include\um\winnt.h(5726): warning C4163: “__writefsword”: 不可用作内部函数
+     1>C:\Program Files (x86)\Windows Kits\8.1\Include\um\winnt.h(5727): warning C4163: “__writefsdword”: 不可用作内部函数
+     1>C:\Program Files (x86)\Windows Kits\8.1\Include\um\winbase.h(8848): error C3861: “_InterlockedIncrement64”:  找不到标识符
+     1>C:\Program Files (x86)\Windows Kits\8.1\Include\um\winbase.h(8879): error C3861: “_InterlockedDecrement64”:  找不到标识符
+     1>C:\Program Files (x86)\Windows Kits\8.1\Include\um\winbase.h(8915): error C3861: “_InterlockedExchange64”:  找不到标识符
+     1>C:\Program Files (x86)\Windows Kits\8.1\Include\um\winbase.h(8969): error C3861: “_InterlockedExchangeAdd64”:  找不到标识符
+     1>C:\Program Files (x86)\Windows Kits\8.1\Include\um\winbase.h(8979): error C3861: “_InterlockedExchangeAdd64”:  找不到标识符
+     1>C:\Program Files (x86)\Windows Kits\8.1\Include\um\winbase.h(9026): error C3861: “_InterlockedAnd64”:  找不到标识符
+     1>C:\Program Files (x86)\Windows Kits\8.1\Include\um\winbase.h(9026): fatal error C1003: 错误计数超过 100；正在停止编译
+     1>已完成生成项目“E:\Dynas\Dynas.SVG\Dynaserver.vcxproj”(Rebuild 个目标)的操作 - 失败。
+
+生成失败。
+
+已用时间 00:00:00.45

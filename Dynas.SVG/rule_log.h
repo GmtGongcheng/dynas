@@ -40,7 +40,8 @@ typedef struct logInfoStructR
 	fileName:	文件名,不含路径,如"report.xml"
 	fileInfo: 文件信息
 	*/
-	extern int GetFileInfo(const char *dir, const char *fileName, BaseFileInfo* fileInfo);
+	extern int GetFileInfoA(const char *dir, const char *fileName, BaseFileInfo* fileInfo);
+	extern int GetFileInfo(const char *fileName, BaseFileInfo* fileInfo);
 
 	//复制文件,文件名含全路径
 	extern int CopyFile_Log(char *fileNameS,char *fileNameD);
@@ -56,9 +57,9 @@ typedef struct logInfoStructR
 	
 		
 	//extern void WriteLog(int link_ID, struct logInfoStruct logInfo);
-	extern void WriteSOE(int link_ID, char* logStr);
-	extern void WriteLog(int link_ID, char* logStr);
-	extern void WriteLog_Tele(int link_ID, unsigned char *buf, unsigned int byte2, int bRecv);//存报文到文件
+	extern void WriteSOE(int link_ID, char* logStr, char*rulestr, char* filestr);
+	extern void WriteLog(int link_ID, char* rulestr, char* logStr);
+	extern void WriteLog_Tele(int link_ID, unsigned char *buf, unsigned int byte2, int bRecv, char* rulestr);//存报文到文件
 	
 	extern void WriteTele_to_Console(int link_ID, unsigned char *buf, unsigned int byte2, int bRecv);
 

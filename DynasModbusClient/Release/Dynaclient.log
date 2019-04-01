@@ -1,0 +1,51 @@
+﻿生成启动时间为 2019-04-01 11:07:51。
+     1>项目“E:\Dynas\DynasModbusClient\Dynaclient.vcxproj”在节点 2 上(Rebuild 个目标)。
+     1>ClCompile:
+         C:\Program Files (x86)\Microsoft Visual Studio 12.0\VC\bin\CL.exe /c /Zi /nologo /W3 /WX- /O2 /Oy- /D WIN32 /D NDEBUG /D _CONSOLE /D _VC80_UPGRADE=0x0600 /D _USING_V110_SDK71_ /D _MBCS /GF /Gm- /EHsc /MTd /Zp1 /GS /Gy /fp:precise /Zc:wchar_t /Zc:forScope /Fo".\Release\\" /Fd".\Release\vc120.pdb" /Gd /TC /analyze- /errorReport:prompt Dynaclient.c FrontEnd.c PANSI_c.c RpcProc.c
+         Dynaclient.c
+     1>e:\dynas\dynasmodbusclient\modbus.h : warning C4819: 该文件包含不能在当前代码页(936)中表示的字符。请将该文件保存为 Unicode 格式以防止数据丢失
+     1>e:\dynas\dynasmodbusclient\modbus-rtu.h : warning C4819: 该文件包含不能在当前代码页(936)中表示的字符。请将该文件保存为 Unicode 格式以防止数据丢失
+     1>Dynaclient.c(42): warning C4133: “函数”: 从“PS_rt_yc [2048]”到“PS_rt_yx *”的类型不兼容
+     1>Dynaclient.c(81): warning C4013: “_beginthreadex”未定义；假设外部返回 int
+     1>Dynaclient.c(90): warning C4020: “modbus_connect”: 实参太多
+     1>Dynaclient.c(148): warning C4244: “函数”: 从“int”转换到“float”，可能丢失数据
+     1>Dynaclient.c(149): warning C4244: “函数”: 从“int”转换到“float”，可能丢失数据
+     1>Dynaclient.c(168): warning C4020: “DebugPrintln”: 实参太多
+     1>Dynaclient.c(83): warning C4101: “yk_varid”: 未引用的局部变量
+     1>Dynaclient.c(84): warning C4101: “yt_varid”: 未引用的局部变量
+         FrontEnd.c
+     1>FrontEnd.c(13): warning C4013: “_getcwd”未定义；假设外部返回 int
+     1>FrontEnd.c(14): warning C4996: 'strcat': This function or variable may be unsafe. Consider using strcat_s instead. To disable deprecation, use _CRT_SECURE_NO_WARNINGS. See online help for details.
+     1>FrontEnd.c(28): warning C4996: 'strncpy': This function or variable may be unsafe. Consider using strncpy_s instead. To disable deprecation, use _CRT_SECURE_NO_WARNINGS. See online help for details.
+                 C:\Program Files (x86)\Microsoft Visual Studio 12.0\VC\include\string.h(195) : 参见“strncpy”的声明
+     1>FrontEnd.c(33): warning C4996: 'strncpy': This function or variable may be unsafe. Consider using strncpy_s instead. To disable deprecation, use _CRT_SECURE_NO_WARNINGS. See online help for details.
+                 C:\Program Files (x86)\Microsoft Visual Studio 12.0\VC\include\string.h(195) : 参见“strncpy”的声明
+     1>FrontEnd.c(34): warning C4996: 'strcat': This function or variable may be unsafe. Consider using strcat_s instead. To disable deprecation, use _CRT_SECURE_NO_WARNINGS. See online help for details.
+     1>FrontEnd.c(52): warning C4996: 'strcpy': This function or variable may be unsafe. Consider using strcpy_s instead. To disable deprecation, use _CRT_SECURE_NO_WARNINGS. See online help for details.
+     1>FrontEnd.c(93): warning C4013: “sprintf”未定义；假设外部返回 int
+     1>FrontEnd.c(123): warning C4244: “=”: 从“int”转换到“float”，可能丢失数据
+     1>FrontEnd.c(76): warning C4101: “wsaData”: 未引用的局部变量
+     1>FrontEnd.c(71): warning C4101: “profstr”: 未引用的局部变量
+     1>FrontEnd.c(74): warning C4101: “nAlarm”: 未引用的局部变量
+     1>FrontEnd.c(68): warning C4101: “npoint”: 未引用的局部变量
+     1>FrontEnd.c(69): warning C4101: “size”: 未引用的局部变量
+     1>FrontEnd.c(74): warning C4101: “nInd”: 未引用的局部变量
+     1>FrontEnd.c(74): warning C4101: “nSOE”: 未引用的局部变量
+     1>FrontEnd.c(70): warning C4101: “j”: 未引用的局部变量
+         PANSI_c.c
+         RpcProc.c
+     1>RpcProc.c(47): warning C4013: “_beginthreadex”未定义；假设外部返回 int
+     1>RpcProc.c(57): warning C4142: 类型的良性重定义
+         正在生成代码...
+     1>e:\dynas\dynasmodbusclient\frontend.c(168): warning C4716: “FrontEndSetup”: 必须返回一个值
+       Link:
+         C:\Program Files (x86)\Microsoft Visual Studio 12.0\VC\bin\link.exe /ERRORREPORT:PROMPT /OUT:".\Release\Dynaclient.exe" /INCREMENTAL:NO /NOLOGO /LIBPATH:E:\Dynas\DynasModbusClient odbc32.lib odbccp32.lib RPCRT4.LIB WS2_32.LIB libmodbus.lib kernel32.lib user32.lib gdi32.lib winspool.lib comdlg32.lib advapi32.lib shell32.lib ole32.lib oleaut32.lib uuid.lib odbc32.lib odbccp32.lib /MANIFEST /MANIFESTUAC:"level='asInvoker' uiAccess='false'" /manifest:embed /PDB:".\Release\Dynaclient.pdb" /SUBSYSTEM:CONSOLE,"5.01" /TLBID:1 /DYNAMICBASE /NXCOMPAT /IMPLIB:".\Release\Dynaclient.lib" /MACHINE:X86 /SAFESEH .\Release\Dynaclient.obj
+         .\Release\FrontEnd.obj
+         .\Release\PANSI_c.obj
+         .\Release\RpcProc.obj
+         Dynaclient.vcxproj -> E:\Dynas\DynasModbusClient\.\Release\Dynaclient.exe
+     1>已完成生成项目“E:\Dynas\DynasModbusClient\Dynaclient.vcxproj”(Rebuild 个目标)的操作。
+
+生成成功。
+
+已用时间 00:00:03.17

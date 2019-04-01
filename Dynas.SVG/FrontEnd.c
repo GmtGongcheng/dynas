@@ -58,7 +58,9 @@ int WINAPI FrontEndSetup()
 	System.nYT  = GetPrivateProfileInt("system", "nYT", 20, GetIniFileName()) + 1;
 	nSOE        = GetPrivateProfileInt("system", "nSOE", 128, GetIniFileName());
 	nAlarm      = GetPrivateProfileInt("system", "nAlarm", 128, GetIniFileName());
-	nInd        = GetPrivateProfileInt("system", "nInt", 128, GetIniFileName());
+	nInd        = GetPrivateProfileInt("system", "nInd", 128, GetIniFileName());
+    GetPrivateProfileString("system", "rulestr", "", rulestr, 256, GetIniFileName());
+
 
 
 
@@ -307,10 +309,9 @@ int WINAPI FrontEndSetup()
 				{
 					char defname[41];
 					char keyname[41];
-					char  buf[256];
-					sprintf(defname, "SOE_%d_%04d", i, j);
-					sprintf(keyname, "SOE_%d_%d", i, j);
-					GetPrivateProfileString("SOE", keyname, defname, buf, ppAlarm[i][j].name, GetIniFileName());
+					sprintf(defname, "	Alarm_%d_%04d", i, j);
+					sprintf(keyname, "Alarm_%d_%d", i, j);
+					GetPrivateProfileString("Alarm", keyname, defname, ppAlarm[i][j].name, 41, GetIniFileName());
 
 				}
 				else
@@ -346,10 +347,9 @@ int WINAPI FrontEndSetup()
 				{
 					char defname[41];
 					char keyname[41];
-					char  buf[256];
-					sprintf(defname, "SOE_%d_%04d", i, j);
-					sprintf(keyname, "SOE_%d_%d", i, j);
-					GetPrivateProfileString("SOE", keyname, defname, buf, ppInd[i][j].name, GetIniFileName());
+					sprintf(defname, "Ind_%d_%04d", i, j);
+					sprintf(keyname, "Ind_%d_%d", i, j);
+					GetPrivateProfileString("Ind", keyname, defname, ppInd[i][j].name, 41, GetIniFileName());
 
 				}
 				else
@@ -420,20 +420,21 @@ int WINAPI FrontEndSetup()
 
 
 
-LRESULT WINAPI FrontEndRoutine(LPVOID lp)
+//LRESULT WINAPI FrontEndRoutine(LPVOID lp)
+unsigned __stdcall FrontEndRoutine(LPVOID lp)
 {
-	int station = (int)lp;
-	char *protocol = pStation[station].protocol;
-	if (station == 0)
+	Bstation sta = (Bstation)lp;
+	char *protocol = pStation[sta->station].protocol;
+	if (sta->station == 0)
 		Routine_Virtual();
 	else if (stricmp(protocol, "XD_FK") == 0)
-		Routine_XD_FK(station);
+		Routine_XD_FK(sta->station);
 	else if (stricmp(protocol, "DY_SVG") == 0)
-		Routine_DY_SVG(station);
+		Routine_DY_SVG(sta->station);
 	else if (stricmp(protocol, "XD_SVG") == 0)
-		Routine_XD_SVG(station);
+		Routine_XD_SVG(sta->station);
 
-	return 0L;
+	return 0;
 }
 
 

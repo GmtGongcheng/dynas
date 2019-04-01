@@ -125,9 +125,9 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
-    <ClCompile Include="Dynaclient.cpp" />
+    <ClCompile Include="Dynaclient.c" />
     <ClCompile Include="PANSI_c.c" />
-    <ClCompile Include="RpcProc.cpp" />
+    <ClCompile Include="RpcProc.c" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Dynaclient.h" />

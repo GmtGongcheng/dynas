@@ -95,11 +95,11 @@
 
 
 
-void WriteSOE(int link_ID, char* logStr, char* filestr)
+void WriteSOE(int link_ID, char* logStr, char*rulestr, char* filestr)
 {
 	char fileNameBuf[256];
 	memset(fileNameBuf, 0x00, sizeof(fileNameBuf));
-	sprintf(fileNameBuf, "./SER/%d_%s.txt", link_ID,filestr);
+	sprintf(fileNameBuf, "%s/SER/%s_realtime/%d_%s.txt",rulestr, filestr, link_ID, filestr);
 	m_p_log_fp = NULL;
 	m_p_log_fp = fopen(fileNameBuf, "a+");
 	if (m_p_log_fp == NULL)
@@ -117,7 +117,7 @@ void WriteSOE(int link_ID, char* logStr, char* filestr)
 	BaseFileInfo* fileInfo = (BaseFileInfo*)malloc(sizeof(BaseFileInfo));
 
 	//GetFileInfo("./","dynas.log",fileInfo);
-	GetFileInfo("./", fileNameBuf, fileInfo);
+	GetFileInfo(fileNameBuf, fileInfo);
 
 	if (fileInfo->size > 51200)	//日志文件大于50K则清空
 	{
@@ -128,7 +128,7 @@ void WriteSOE(int link_ID, char* logStr, char* filestr)
 		char buf[256];
 		memset(buf, 0x00, sizeof(buf));
 
-		sprintf(buf, "./SOE/%s/%d_dynas%4d_%02d_%02d_%02d_%02d_%02d_%s.txt", filestr, link_ID,
+		sprintf(buf, "%s/SER/%s/%d_dynas%4d_%02d_%02d_%02d_%02d_%02d_%s.txt", rulestr, filestr, link_ID,
 			systime.wYear, systime.wMonth, systime.wDay, systime.wHour, systime.wMinute, systime.wSecond,filestr);
 
 		printf("%s\r\n", buf);
@@ -172,11 +172,11 @@ void WriteSOE(int link_ID, char* logStr, char* filestr)
 }
 
 
-void WriteLog(int link_ID, char* logStr)
+void WriteLog(int link_ID, char* rulestr, char* logStr)
 	{
 		char fileNameBuf[256];
 		memset(fileNameBuf, 0x00, sizeof(fileNameBuf));
-		sprintf(fileNameBuf, "./log/%d_dynas.log", link_ID);
+		sprintf(fileNameBuf, "%s/log/%d_dynas.log",rulestr, link_ID);
 		m_p_log_fp = NULL;
 		m_p_log_fp = fopen(fileNameBuf, "a+");
 		if (m_p_log_fp == NULL)
@@ -194,7 +194,7 @@ void WriteLog(int link_ID, char* logStr)
 	BaseFileInfo* fileInfo = (BaseFileInfo*)malloc(sizeof(BaseFileInfo));
 
 	//GetFileInfo("./","dynas.log",fileInfo);
-	GetFileInfo("./",fileNameBuf,fileInfo);
+	GetFileInfo(fileNameBuf,fileInfo);
 
 	if(fileInfo->size>1048576)	//日志文件大于1M则清空
 		{
@@ -205,7 +205,7 @@ void WriteLog(int link_ID, char* logStr)
 		char buf[256];
 		memset(buf, 0x00, sizeof(buf));
 
-		sprintf(buf, "./log/station%d/%d_dynas%4d_%02d_%02d_%02d_%02d_%02d_log.txt",link_ID, link_ID,
+		sprintf(buf, "%s/log/station%d/%d_dynas%4d_%02d_%02d_%02d_%02d_%02d_log.txt",rulestr, link_ID, link_ID,
 			systime.wYear, systime.wMonth, systime.wDay, systime.wHour, systime.wMinute, systime.wSecond);
 
 		printf("%s\r\n",buf);
@@ -250,11 +250,11 @@ void WriteLog(int link_ID, char* logStr)
 
 
 
-void WriteLog_Tele(int link_ID,unsigned char *buf,unsigned int byte2,int bRecv)
+void WriteLog_Tele(int link_ID,unsigned char *buf,unsigned int byte2,int bRecv,char* rulestr)
 	{
 		char fileNameBuf[256];
 		memset(fileNameBuf, 0x00, sizeof(fileNameBuf));
-		sprintf(fileNameBuf, "./log/%d_dynas.log", link_ID);
+		sprintf(fileNameBuf, "%s/log/%d_dynas.log",rulestr, link_ID);
 		m_p_log_fp = NULL;
 		m_p_log_fp = fopen(fileNameBuf, "a+");
 		if (m_p_log_fp == NULL)
@@ -273,7 +273,7 @@ void WriteLog_Tele(int link_ID,unsigned char *buf,unsigned int byte2,int bRecv)
 	BaseFileInfo* fileInfo = (BaseFileInfo*)malloc(sizeof(BaseFileInfo));
 
 	//GetFileInfo("./","dynas.log",fileInfo);
-	GetFileInfo("./",fileNameBuf,fileInfo);
+	GetFileInfo(fileNameBuf, fileInfo);
 
 
 	//if(fileInfo.size>208576)	//日志文件大于1M则清空
@@ -286,7 +286,7 @@ void WriteLog_Tele(int link_ID,unsigned char *buf,unsigned int byte2,int bRecv)
 		memset(buf1,0x00,sizeof(buf1));
 		//sprintf(buf,"G:\\dynas%d_%d_%d_%d_%d_%d_log.txt\n",
 		//cd.Year(),cd.Month(),cd.DayOfMonth(),ct.Hour(),ct.Minute(),ct.Second());
-		sprintf(buf1,"./log/station%d/%d_dynas%4d_%02d_%02d_%02d_%02d_%02d_log.txt",link_ID, link_ID,
+		sprintf(buf1,"%s/log/station%d/%d_dynas%4d_%02d_%02d_%02d_%02d_%02d_log.txt",rulestr,link_ID, link_ID,
 			systime.wYear, systime.wMonth, systime.wDay, systime.wHour, systime.wMinute, systime.wSecond);
 	
 	#ifdef _WIN32
@@ -418,7 +418,7 @@ dir:		目录,不含后斜线,如"./page"
 fileName:	文件名,不含路径,如"report.xml"
 fileInfo: 文件信息
 */
-int GetFileInfo(const char *dir,char *fileName,BaseFileInfo* fileInfo)
+int GetFileInfoA(const char *dir,char *fileName,BaseFileInfo* fileInfo)
 	{
 
 #ifdef _WIN32
@@ -516,6 +516,102 @@ int GetFileInfo(const char *dir,char *fileName,BaseFileInfo* fileInfo)
 
 	return DCO_SUCCESS;
 	}
+
+int GetFileInfo(char *fileName, BaseFileInfo* fileInfo)
+{
+
+#ifdef _WIN32
+
+	HANDLE hFile;
+	WIN32_FIND_DATA filedata;
+	FILETIME lfiletime;
+	SYSTEMTIME systime;
+
+	hFile = FindFirstFile(fileName, &filedata);
+	if (INVALID_HANDLE_VALUE == hFile)  //判断句柄是否有效
+	{
+		return DCO_NoSuchFile;		//no file
+	}
+	FindClose(hFile);
+
+	fileInfo->fileName = fileName;
+	fileInfo->size = filedata.nFileSizeLow;	//在此忽略了filedata.nFileSizeHigh
+
+	//created time
+	FileTimeToLocalFileTime(&filedata.ftCreationTime, &lfiletime);
+	FileTimeToSystemTime(&lfiletime, &systime);
+
+	fileInfo->createTime = systime;
+
+	//last modified time
+	FileTimeToLocalFileTime(&filedata.ftLastWriteTime, &lfiletime);
+	FileTimeToSystemTime(&lfiletime, &systime);
+
+	fileInfo->modifyTime = systime;
+
+#else
+
+	//char szFile[_MAX_PATH];
+	char szFile[250];
+
+	int iret;
+	struct stat statbuf;
+	struct tm *stm;
+	char day, month, hour, minute, second;
+	short year;
+
+	sprintf(szFile, "%s/%s", dir, fileName);
+	iret = stat(szFile, &statbuf);
+
+	if (-1 == iret)
+		return DCO_NoSuchFile;
+
+	//SAFETY_STRCPY(fileInfo.fileName,fileName,MAX_FILENAME_LENGTH)
+	fileInfo.fileName = fileName;
+	fileInfo.size = statbuf.st_size;
+
+	//created time
+	stm = localtime(&statbuf.st_ctime);
+
+	year = (short)(stm->tm_year + 1900);
+	month = (char)(stm->tm_mon + 1);
+	day = (char)stm->tm_mday;
+
+	hour = (char)stm->tm_hour;
+	minute = (char)stm->tm_min;
+	second = (char)stm->tm_sec;
+
+	pdt = new CxDate(day, month, year);
+	ptm = new CxTime(*pdt, hour, minute, second);
+	fileInfo.createTime = ptm->Seconds();
+
+	//last modified time
+	stm = localtime(&statbuf.st_mtime);
+
+	year = (short)(stm->tm_year + 1900);
+	month = (char)(stm->tm_mon + 1);
+	day = (char)stm->tm_mday;
+
+	hour = (char)stm->tm_hour;
+	minute = (char)stm->tm_min;
+	second = (char)stm->tm_sec;
+
+	//wcsbull add 20070803
+	delete pdt;
+	delete ptm;
+
+	pdt = new CxDate(day, month, year);
+	ptm = new CxTime(*pdt, hour, minute, second);
+	fileInfo.modifyTime = ptm->Seconds();
+
+	//wcsbull add 20070803
+	delete pdt;
+	delete ptm;
+
+#endif	//_WIN32
+
+	return DCO_SUCCESS;
+}
 
 //复制文件,文件名含全路径
 int CopyFile_Log(char *fileNameS,char *fileNameD)

@@ -1,0 +1,19 @@
+﻿生成启动时间为 2018-10-19 16:20:29。
+     1>项目“c:\Users\gongcheng\documents\visual studio 2013\Projects\DynasClient\DynasClient\DynasClient.vcxproj”在节点 2 上(Rebuild 个目标)。
+     1>ClCompile:
+         C:\Program Files (x86)\Microsoft Visual Studio 12.0\VC\bin\CL.exe /c /Z7 /nologo /W3 /WX- /Od /Oy- /D odbc32.lib /D odbccp32.lib /D RPCRT4.LIB /D WS2_32.LIB /D _VC80_UPGRADE=0x0600 /D _USING_V110_SDK71_ /D _MBCS /D _USING_V110_SDK71_ /D _UNICODE /D UNICODE /Gm /EHsc /RTC1 /MDd /GS /fp:precise /Zc:wchar_t /Zc:forScope /Fo"Debug\\" /Fd"Debug\vc120.pdb" /Gd /TP /analyze- /errorReport:prompt Dynaclient.cpp RpcProc.cpp
+     1>cl : 命令行 warning D9007: “/Gm”需要“/Zi 或 /ZI”；选项被忽略
+         Dynaclient.cpp
+         RpcProc.cpp
+     1>RpcProc.cpp(91): error C2664: “RPC_STATUS RpcStringFreeW(RPC_WSTR *)”: 无法将参数 1 从“unsigned char **”转换为“RPC_WSTR *”
+                 与指向的类型无关；转换要求 reinterpret_cast、C 样式转换或函数样式转换
+     1>RpcProc.cpp(107): error C2664: “RPC_STATUS RpcStringBindingComposeW(RPC_WSTR,RPC_WSTR,RPC_WSTR,RPC_WSTR,RPC_WSTR,RPC_WSTR *)”: 无法将参数 1 从“unsigned char *”转换为“RPC_WSTR”
+                 与指向的类型无关；转换要求 reinterpret_cast、C 样式转换或函数样式转换
+     1>RpcProc.cpp(112): error C2664: “RPC_STATUS RpcBindingFromStringBindingW(RPC_WSTR,RPC_BINDING_HANDLE *)”: 无法将参数 1 从“unsigned char *”转换为“RPC_WSTR”
+                 与指向的类型无关；转换要求 reinterpret_cast、C 样式转换或函数样式转换
+         正在生成代码...
+     1>已完成生成项目“c:\Users\gongcheng\documents\visual studio 2013\Projects\DynasClient\DynasClient\DynasClient.vcxproj”(Rebuild 个目标)的操作 - 失败。
+
+生成失败。
+
+已用时间 00:00:00.75

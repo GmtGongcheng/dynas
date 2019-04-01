@@ -20,7 +20,7 @@ enum TYPE_TEL
 
 int DEBUG_LOG = 1;
 
-#define BUFLEN 2048
+#define BUFLEN 2500
 
 char checkFrameFlag(unsigned char* srcBuf, int iCurrPos)
 {
@@ -190,7 +190,7 @@ static int com_operation(SOCKET sock, int station, int point, int vtype, float f
 	}
 	if (DEBUG_LOG == 1)
 	{
-		WriteLog_Tele(station, sndbuf, len_snd, 0);
+		WriteLog_Tele(station, sndbuf, len_snd, 0,rulestr);
 	}
 	//recv(sock, sndbuf, BUFLEN, 0);
 
@@ -226,10 +226,8 @@ int WINAPI Routine_XD_SVG(int station)
 	sprintf(datafile, ".\\facdata\\Lastvalues_%d.dat", station);
 
 	sprintf(infostr, "\r\n#%d线程启动\r\n", station);
-	if (DEBUG_LOG == 1)
-	{
-		WriteLog(station, infostr);
-	}
+	WriteLog(station, rulestr, infostr);
+
 
 	//SendMessage(g_hMainDlg, UWM_SETDEBUGSTRING, 0, (LPARAM)infostr);
 	DebugPrintln(infostr);
@@ -239,6 +237,10 @@ int WINAPI Routine_XD_SVG(int station)
 	while (get_var(Flag_FER))
 	{
 		int fComStateChange;
+		int new_soe_inf, new_alarm_inf, new_ind_inf;
+		new_soe_inf = 0;
+		new_alarm_inf = 0;
+		new_ind_inf = 0;
 
 		pStation[station].oper_point = 0;  //set_var(VarID_OPER, 0);
 		fComStateChange = 0;
@@ -294,17 +296,21 @@ int WINAPI Routine_XD_SVG(int station)
 			{
 				//FILE *fp;
 
+				SYSTEMTIME	systime;
+				memset(&systime, 0x00, sizeof(systime));
+				GetCurTime(&systime);
+
 				waitfor_mutex(Mutex_RT);
 
 				ppYX[station][0].yx.value = 0;
 
 				release_mutex(Mutex_RT);
 
-				sprintf(infostr, "#%d站连接中断!", station);
-				if (DEBUG_LOG == 1)
-				{
-					WriteLog(station, "\r\n连接中断!\r\n");
-				}
+				sprintf(infostr, "%04d-%02d-%02d %02d:%02d:%02d %03d #%d站连接中断!", systime.wYear, systime.wMonth, systime.wDay,
+					systime.wHour, systime.wMinute, systime.wSecond, systime.wMilliseconds, station);
+
+				WriteLog(station, rulestr, "\r\n连接中断!\r\n");
+
 				//SendMessage(g_hMainDlg, UWM_SETDEBUGSTRING, 0, (LPARAM)infostr);
 				DebugPrintln(infostr);
 			}
@@ -320,10 +326,7 @@ int WINAPI Routine_XD_SVG(int station)
 			sprintf(infostr, "%04d-%02d-%02d %02d:%02d:%02d %03d #%d站连接成功!", systime.wYear, systime.wMonth, systime.wDay,
 				systime.wHour, systime.wMinute, systime.wSecond, systime.wMilliseconds, station);
 			DebugPrintln(infostr);
-			if (DEBUG_LOG == 1)
-			{
-				WriteLog(station, "\r\n连接成功!\r\n");
-			}
+				WriteLog(station, rulestr, "\r\n连接成功!\r\n");
 			waitfor_mutex(Mutex_RT);
 			if (ppYX[station][0].yx.value == 0)
 			{
@@ -337,10 +340,11 @@ int WINAPI Routine_XD_SVG(int station)
 		{
 			unsigned char sndbuf[BUFLEN];
 			unsigned char rcvbuf[BUFLEN];
+			memset(sndbuf, 0, BUFLEN * sizeof(char));
+			memset(rcvbuf, 0, BUFLEN * sizeof(char));
 			int len_snd, len_rcv;
 			unsigned int n_yx, n_yc, n_event, n_yt, n_Ind, n_Alarm, n_SOE;
 			unsigned int yx_offset, yc_offset, event_offset, Ind_offset, Alarm_offset, SOE_offset;
-			int new_soe_inf, new_alarm_inf, new_ind_inf;
 			unsigned int end_offset;
 			unsigned int tel_type, operate_status;
 
@@ -374,10 +378,7 @@ int WINAPI Routine_XD_SVG(int station)
 				//SendMessage(g_hMainDlg, UWM_SETDEBUGSTRING, 0, (LPARAM)infostr);
 				DebugPrintln(infostr);
 				strcat(infostr, "\r\n");
-				if (DEBUG_LOG == 1)
-				{
-					WriteLog(station, infostr);
-				}
+				WriteLog(station, rulestr, infostr);
 				//com_operation(ConnectSocket, vid_oper, Var_OPER);
 				com_operation(ConnectSocket, station, point, vtype, pStation[station].oper_value);	//Var_OPER);
 
@@ -397,12 +398,12 @@ int WINAPI Routine_XD_SVG(int station)
 				SYSTEMTIME	systime;
 				memset(&systime, 0x00, sizeof(systime));
 				GetCurTime(&systime);
-				sprintf(infostr, "%04d-%02d-%02d %02d:%02d:%02d %03d recv()返回 SOCKET_ERROR，Error:%d", systime.wYear, systime.wMonth, systime.wDay,
-					systime.wHour, systime.wMinute, systime.wSecond, systime.wMilliseconds, WSAGetLastError());
+				sprintf(infostr, "%04d-%02d-%02d %02d:%02d:%02d %03d %d站recv()返回 SOCKET_ERROR，Error:%d", systime.wYear, systime.wMonth, systime.wDay,
+					systime.wHour, systime.wMinute, systime.wSecond, systime.wMilliseconds,station, WSAGetLastError());
 				DebugPrintln(infostr);
 				if (DEBUG_LOG == 1)
 				{
-					WriteLog(station, "\r\nSOCKET_ERROR recv()返回 SOCKET_ERROR\r\n");
+					WriteLog(station, rulestr,"\r\nSOCKET_ERROR recv()返回 SOCKET_ERROR\r\n");
 				}
 
 				ppYX[station][0].yx.value = 0;
@@ -415,11 +416,15 @@ int WINAPI Routine_XD_SVG(int station)
 			len_rcv = iResult;
 			if (len_rcv == 0)
 			{
-				sprintf(infostr, "对端关闭连接，recv()返回 %d, WSAGetLastError() = %d", len_rcv, WSAGetLastError());
+				SYSTEMTIME	systime;
+				memset(&systime, 0x00, sizeof(systime));
+				GetCurTime(&systime);
+				sprintf(infostr, "%04d-%02d-%02d %02d:%02d:%02d %03d %d站对端关闭连接，recv()返回 %d, WSAGetLastError() = %d", systime.wYear, systime.wMonth, systime.wDay,
+					systime.wHour, systime.wMinute, systime.wSecond, systime.wMilliseconds, station, len_rcv, WSAGetLastError());
 				DebugPrintln(infostr);
 				if (DEBUG_LOG == 1)
 				{
-					WriteLog(station, "\r\n对端关闭连接，recv()返回0\r\n");
+					WriteLog(station, rulestr,"\r\n对端关闭连接，recv()返回0\r\n");
 				}
 
 				ppYX[station][0].yx.value = 0;
@@ -429,7 +434,7 @@ int WINAPI Routine_XD_SVG(int station)
 			}
 			if (DEBUG_LOG == 1)
 			{
-				WriteLog_Tele(station, rcvbuf, len_rcv, 1);
+				WriteLog_Tele(station, rcvbuf, len_rcv, 1,rulestr);
 			}
 
 			//printf("len_rcv = %d ", len_rcv);
@@ -440,238 +445,262 @@ int WINAPI Routine_XD_SVG(int station)
 			//printf("\n");
 
 
-			end_offset = len_rcv - 4;
+			end_offset = len_rcv - 6;
 			tel_type = rcvbuf[4] + 256 * rcvbuf[5];
 			switch (tel_type)
 			{
-				case YT_YC_TEL:                  //0x0303正常的遥信遥测报文
+			case YT_YC_TEL:                  //0x0303正常的遥信遥测报文
 
-					yx_offset = rcvbuf[6] + 256 * rcvbuf[7];
-					yc_offset = rcvbuf[8] + 256 * rcvbuf[9];
-					if (yc_offset)
-					{
-						n_yc = (end_offset - yc_offset) / 4;
-						end_offset = yc_offset;
-					}
-					if (yx_offset)
-					{
-						n_yx = (end_offset - yx_offset) * 16;
-						end_offset = yx_offset;
-					}
-
-					waitfor_mutex(Mutex_RT);
-
-					for (int i = 0; i < n_yx; i++)
-					{
-						unsigned short c;
-						short new_value;
-
-						if (i >= System.nYX - 1)
-							break;
-
-						c = rcvbuf[yx_offset + 2 * (i / 16)] + 256 * rcvbuf[yx_offset + 2 * (i / 16) + 1];
-						//new_value = (c<<(i%16)) & 0x8000U ? 1 : 0;
-						new_value = (c >> (i % 16)) & 0x0001U ? 1 : 0;
-
-						if (new_value == ppYX[station][i + 1].yx.value)
-							continue;
-						ppYX[station][i + 1].yx.value = new_value;
-					}
-					for (int i = 0; i < n_yc; i++)
-					{
-						if (i >= System.nYC - 1)
-							break;
-						fv.c[0] = rcvbuf[yc_offset + 4 * i];
-						fv.c[1] = rcvbuf[yc_offset + 4 * i + 1];
-						fv.c[2] = rcvbuf[yc_offset + 4 * i + 2];
-						fv.c[3] = rcvbuf[yc_offset + 4 * i + 3];
-						ppYC[station][i + 1].yc.value = fv.f;
-					}
-
-					release_mutex(Mutex_RT);
+				yx_offset = rcvbuf[6] + 256 * rcvbuf[7];
+				yc_offset = rcvbuf[8] + 256 * rcvbuf[9];
+				if (yc_offset && (yc_offset < end_offset))
+				{
+					n_yc = (end_offset - yc_offset) / 4;
+					end_offset = yc_offset;
+				}
+				else
+				{
+					sprintf(infostr, "%d站遥信遥测数组越界！！！\r\n", station);
+					DebugPrintln(infostr);
+					WriteLog(station, rulestr, infostr);
 					break;
+				}
+				if (yx_offset)
+				{
+					n_yx = (end_offset - yx_offset) * 16;
+					end_offset = yx_offset;
+				}
 
-				case SOE_TEL:
-					Ind_offset = rcvbuf[6] + 256 * rcvbuf[7];
-					Alarm_offset = rcvbuf[8] + 256 * rcvbuf[9];
-					SOE_offset = rcvbuf[10] + 256 * rcvbuf[11];
+				waitfor_mutex(Mutex_RT);
 
-					n_Ind   = rcvbuf[12];  //ind事件个数
-					n_Alarm = rcvbuf[13];  //alarm事件个数
-					n_SOE   = rcvbuf[14]; //SOE事件个数
+				for (int i = 0; i < n_yx; i++)
+				{
+					unsigned short c;
+					short new_value;
 
-					//SOE
-					for (int i = 0; i < n_SOE; i++)
+					if (i >= System.nYX - 1)
+						break;
+
+					c = rcvbuf[yx_offset + 2 * (i / 16)] + 256 * rcvbuf[yx_offset + 2 * (i / 16) + 1];
+					//new_value = (c<<(i%16)) & 0x8000U ? 1 : 0;
+					new_value = (c >> (i % 16)) & 0x0001U ? 1 : 0;
+
+					if (new_value == ppYX[station][i + 1].yx.value)
+						continue;
+					ppYX[station][i + 1].yx.value = new_value;
+				}
+				for (int i = 0; i < n_yc; i++)
+				{
+					if (i >= System.nYC - 1)
+						break;
+					fv.c[0] = rcvbuf[yc_offset + 4 * i];
+					fv.c[1] = rcvbuf[yc_offset + 4 * i + 1];
+					fv.c[2] = rcvbuf[yc_offset + 4 * i + 2];
+					fv.c[3] = rcvbuf[yc_offset + 4 * i + 3];
+					ppYC[station][i + 1].yc.value = fv.f;
+				}
+
+				release_mutex(Mutex_RT);
+				break;
+
+			case SOE_TEL:  //0x0404   //事件报文
+				Ind_offset = rcvbuf[6] + 256 * rcvbuf[7];
+				Alarm_offset = rcvbuf[8] + 256 * rcvbuf[9];
+				SOE_offset = rcvbuf[10] + 256 * rcvbuf[11];
+
+				n_Ind = rcvbuf[12];  //ind事件个数
+				n_Alarm = rcvbuf[13];  //alarm事件个数
+				n_SOE = rcvbuf[14]; //SOE事件个数
+
+				//SOE
+				for (int i = 0; i < n_SOE; i++)
+				{
+					struct SOE_DATA {
+						unsigned int Order;  //序号
+						unsigned char TYP;   //类型标识 值为70
+						unsigned char NUM;   //模拟量数量，为1表示无模拟量 num-1
+						unsigned char COT;   //固定为1，表示突变上送
+						unsigned char ADDR;  //公共地址:CPU号(ADDR)
+						unsigned char FUNC;  // 功能类型(FUN)) 1~3,表示SVG产品
+						unsigned char INF;   //信息序号(INF)
+						unsigned char ST;    //事件状态(ST1)
+						unsigned int msL;    //相对时间
+						unsigned short FANL;  //电网故障序号
+						unsigned short msH;   //绝对时间MS
+						unsigned char min;   //绝对时间分钟
+						unsigned char hour;  //绝对时间小时
+						unsigned char day;   //绝对时间日期
+						unsigned char mon;   //绝对时间月份
+						unsigned char year;  //绝对时间年
+						unsigned char SIN;   //SIN 固定为0
+						unsigned char FLTTYP;// 故障类型(FLTTYP)
+					} SOE_data;
+					if (SOE_offset + 26 > len_rcv)
 					{
-						struct SOE_DATA {
-							unsigned int Order;  //序号
-							unsigned char TYP;   //类型标识 值为70
-							unsigned char NUM;   //模拟量数量，为1表示无模拟量 num-1
-							unsigned char COT;   //固定为1，表示突变上送
-							unsigned char ADDR;  //公共地址:CPU号(ADDR)
-							unsigned char FUNC;  // 功能类型(FUN)) 1~3,表示SVG产品
-							unsigned char INF;   //信息序号(INF)
-							unsigned char ST;    //事件状态(ST1)
-							unsigned int msL;    //相对时间
-							unsigned short FANL;  //电网故障序号
-							unsigned short msH;   //绝对时间MS
-							unsigned char min;   //绝对时间分钟
-							unsigned char hour;  //绝对时间小时
-							unsigned char day;   //绝对时间日期
-							unsigned char mon;   //绝对时间月份
-							unsigned char year;  //绝对时间年
-							unsigned char SIN;   //SIN 固定为0
-							unsigned char FLTTYP;// 故障类型(FLTTYP)
-						} SOE_data;
-
-						int num_fv;
-						int inf;
-						char fauVal[128];
-						memset(fauVal, 0, 128 * sizeof(char));
-						int ytvalue[100];
-						num_fv = SOE_data.NUM - 1;
-						inf = SOE_data.INF;
-						memcpy(&SOE_data, rcvbuf + SOE_offset, 26);
-						char soe_log[1024];
-						memset(soe_log, 0, 1024 * sizeof(char));
-						
-						sprintf(soe_log, "%d,%d-%d-%d %d:%d:%d,%s,%d,%d,%d,%d,%d,%d,%d,%d,%d,%d,%d,", SOE_data.Order, SOE_data.year, SOE_data.mon, SOE_data.day, SOE_data.hour,
-							SOE_data.min, SOE_data.msH, ppSOE[station][inf].name,SOE_data.INF, SOE_data.TYP, SOE_data.NUM - 1, SOE_data.COT, SOE_data.ADDR, SOE_data.FUNC, SOE_data.ST, SOE_data.msL,
-							SOE_data.FANL, SOE_data.SIN, SOE_data.FLTTYP);
-
-						memcpy(ytvalue, ppSOE[station][inf].yt_value, 100);
-						SOE_offset += 26;
-						for (int i = 0; i < num_fv; i++)
-						{
-							union {
-								float f;
-								char c[4];
-							} fv;
-							fv.c[0] = rcvbuf[SOE_offset + 4 * i];
-							fv.c[1] = rcvbuf[SOE_offset + 4 * i + 1];
-							fv.c[2] = rcvbuf[SOE_offset + 4 * i + 2];
-							fv.c[3] = rcvbuf[SOE_offset + 4 * i + 3];
-							ppYC[station][ytvalue[i]].yc.value = fv.f;
-							sprintf(fauVal, "%s %s=%.2f ", fauVal, ppYC[station][ytvalue[i]].name, fv.f);
-						}
-						num_fv = SOE_data.NUM - 1;
-						SOE_offset += (num_fv-1) * 4;
-						strcat(soe_log, fauVal);
-						sprintf(soe_log, "%s\r\n", soe_log);
-						WriteSOE(station, soe_log,"soe");
-						new_soe_inf = SOE_data.Order;
+						sprintf(infostr, "%d站SOE数组越界！！！\r\n", station);
+						DebugPrintln(infostr);
+						WriteLog(station, rulestr, infostr);
+						break;
 					}
+					memcpy(&SOE_data, rcvbuf + SOE_offset, 26);
+					int num_fv;
+					int inf;
+					char fauVal[128];
+					memset(fauVal, 0, 128 * sizeof(char));
+					int ytvalue[100];
+					num_fv = SOE_data.NUM - 1;
+					inf = SOE_data.INF;
+					char soe_log[1024];
+					memset(soe_log, 0, 1024 * sizeof(char));
 
-					//Alarm
-					for (int i = 0; i < n_Alarm; i++)
+					sprintf(soe_log, "%d,%d-%d-%d %d:%d:%d,%s,%d,%d,%d,%d,%d,%d,%d,%d,%d,%d,%d,", SOE_data.Order, SOE_data.year, SOE_data.mon, SOE_data.day, SOE_data.hour,
+						SOE_data.min, SOE_data.msH, ppSOE[station][inf].name, SOE_data.INF, SOE_data.TYP, SOE_data.NUM - 1, SOE_data.COT, SOE_data.ADDR, SOE_data.FUNC, SOE_data.ST, SOE_data.msL,
+						SOE_data.FANL, SOE_data.SIN, SOE_data.FLTTYP);
+
+					memcpy(ytvalue, ppSOE[station][inf].yt_value, 100);
+					SOE_offset += 26;
+					for (int i = 0; i < num_fv; i++)
 					{
-						struct SOE_DATA {
-							unsigned int Order;  //序号
-							unsigned char TYP;   //类型标识 值为70
-							unsigned char COT;   //固定为1，表示突变上送
-							unsigned char ADDR;  //公共地址:CPU号(ADDR)
-							unsigned char FUNC;  // 功能类型(FUN)) 1~3,表示SVG产品
-							unsigned char INF;   //信息序号(INF)
-							unsigned char ST;    //事件状态(ST1)
-							unsigned short msH;   //绝对时间MS
-							unsigned char min;   //绝对时间分钟
-							unsigned char hour;  //绝对时间小时
-							unsigned char day;   //绝对时间日期
-							unsigned char mon;   //绝对时间月份
-							unsigned char year;  //绝对时间年
-							unsigned char SIN;   //SIN 固定为0
-						} SOE_data;
-						int inf = SOE_data.INF;
-						memcpy(&SOE_data, rcvbuf + Alarm_offset, 18);
-						char soe_log[512];
-						sprintf(soe_log, "%d,%d-%d-%d %d:%d:%d,%s,%d,%d,%d,%d,%d,%d,%d\r\n", SOE_data.Order, SOE_data.year, SOE_data.mon, SOE_data.day, SOE_data.hour,
-							SOE_data.min, SOE_data.msH, ppAlarm[station][inf].name,SOE_data.INF, SOE_data.TYP, SOE_data.COT, SOE_data.ADDR, SOE_data.FUNC, SOE_data.ST, SOE_data.SIN);
-						WriteSOE(station, soe_log,"alarm");
-						Alarm_offset += 18;
-						new_alarm_inf = SOE_data.Order;
+						union {
+							float f;
+							char c[4];
+						} fv;
+						fv.c[0] = rcvbuf[SOE_offset + 4 * i];
+						fv.c[1] = rcvbuf[SOE_offset + 4 * i + 1];
+						fv.c[2] = rcvbuf[SOE_offset + 4 * i + 2];
+						fv.c[3] = rcvbuf[SOE_offset + 4 * i + 3];
+						ppYC[station][ytvalue[i]].yc.value = fv.f;
+						sprintf(fauVal, "%s %s=%.2f ", fauVal, ppYC[station][ytvalue[i]].name, fv.f);
 					}
+					SOE_offset += num_fv * 4;
+					strcat(soe_log, fauVal);
+					sprintf(soe_log, "%s\n", soe_log);
+					WriteSOE(station, soe_log, rulestr, "soe");
+					new_soe_inf = SOE_data.Order;
+				}
 
-					//Ind
-					for (int i = 0; i < n_Ind; i++)
+				//Alarm
+				for (int i = 0; i < n_Alarm; i++)
+				{
+					struct SOE_DATA {
+						unsigned int Order;  //序号
+						unsigned char TYP;   //类型标识 值为70
+						unsigned char COT;   //固定为1，表示突变上送
+						unsigned char ADDR;  //公共地址:CPU号(ADDR)
+						unsigned char FUNC;  // 功能类型(FUN)) 1~3,表示SVG产品
+						unsigned char INF;   //信息序号(INF)
+						unsigned char ST;    //事件状态(ST1)
+						unsigned short msH;   //绝对时间MS
+						unsigned char min;   //绝对时间分钟
+						unsigned char hour;  //绝对时间小时
+						unsigned char day;   //绝对时间日期
+						unsigned char mon;   //绝对时间月份
+						unsigned char year;  //绝对时间年
+						unsigned char SIN;   //SIN 固定为0
+					} SOE_data;
+					if (Alarm_offset + 18 > len_rcv)
 					{
-						struct SOE_DATA {
-							unsigned int Order;  //序号
-							unsigned char TYP;   //类型标识 值为70
-							unsigned char COT;   //固定为1，表示突变上送
-							unsigned char ADDR;  //公共地址:CPU号(ADDR)
-							unsigned char FUNC;  // 功能类型(FUN)) 1~3,表示SVG产品
-							unsigned char INF;   //信息序号(INF)
-							unsigned char ST;    //事件状态(ST1)
-							unsigned short msH;   //绝对时间MS
-							unsigned char min;   //绝对时间分钟
-							unsigned char hour;  //绝对时间小时
-							unsigned char day;   //绝对时间日期
-							unsigned char mon;   //绝对时间月份
-							unsigned char year;  //绝对时间年
-							unsigned char SIN;   //SIN 固定为0
-						} SOE_data;
-
-						int inf = SOE_data.INF;
-						memcpy(&SOE_data, rcvbuf + Ind_offset, 18);
-						char soe_log[512];
-						sprintf(soe_log, "%d,%d-%d-%d %d:%d:%d,%s,%d,%d,%d,%d,%d,%d,%d\r\n", SOE_data.Order, SOE_data.year, SOE_data.mon, SOE_data.day, SOE_data.hour,
-							SOE_data.min, SOE_data.msH, ppInd[station][inf].name,SOE_data.INF, SOE_data.TYP, SOE_data.COT, SOE_data.ADDR, SOE_data.FUNC, SOE_data.ST, SOE_data.SIN);
-						WriteSOE(station, soe_log,"Ind");
-						Ind_offset += 18;
-						new_ind_inf = SOE_data.Order;
+						sprintf(infostr, "%d站Alarm数组越界！！！\r\n", station);
+						DebugPrintln(infostr);
+						WriteLog(station, rulestr, infostr);
+						break;
 					}
+					memcpy(&SOE_data, rcvbuf + Alarm_offset, 18);
+					int inf = SOE_data.INF;
+					char soe_log[512];
+					sprintf(soe_log, "%d,%d-%d-%d %d:%d:%d,%s,%d,%d,%d,%d,%d,%d,%d\n", SOE_data.Order, SOE_data.year, SOE_data.mon, SOE_data.day, SOE_data.hour,
+						SOE_data.min, SOE_data.msH, ppAlarm[station][inf].name, SOE_data.INF, SOE_data.TYP, SOE_data.COT, SOE_data.ADDR, SOE_data.FUNC, SOE_data.ST, SOE_data.SIN);
+					WriteSOE(station, soe_log, rulestr, "alarm");
+					Alarm_offset += 18;
+					new_alarm_inf = SOE_data.Order;
+				}
 
-					//事件回复
-					union {
-						int nNum;
-						char soe_buf[4];
-					}soeback;
-					len_snd = 27;
-					memset(sndbuf, 0, len_snd);
-					sndbuf[0] = sndbuf[1] = 0x68;
-					sndbuf[2] = LOBYTE(len_snd);
-					sndbuf[3] = HIBYTE(len_snd);
-					sndbuf[4] = 0x05;
-					sndbuf[5] = 0x04;
-					sndbuf[6] = n_Ind;
-					sndbuf[7] = n_Alarm;
-					sndbuf[8] = n_SOE;
-
-					soeback.nNum = new_ind_inf;
-					sndbuf[9] = soeback.soe_buf[0];
-					sndbuf[10] = soeback.soe_buf[1];
-					sndbuf[11] = soeback.soe_buf[2];
-					sndbuf[12] = soeback.soe_buf[3];
-
-					soeback.nNum = new_alarm_inf;
-					sndbuf[13] = soeback.soe_buf[0];
-					sndbuf[14] = soeback.soe_buf[1];
-					sndbuf[15] = soeback.soe_buf[2];
-					sndbuf[16] = soeback.soe_buf[3];
-
-					soeback.nNum = new_soe_inf;
-					sndbuf[17] = soeback.soe_buf[0];
-					sndbuf[18] = soeback.soe_buf[1];
-					sndbuf[19] = soeback.soe_buf[2];
-					sndbuf[20] = soeback.soe_buf[3];
-					sndbuf[len_snd - 2] = sndbuf[len_snd - 1] = 0x86;
-					if (send(ConnectSocket, sndbuf, len_snd, 0) == SOCKET_ERROR)
+				//Ind
+				for (int i = 0; i < n_Ind; i++)
+				{
+					struct SOE_DATA {
+						unsigned int Order;  //序号
+						unsigned char TYP;   //类型标识 值为70
+						unsigned char COT;   //固定为1，表示突变上送
+						unsigned char ADDR;  //公共地址:CPU号(ADDR)
+						unsigned char FUNC;  // 功能类型(FUN)) 1~3,表示SVG产品
+						unsigned char INF;   //信息序号(INF)
+						unsigned char ST;    //事件状态(ST1)
+						unsigned short msH;   //绝对时间MS
+						unsigned char min;   //绝对时间分钟
+						unsigned char hour;  //绝对时间小时
+						unsigned char day;   //绝对时间日期
+						unsigned char mon;   //绝对时间月份
+						unsigned char year;  //绝对时间年
+						unsigned char SIN;   //SIN 固定为0
+					} SOE_data;
+					if (Ind_offset + 18 > len_rcv)
 					{
-						if (DEBUG_LOG == 1)
-						{
-							WriteLog(station, "回复报文失败\r\n");
-						}
+						sprintf(infostr, "%d站Ind数组越界！！！\r\n",station);
+						DebugPrintln(infostr);
+						WriteLog(station, rulestr, infostr);
+						break;
 					}
+					memcpy(&SOE_data, rcvbuf + Ind_offset, 18);
+					int inf = SOE_data.INF;
+					char soe_log[512];
+					sprintf(soe_log, "%d,%d-%d-%d %d:%d:%d,%s,%d,%d,%d,%d,%d,%d,%d\n", SOE_data.Order, SOE_data.year, SOE_data.mon, SOE_data.day, SOE_data.hour,
+						SOE_data.min, SOE_data.msH, ppInd[station][inf].name, SOE_data.INF, SOE_data.TYP, SOE_data.COT, SOE_data.ADDR, SOE_data.FUNC, SOE_data.ST, SOE_data.SIN);
+					WriteSOE(station, soe_log, rulestr, "Ind");
+					Ind_offset += 18;
+					new_ind_inf = SOE_data.Order;
+				}
+
+				//事件回复
+				union {
+					int nNum;
+					char soe_buf[4];
+				}soeback;
+				len_snd = 27;
+				memset(sndbuf, 0, len_snd);
+				sndbuf[0] = sndbuf[1] = 0x68;
+				sndbuf[2] = LOBYTE(len_snd);
+				sndbuf[3] = HIBYTE(len_snd);
+				sndbuf[4] = 0x05;
+				sndbuf[5] = 0x04;
+				sndbuf[6] = n_Ind;
+				sndbuf[7] = n_Alarm;
+				sndbuf[8] = n_SOE;
+
+				soeback.nNum = new_ind_inf;
+				sndbuf[9] = soeback.soe_buf[0];
+				sndbuf[10] = soeback.soe_buf[1];
+				sndbuf[11] = soeback.soe_buf[2];
+				sndbuf[12] = soeback.soe_buf[3];
+
+				soeback.nNum = new_alarm_inf;
+				sndbuf[13] = soeback.soe_buf[0];
+				sndbuf[14] = soeback.soe_buf[1];
+				sndbuf[15] = soeback.soe_buf[2];
+				sndbuf[16] = soeback.soe_buf[3];
+
+				soeback.nNum = new_soe_inf;
+				sndbuf[17] = soeback.soe_buf[0];
+				sndbuf[18] = soeback.soe_buf[1];
+				sndbuf[19] = soeback.soe_buf[2];
+				sndbuf[20] = soeback.soe_buf[3];
+				sndbuf[len_snd - 2] = sndbuf[len_snd - 1] = 0x86;
+				if (send(ConnectSocket, sndbuf, len_snd, 0) == SOCKET_ERROR)
+				{
 					if (DEBUG_LOG == 1)
 					{
-						WriteLog_Tele(station, sndbuf, len_snd, 0);
+						WriteLog(station, rulestr, "回复报文失败\r\n");
 					}
-					break;
-				default:
-					printf("未识别的报文类型tel_type = %04x", tel_type);
-					break;
+				}
+				if (DEBUG_LOG == 1)
+				{
+					WriteLog_Tele(station, sndbuf, len_snd, 0, rulestr);
+				}
+				break;
+			default:
+				printf("未识别的报文类型tel_type = %04x", tel_type);
+				break;
 			}
-
 			Sleep(100);
 		}
 

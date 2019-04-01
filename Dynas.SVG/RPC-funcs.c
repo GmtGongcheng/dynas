@@ -43,7 +43,8 @@ void __RPC_API midl_user_free(void __RPC_FAR * ptr)
 // RPC setup & cleanup routine
 //==========================================================================
 
-LRESULT WINAPI RPCSetup (LPVOID lp)
+//LRESULT WINAPI RPCSetup (LPVOID lp)
+unsigned __stdcall RPCSetup(LPVOID lp)
 {
 	RPC_STATUS status;
     unsigned char *pszProtocolSequence = (unsigned char *)DEFAULT_PROT_SEQ;

@@ -1,0 +1,31 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <ItemGroup>
+    <ClCompile Include="FrontEnd.c" />
+    <ClCompile Include="PANSI_c.c" />
+    <ClCompile Include="RpcProc.c" />
+    <ClCompile Include="Dynaclient.c" />
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="panserver2.h">
+      <Filter>include</Filter>
+    </ClInclude>
+    <ClInclude Include="PANSI.h">
+      <Filter>include</Filter>
+    </ClInclude>
+    <ClInclude Include="modbus.h">
+      <Filter>include</Filter>
+    </ClInclude>
+    <ClInclude Include="Dynaclient.h">
+      <Filter>include</Filter>
+    </ClInclude>
+    <ClInclude Include="modbus-rtu.h" />
+    <ClInclude Include="modbus-tcp.h" />
+    <ClInclude Include="modbus-version.h" />
+  </ItemGroup>
+  <ItemGroup>
+    <Filter Include="include">
+      <UniqueIdentifier>{536eecdc-12c6-4549-8378-8e5cfbf7648b}</UniqueIdentifier>
+    </Filter>
+  </ItemGroup>
+</Project>

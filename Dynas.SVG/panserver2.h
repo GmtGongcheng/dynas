@@ -19,6 +19,7 @@ extern EN_yyx **ppYX;
 extern EN_yyc **ppYC;
 extern EN_yyd **ppYD;
 extern EN_yyt **ppYT;
+extern char rulestr[256];
 
 void WINAPI DebugPrintf(char *fmt, ...);
 void WINAPI DebugPrintln(char *str);
@@ -101,6 +102,10 @@ typedef struct  tagEN_Ind
 {
 	char name[41];
 }	EN_Ind;
+typedef struct
+{
+	int station;
+}Astation,*Bstation;
 extern EN_SOE **ppSOE;
 extern EN_Alarm **ppAlarm;
 extern EN_Ind **ppInd;

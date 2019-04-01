@@ -146,7 +146,7 @@ int WINAPI Routine_XD_FK(int station)
 				ppYX[station][0].yx.value = 0;
 
 				sprintf(infostr, "#%d站连接中断!", station);
-				WriteLog(station, "连接中断!\r\n");
+				WriteLog(station, rulestr,"连接中断!\r\n");
 				//SendMessage(g_hMainDlg, UWM_SETDEBUGSTRING, 0, (LPARAM)infostr);
 				DebugPrintln(infostr);
 			}
@@ -163,7 +163,7 @@ int WINAPI Routine_XD_FK(int station)
 			sprintf(infostr, "%04d-%02d-%02d %02d:%02d:%02d %03d #%d站连接成功!", systime.wYear, systime.wMonth, systime.wDay,
 				systime.wHour, systime.wMinute, systime.wSecond, systime.wMilliseconds, station);
 			DebugPrintln(infostr);
-			WriteLog(station, "连接成功!\r\n");
+			WriteLog(station, rulestr,"连接成功!\r\n");
 			//SendMessage(g_hMainDlg, UWM_SETDEBUGSTRING, 0, (LPARAM)infostr);
 
 			waitfor_mutex(Mutex_RT);
@@ -198,7 +198,7 @@ int WINAPI Routine_XD_FK(int station)
 				//SendMessage(g_hMainDlg, UWM_SETDEBUGSTRING, 0, (LPARAM)infostr);
 				DebugPrintln(infostr);
 				strcat(infostr, "\r\n");
-				WriteLog(station, infostr);
+				WriteLog(station, rulestr,infostr);
 
 				//com_operation(ConnectSocket, vid_oper, (int)pStation[station].oper_value);	//(int)Var_OPER);
 				com_operation(ConnectSocket, point, vtype, (int)pStation[station].oper_value);
@@ -246,7 +246,7 @@ int WINAPI Routine_XD_FK(int station)
 			sndbuf[20] = sndbuf[21] = 0x86;
 
 			iResult = send(ConnectSocket, sndbuf, len_snd, 0);
-				WriteLog_Tele(station,sndbuf,len_snd,0);
+				WriteLog_Tele(station,sndbuf,len_snd,0,rulestr);
 			if (iResult == SOCKET_ERROR)
 			{
 				/*
@@ -271,7 +271,7 @@ int WINAPI Routine_XD_FK(int station)
 				sprintf(infostr, "%04d-%02d-%02d %02d:%02d:%02d %03d recv()返回 SOCKET_ERROR，Error:%d", systime.wYear, systime.wMonth, systime.wDay,
 					systime.wHour, systime.wMinute, systime.wSecond, systime.wMilliseconds, WSAGetLastError());
 				DebugPrintln(infostr);
-				WriteLog(station, "SOCKET_ERROR recv()返回 SOCKET_ERROR\r\n");
+				WriteLog(station, rulestr,"SOCKET_ERROR recv()返回 SOCKET_ERROR\r\n");
 
 				ppYX[station][0].yx.value = 0;
 				closesocket(ConnectSocket);
@@ -289,7 +289,7 @@ int WINAPI Routine_XD_FK(int station)
 			{
 				sprintf(infostr, "对端关闭连接，recv()返回 %d, WSAGetLastError() = %d", len_rcv, WSAGetLastError());
 				DebugPrintln(infostr);
-				WriteLog(station, "对端关闭连接，recv()返回0\r\n");
+				WriteLog(station, rulestr,"对端关闭连接，recv()返回0\r\n");
 
 				ppYX[station][0].yx.value = 0;
 				closesocket(ConnectSocket);
@@ -297,7 +297,7 @@ int WINAPI Routine_XD_FK(int station)
 				break;
 			}
 
-			WriteLog_Tele(station, rcvbuf, len_rcv, 1);
+			WriteLog_Tele(station, rcvbuf, len_rcv, 1,rulestr);
 
 			//printf("len_rcv = %d ", len_rcv);
 			//for (int i = 0; i < len_rcv; i++)
